@@ -1,0 +1,29 @@
+{
+  "description": "Ads God Mode write gate: verifies client, account and change plan before any ad-platform write, and audits every write.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "mcp__.*|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if python3 -c '' 2>/dev/null; then P=python3; else P=python; fi; \"$P\" \"${CLAUDE_PLUGIN_ROOT}/hooks/write_gate.py\" pre",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "mcp__.*|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if python3 -c '' 2>/dev/null; then P=python3; else P=python; fi; \"$P\" \"${CLAUDE_PLUGIN_ROOT}/hooks/write_gate.py\" post",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}

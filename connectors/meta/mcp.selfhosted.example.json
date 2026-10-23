@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "meta-ads-selfhosted": {
+      "command": "npx",
+      "args": ["-y", "@getmcpads/meta-ads-mcp-server"],
+      "env": {
+        "META_ACCESS_TOKEN": "${META_ACCESS_TOKEN}",
+        "META_ENABLE_WRITES": "0",
+        "META_API_VERSION": "v26.0"
+      }
+    }
+  }
+}

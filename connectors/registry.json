@@ -1,0 +1,268 @@
+{
+  "_comment": "Maps MCP tool names to action classes. Rules are regexes on the tool name (the part after the last '__'); first match wins. Unknown tools on an ads server default to unknown_write, which always needs approval. Verified against Meta's published Ads MCP tool list and the getmcpads / googleads READMEs on 2026-10-23.",
+  "families": [
+    {
+      "family": "meta_official",
+      "platform": "meta",
+      "server_match": "meta|facebook",
+      "tool_match": "^ads_",
+      "rules": [
+        [
+          "^ads_(get|insights)_",
+          "read"
+        ],
+        [
+          "^ads_library_search$",
+          "read"
+        ],
+        [
+          "^ads_account_get_activity_logs$",
+          "read"
+        ],
+        [
+          "^ads_get_(errors|help_article|opportunity_score)$",
+          "read"
+        ],
+        [
+          "^ads_catalog_(list|get)_",
+          "read"
+        ],
+        [
+          "^ads_catalog_event_source_get",
+          "read"
+        ],
+        [
+          "^ads_pixel_(event|parameter)_read$",
+          "read"
+        ],
+        [
+          "^ads_experiment_(list_tests|check_eligibility|abtest_get_test|lift_get_test)$",
+          "read"
+        ],
+        [
+          "^ads_create_(campaign|ad_set|ad|creative)$",
+          "create"
+        ],
+        [
+          "^ads_activate_entity$",
+          "activate"
+        ],
+        [
+          "^ads_boost_ig_post$",
+          "activate"
+        ],
+        [
+          "^ads_update_entity$",
+          "update"
+        ],
+        [
+          "^ads_delete_",
+          "delete"
+        ],
+        [
+          "^ads_(create|update)_custom_audience",
+          "audience"
+        ],
+        [
+          "^ads_pixel_",
+          "tracking"
+        ],
+        [
+          "^ads_catalog_event_source_(connect|disconnect)$",
+          "tracking"
+        ],
+        [
+          "^ads_catalog_.*delete",
+          "delete"
+        ],
+        [
+          "^ads_catalog_",
+          "catalog"
+        ],
+        [
+          "^ads_experiment_",
+          "experiment"
+        ],
+        [
+          "^ads_.*budget",
+          "budget"
+        ],
+        [
+          "^ads_.*pause",
+          "pause"
+        ],
+        [
+          "^ads_(list|run_report|rate_status|diagnose|portfolio)",
+          "read"
+        ]
+      ]
+    },
+    {
+      "family": "meta_selfhosted",
+      "platform": "meta",
+      "server_match": "meta|facebook",
+      "tool_match": "^meta_",
+      "preview_unless": {
+        "param": "confirm",
+        "equals": true
+      },
+      "rules": [
+        [
+          "^meta_(get|list|validate|health|search|describe|explain|estimate|preview|interpret|join|debug)",
+          "read"
+        ],
+        [
+          "^meta_.*insights",
+          "read"
+        ],
+        [
+          "^meta_(duplicate|upload)_",
+          "create"
+        ],
+        [
+          "^meta_.*budget",
+          "budget"
+        ],
+        [
+          "^meta_.*(bid|bidding)",
+          "bid"
+        ],
+        [
+          "^meta_.*(pause)",
+          "pause"
+        ],
+        [
+          "^meta_.*(activate|enable|resume)",
+          "activate"
+        ],
+        [
+          "^meta_.*status",
+          "update"
+        ],
+        [
+          "^meta_create_",
+          "create"
+        ],
+        [
+          "^meta_.*delete",
+          "delete"
+        ],
+        [
+          "^meta_.*(pixel|dataset|conversion)",
+          "tracking"
+        ],
+        [
+          "^meta_.*audience",
+          "audience"
+        ],
+        [
+          "^meta_.*(rename|schedule|update)",
+          "update"
+        ],
+        [
+          "^meta_.*(catalog|product)",
+          "catalog"
+        ]
+      ]
+    },
+    {
+      "family": "analytics",
+      "platform": "analytics",
+      "server_match": "analytics|ga4|search[-_]?console|gsc|tag[-_]?manager|gtm",
+      "tool_match": ".*",
+      "rules": [
+        [
+          "(create|update|delete|archive|publish|submit)",
+          "tracking"
+        ],
+        [
+          ".*",
+          "read"
+        ]
+      ]
+    },
+    {
+      "family": "google_official_mcp",
+      "platform": "google",
+      "server_match": "google[-_]?ads|googleads|^google$",
+      "tool_match": ".*",
+      "rules": [
+        [
+          "^(search|search_search|query_search)$",
+          "read"
+        ],
+        [
+          "(^|_)get_resource_metadata$",
+          "read"
+        ],
+        [
+          "(^|_)list_accessible_customers$",
+          "read"
+        ]
+      ]
+    },
+    {
+      "family": "generic_ads",
+      "platform": "infer",
+      "server_match": "(^|[-_])ads([-_]|$)|adplane|synter|adkit|pipeboard|notfair",
+      "tool_match": ".*",
+      "rules": [
+        [
+          "(^|_)(get|list|search|report|query|help|preview|validate|describe|fetch)(_|$)",
+          "read"
+        ],
+        [
+          "(insight|metadata|library|performance)",
+          "read"
+        ],
+        [
+          "(billing|payment|invoice|funding|spend_limit)",
+          "billing"
+        ],
+        [
+          "(user|role|permission|owner|token|admin|partner)",
+          "admin"
+        ],
+        [
+          "(delete|remove)",
+          "delete"
+        ],
+        [
+          "budget",
+          "budget"
+        ],
+        [
+          "bid",
+          "bid"
+        ],
+        [
+          "negative",
+          "negative_keywords"
+        ],
+        [
+          "pause",
+          "pause"
+        ],
+        [
+          "(activate|enable|resume|publish|launch)",
+          "activate"
+        ],
+        [
+          "create",
+          "create"
+        ],
+        [
+          "(pixel|conversion|dataset|tag)",
+          "tracking"
+        ]
+      ]
+    }
+  ],
+  "bash": [
+    {
+      "match": "adsgm(\\.py)?[\"']?\\s+google\\s+apply\\b.*--execute",
+      "platform": "google",
+      "action": "from_ticket"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "_comment": "Per-client experiment log. Keep the live copy in ADS_GODMODE_HOME/clients/<slug>.experiments.json (private). One entry per test.",
+  "client": "example-remodeling",
+  "experiments": [
+    {
+      "id": "T07",
+      "hypothesis": "Founder-on-site opening raises hook rate vs polished showroom video",
+      "platform": "meta",
+      "control": {"ad_id": "", "name": "Video_Showroom_v3"},
+      "variable": "hook",
+      "creative": "UGC_FounderWalkthrough_QuestionHook_v1_T07",
+      "audience": "Broad_HO_30-65_York25mi",
+      "offer": "Free design consult",
+      "start_date": "YYYY-MM-DD",
+      "read_date": "YYYY-MM-DD",
+      "spend": null,
+      "conversions": null,
+      "result": null,
+      "confidence": null,
+      "conclusion": null,
+      "next_action": null,
+      "status": "planned"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "slug": "example-remodeling",
+  "aliases": ["Example Remodeling", "Example Remodeling Co"],
+  "business": {
+    "name": "Example Remodeling Co",
+    "website": "https://www.example.com",
+    "industry": "home remodeling",
+    "offer": "Free in-home kitchen remodel design consultation",
+    "service_area": "York County, PA (30-mile radius of York)",
+    "target_customer": "Homeowners 35-70 in owner-occupied single-family homes planning a kitchen or bath remodel in the next 6 months",
+    "brand_voice": "Plain-spoken, local, craftsmanship-focused. No hype.",
+    "prohibited_claims": [
+      "guaranteed lowest price",
+      "licensed/insured claims not verified by the client",
+      "financing terms not approved by the lender",
+      "before/after photos the client did not supply"
+    ],
+    "geographic_limits": {
+      "allowed": ["York County, PA", "Lancaster County, PA (east of the Susquehanna only)"],
+      "excluded": ["Maryland"],
+      "max_radius_miles": 30
+    }
+  },
+  "economics": {
+    "currency": "USD",
+    "average_job_value": 38000,
+    "lead_value": 450,
+    "gross_margin_pct": 35,
+    "lead_to_sale_rate_pct": 12,
+    "desired_cpl": 90,
+    "desired_cpa": null,
+    "desired_roas": null,
+    "monthly_budget": 4500
+  },
+  "platforms": {
+    "meta": {
+      "enabled": true,
+      "ad_account_ids": ["act_000000000000001"],
+      "business_id": "",
+      "page_id": "000000000000002",
+      "instagram_account_id": "",
+      "dataset_ids": ["000000000000003"],
+      "conversion_events": ["Lead", "Schedule"],
+      "primary_optimization_event": "Lead",
+      "attribution_setting": "7-day click, 1-day view",
+      "uses_conversions_api": true,
+      "lead_forms": "instant forms disabled; website form only"
+    },
+    "google": {
+      "enabled": true,
+      "customer_ids": ["000-000-0001"],
+      "login_customer_id": "",
+      "conversion_actions": [
+        {"name": "Website form submit", "primary": true},
+        {"name": "Calls from ads (60s+)", "primary": true},
+        {"name": "Page view - thank you", "primary": false}
+      ]
+    }
+  },
+  "analytics": {
+    "ga4_property_id": "000000001",
+    "search_console_site": "sc-domain:example.com",
+    "gtm_container_id": "GTM-XXXXXXX"
+  },
+  "crm": {
+    "name": "",
+    "qualified_lead_definition": "Homeowner, inside service area, project budget over $15k, timeline under 6 months",
+    "offline_conversion_import": false
+  },
+  "landing_pages": [
+    {"url": "https://www.example.com/kitchen-remodeling", "purpose": "kitchen lead gen", "form": true, "phone": true}
+  ],
+  "conversion_goals": {
+    "primary": "qualified kitchen/bath remodel lead",
+    "secondary": ["phone calls over 60 seconds"]
+  },
+  "approval": {
+    "approvers": ["account owner"],
+    "high_budget_daily_threshold": 300,
+    "require_approval_for": ["activate", "budget", "geo_expansion", "tracking", "delete"]
+  },
+  "automation": {
+    "mode": "approval",
+    "guarded_auto": {
+      "allowed_actions": ["budget", "pause", "negative_keywords"],
+      "max_budget_increase_pct": 20,
+      "max_budget_decrease_pct": 30,
+      "max_daily_dollar_change": 50,
+      "min_spend": 150,
+      "min_conversions": 15,
+      "min_confidence": "MODERATE",
+      "cooldown_hours": 72,
+      "max_entities_per_change": 3,
+      "max_negative_keywords_per_change": 10,
+      "max_bid_change_pct": 15
+    }
+  },
+  "reporting": {
+    "cadence": "weekly",
+    "format": "owner summary first, platform detail second",
+    "notes": ""
+  }
+}

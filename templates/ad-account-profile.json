@@ -1,0 +1,35 @@
+{
+  "_comment": "Optional per-account notes kept next to the client profile (ADS_GODMODE_HOME/clients/<slug>.accounts.json). Facts Claude verified by reading the account; refresh during audits.",
+  "client": "example-remodeling",
+  "accounts": [
+    {
+      "platform": "meta",
+      "account_id": "act_000000000000001",
+      "name_as_shown": "Example Remodeling Co",
+      "currency": "USD",
+      "timezone": "America/New_York",
+      "business_id": "",
+      "page_id": "000000000000002",
+      "dataset_id": "000000000000003",
+      "verified_on": "YYYY-MM-DD",
+      "naming_prefix": "EXR",
+      "known_campaigns": [
+        {"id": "", "name": "", "role": "prospecting | retargeting | test", "notes": ""}
+      ],
+      "history_notes": ["e.g. 2026-09 tracking outage 3 days - exclude from comparisons"]
+    },
+    {
+      "platform": "google",
+      "account_id": "0000000001",
+      "login_customer_id": "",
+      "name_as_shown": "Example Remodeling Co",
+      "currency": "USD",
+      "timezone": "America/New_York",
+      "auto_tagging": true,
+      "shared_negative_lists": [],
+      "verified_on": "YYYY-MM-DD",
+      "known_campaigns": [],
+      "history_notes": []
+    }
+  ]
+}
