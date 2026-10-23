@@ -45,7 +45,7 @@ If you can't tell, ask: *"Are you talking to me in Claude Code or Codex on your 
 | # | Do | Check it worked |
 |---|---|---|
 | 1 | `claude plugin marketplace add F0rger123/claude-meta-ads-god-mode` | Command succeeds |
-| 2 | `claude plugin install ads@claude-meta-ads-god-mode` | `/plugin` lists `ads` (plus the 3 bundled companions) |
+| 2 | `claude plugin install ads@claude-meta-ads-god-mode` | `/plugin` lists `ads` (community skills ship inside it and are routed on demand; nothing else installs) |
 | 3 | In Claude Code: `/mcp` → **meta-ads** → the person signs in with Facebook in their browser and grants `ads_read` (add `ads_management` only if they chose drafts/changes in 1C) | `/mcp` shows meta-ads connected |
 | 3′ | If the bundled entry won't connect: `claude mcp add --transport http meta-ads https://mcp.facebook.com/ads` | Same |
 | 4 | Google Ads (if chosen): follow the "Google setup" section of the README; reads need the official Google Ads MCP, writes need `pip install -r requirements-google.txt` and the `GOOGLE_ADS_*` variables set privately | `/ads:doctor` shows Google ready |
@@ -58,7 +58,7 @@ codex plugin marketplace add F0rger123/claude-meta-ads-god-mode
 codex plugin add ads@claude-meta-ads-god-mode
 ```
 
-Companions (optional): `agrici-ads`, `marketing-skills`, `meta-ads-genius` from the same marketplace, or `python scripts/install.py` (dry run) then `--yes` after the person agrees.
+Companions: nothing extra to install. `agrici-ads`, `marketing-skills` and `meta-ads-genius` ship inside `ads`, and the `ads-community` skill picks them on demand. Codex has no prompt-router hook, so it relies on that skill and its catalog. Only if the person wants them always loaded (about +17k tokens of context per session): run `python scripts/install.py --codex --native` (dry run), then add `--yes` after they agree.
 
 **Codex does not run Claude Code hooks.** Before every ad-platform write, call `python hooks/write_gate.py pre` with the hook JSON (`tool_name`, `tool_input`, `permission_mode`) and obey its decision. If the person wants a hard guarantee, keep write-capable connectors off in Codex. Tell them this plainly.
 
