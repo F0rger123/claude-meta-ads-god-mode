@@ -25,6 +25,8 @@
 
 </div>
 
+<p align="center"><a href="https://github.com/F0rger123/claude-business-god-mode"><img src="https://img.shields.io/badge/part%20of-Claude%20Business%20God%20Mode-f59e0b?style=for-the-badge" alt="Part of Claude Business God Mode"></a></p>
+
 ---
 
 ```text
@@ -410,6 +412,23 @@ The suite covers:
 - the skill router (prompt to skill choices) and marketplace wiring for Claude Code and Codex
 
 Before any live write, use Google Ads test accounts or a Meta test ad account.
+
+## 👑 Part of Claude Business God Mode
+
+This repo is one of four parts of **[Claude Business God Mode](https://github.com/F0rger123/claude-business-god-mode)**, one umbrella that runs a whole
+business with Claude: a shared business profile, launch and growth playbooks, and one marketplace that installs
+every plugin. Here, ads send leads into the CRM and use finished reels from Video God Mode as creatives.
+
+| Part | What it does |
+|---|---|
+| [📇 Ultimate CRM Template](https://github.com/F0rger123/ultimate-crm-template) | leads, jobs, invoices, payments, portals |
+| [📣 Meta Ads God Mode](https://github.com/F0rger123/claude-meta-ads-god-mode) | paid media, paused-first, approval-gated · **this repo** |
+| [🔎 SEO God Mode](https://github.com/F0rger123/CLAUDE-SEO-GOD-MODE) | audits, local SEO, Search Console, AI search |
+| [🎬 Video Editing God Mode](https://github.com/F0rger123/claude-video-editing-god-mode) | reels, Shorts, ad creatives, approval PWA |
+
+```text
+/plugin marketplace add F0rger123/claude-business-god-mode
+```
 
 ## 🔐 Security · 🤝 Contributing · 📄 License
 
