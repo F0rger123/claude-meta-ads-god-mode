@@ -166,7 +166,7 @@ class CommunityVendoring(unittest.TestCase):
     def test_umbrella_index_paths_exist(self):
         with open(os.path.join(ROOT, "skills", "ads-community", "SKILL.md"), encoding="utf-8") as fh:
             text = fh.read()
-        refs = re.findall(r"`((?:community/vendor|bundles)/[^`{*]+?)`", text)
+        refs = [r for r in re.findall(r"`((?:community/vendor|bundles)/[^`{*]+?)`", text) if "..." not in r]
         self.assertGreater(len(refs), 20)
         for ref in refs:
             self.assertTrue(os.path.exists(os.path.join(ROOT, *ref.rstrip("/").split("/"))), ref)

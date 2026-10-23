@@ -19,7 +19,7 @@ They are **not** registered as separate plugin skills (that would load ~40 descr
 
 ## Index - open the file, not the folder
 
-Paths are relative to `${CLAUDE_PLUGIN_ROOT}`. `bundles/...` files also exist as installed companion skills (see ads-core); reading the file directly works even if the companion is not installed.
+Paths are relative to `${CLAUDE_PLUGIN_ROOT}`. Files under bundles/ also exist as installed companion skills (see ads-core); reading the file directly works even if the companion is not installed.
 
 ### Meta mechanics and diagnosis
 | Need | File | From |
