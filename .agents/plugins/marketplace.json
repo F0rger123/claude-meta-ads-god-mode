@@ -1,0 +1,56 @@
+{
+  "name": "claude-meta-ads-god-mode",
+  "interface": {
+    "displayName": "Claude Meta Ads God Mode"
+  },
+  "plugins": [
+    {
+      "name": "ads",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Marketing"
+    },
+    {
+      "name": "agrici-ads",
+      "source": {
+        "source": "local",
+        "path": "./bundles/agrici-ads"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Marketing"
+    },
+    {
+      "name": "marketing-skills",
+      "source": {
+        "source": "local",
+        "path": "./bundles/marketing-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Marketing"
+    },
+    {
+      "name": "meta-ads-genius",
+      "source": {
+        "source": "local",
+        "path": "./bundles/meta-ads-genius"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Marketing"
+    }
+  ]
+}

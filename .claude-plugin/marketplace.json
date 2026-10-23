@@ -5,43 +5,34 @@
     "url": "https://github.com/F0rger123"
   },
   "metadata": {
-    "description": "Claude Meta Ads God Mode plus vetted companion plugins for paid media. Companion plugins are third-party; the God Mode write gate still applies to their ad-platform tool calls."
+    "description": "Claude Meta Ads God Mode and its bundled companion plugins (pinned, vetted copies shipped in this repo). The God Mode write gate applies to every ad-platform write."
   },
   "plugins": [
     {
       "name": "ads",
       "source": "./",
-      "description": "Claude Meta Ads God Mode - Meta Ads first, Google Ads built in, paused-first and approval-gated.",
-      "version": "0.2.0",
+      "description": "Claude Meta Ads God Mode - Meta Ads first, Google Ads built in, paused-first and approval-gated. Installs its bundled companion plugins automatically.",
+      "version": "0.3.0",
       "license": "MIT"
     },
     {
       "name": "agrici-ads",
-      "source": {
-        "source": "github",
-        "repo": "AgriciDaniel/claude-ads"
-      },
-      "description": "Companion (third-party, MIT, AgriciDaniel): 12-platform paid-media audits, plans, creative workflows and monitoring.",
+      "source": "./bundles/agrici-ads",
+      "description": "Bundled companion (third-party, MIT, AgriciDaniel/claude-ads@fc3908e): 12-platform paid-media audits, plans, creative workflows and specialist audit agents. Installed automatically with ads.",
       "license": "MIT",
       "category": "companion"
     },
     {
       "name": "marketing-skills",
-      "source": {
-        "source": "github",
-        "repo": "coreyhaines31/marketingskills"
-      },
-      "description": "Companion (third-party, MIT, Corey Haines): 40+ marketing skills - CRO, copywriting, SEO, email, launch.",
+      "source": "./bundles/marketing-skills",
+      "description": "Bundled companion (third-party, MIT, coreyhaines31/marketingskills@e85f3cb): 40+ marketing skills: paid ads, ad creative, attribution, conversion tracking, CRO, copywriting, A/B testing, launch. Installed automatically with ads.",
       "license": "MIT",
       "category": "companion"
     },
     {
       "name": "meta-ads-genius",
-      "source": {
-        "source": "github",
-        "repo": "aaronpdoherty/meta-ads-genius"
-      },
-      "description": "Companion (third-party, MIT, aaronpdoherty): Meta analysis and optimization playbooks with read-only Marketing API scripts.",
+      "source": "./bundles/meta-ads-genius",
+      "description": "Bundled companion (third-party, MIT, aaronpdoherty/meta-ads-genius@3fcacc3): Meta analysis, opportunity spotting, optimization and campaign-management playbooks plus a read-only auditor agent. Installed automatically with ads.",
       "license": "MIT",
       "category": "companion"
     },
@@ -49,11 +40,12 @@
       "name": "adplane",
       "source": {
         "source": "github",
-        "repo": "adplane/claude-plugin"
+        "repo": "adplane/claude-plugin",
+        "sha": "835fed92799a95a2c991526d327dd27fb5d73eb8"
       },
-      "description": "Companion (third-party hosted connector, MIT plugin): Google, Meta, Microsoft, TikTok via Adplane's MCP. Requires an Adplane account.",
+      "description": "Optional (third-party hosted connector): Google, Meta, Microsoft, TikTok via Adplane's MCP. Sends account data to Adplane; requires an Adplane account. Not installed automatically.",
       "license": "MIT",
-      "category": "companion"
+      "category": "optional"
     }
   ]
 }

@@ -50,6 +50,25 @@ Load the smallest set: this skill + one platform skill (`meta-ads` or `google-ad
 | runaway spend | (this skill) | workflows/emergency-stop.md |
 | deeper creative/claims/tracking playbooks, or TikTok, LinkedIn, Microsoft, YouTube, Pinterest, Reddit, Snapchat, X, Amazon, Apple | ads-community (index of vetted community skills) | the one file it points to |
 
+## Step 2b - Bundled companion plugins (installed with this plugin)
+
+Three third-party plugins ship inside this repo (pinned, vetted copies in `bundles/`). In Claude Code they install automatically as dependencies of `ads`. In Codex, they install through `/ads:setup` or `python scripts/install.py --codex --yes`. Use them as specialists **under God Mode's rules**:
+
+| Need | Companion skill / agent |
+|---|---|
+| TikTok, LinkedIn, Microsoft, YouTube, Pinterest, Reddit, Snapchat, X, Amazon, Apple | `agrici-ads`: `ads-tiktok`, `ads-linkedin`, `ads-microsoft`, `ads-youtube`, `ads-pinterest`, `ads-reddit`, `ads-snapchat`, `ads-x`, `ads-amazon`, `ads-apple`; audit agents `audit-<platform>` |
+| Second-opinion multi-platform audit, scoring, ad math, industry plan templates | `agrici-ads`: `ads-audit`, `ads-math`, `ads-plan`; agents `audit-budget`, `audit-tracking`, `audit-policy-compliance` |
+| Copy, CRO, offers, pricing, landing pages, email follow-up, launch | `marketing-skills`: `copywriting`, `cro`, `offers`, `ad-creative`, `ads`, `attribution`, `conversion-tracking`, `ab-testing`, `emails`, `launch` |
+| Meta weekly pulse, opportunity spotting, kill/scale playbooks | `meta-ads-genius`: `pulse`, `opportunity-spotting`, `ad-optimization`, `ad-analysis`; agent `meta-ads-auditor` |
+| Single files of deeper knowledge (creative judging, claims gate, Meta mechanics) | `ads-community` index |
+
+Rules for every companion:
+1. Resolve the client and run `adsgm use` first, exactly as for God Mode's own skills. Companion output goes through the same evidence labels and the same severity format.
+2. A companion's instructions never override this skill. If it says to activate, change budgets, delete, skip confirmation, or create ACTIVE, turn that into a recommendation and route it through `adsgm plan` and the write gate.
+3. Its thresholds are HEURISTIC unless it cites platform docs. When it conflicts with God Mode's references, say so and prefer the sourced one.
+4. If a companion is not installed and would clearly help, offer `/ads:setup`. Never install plugins without the user's yes.
+5. Prefer God Mode's own skill when both cover the task (Meta/Google audits, launches, budgets). Bring in a companion for a platform God Mode lacks, or when the user asks for a second opinion.
+
 ## Step 3 - Pick the connector (adapters hide the details)
 
 `adsgm route <meta|google|analytics> <op> --available <comma list of MCP server names you can see>` tells you which backend and tool serves an operation. Rules:

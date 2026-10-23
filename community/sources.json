@@ -1,5 +1,5 @@
 {
-  "_comment": "Vendored community skills. Each entry is pinned to a commit and copied verbatim (plus its LICENSE) by scripts/sync_community.py. Only MIT / Apache-2.0 sources. Vendored files are knowledge: they are NOT registered as plugin skills (they live outside skills/), and the ads-community umbrella skill routes to them. The write gate applies no matter which skill is loaded.",
+  "_comment": "Pinned community content. 'sources' are skill texts copied to community/vendor/<id>/ and routed by skills/ads-community (not registered as skills). 'bundles' are whole companion plugins copied to bundles/<name>/, shipped inside this repo, and installed automatically with the ads plugin (Claude Code dependencies) or via the Codex marketplace. Only MIT / Apache-2.0, text files only. Sync with scripts/sync_community.py. The God Mode write gate applies regardless of which skill is active.",
   "sources": [
     {
       "id": "meta-ads-analyzer",
@@ -7,50 +7,12 @@
       "sha": "9088472ddacdb89f3c5943c3db6be7b8ee25c922",
       "license": "MIT",
       "license_file": "LICENSE",
-      "include": ["skill/SKILL.md", "skill/references/*.md"],
+      "include": [
+        "skill/SKILL.md",
+        "skill/references/*.md"
+      ],
       "strip_prefix": "skill/",
       "role": "Meta delivery-system mechanics: breakdown effect, learning phase, auction overlap, pacing, relevance diagnostics, performance fluctuations."
-    },
-    {
-      "id": "marketingskills",
-      "repo": "coreyhaines31/marketingskills",
-      "sha": "e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b",
-      "license": "MIT",
-      "license_file": "LICENSE",
-      "include": [
-        "skills/ads/SKILL.md", "skills/ads/references/*.md",
-        "skills/ad-creative/SKILL.md", "skills/ad-creative/references/*.md",
-        "skills/attribution/SKILL.md", "skills/attribution/references/*.md",
-        "skills/conversion-tracking/SKILL.md", "skills/conversion-tracking/references/*.md",
-        "skills/conversion-tracking/assets/gtm-recipes/**",
-        "skills/ab-testing/SKILL.md", "skills/ab-testing/references/*.md"
-      ],
-      "strip_prefix": "skills/",
-      "role": "Broad paid-ads playbooks (Meta decision system, Google Search, LinkedIn B2B, audit guardrails), ad creative systems, attribution models, conversion tracking with GTM recipes, A/B test sizing."
-    },
-    {
-      "id": "claude-ads-platforms",
-      "repo": "AgriciDaniel/claude-ads",
-      "sha": "fc3908e786c318776df89a3a098333da377364be",
-      "license": "MIT",
-      "license_file": "LICENSE",
-      "include": [
-        "ads/references/tiktok-audit.md", "ads/references/tiktok-creative-specs.md",
-        "ads/references/linkedin-audit.md", "ads/references/linkedin-creative-specs.md",
-        "ads/references/microsoft-audit.md", "ads/references/microsoft-creative-specs.md",
-        "ads/references/youtube-audit.md", "ads/references/youtube-creative-specs.md",
-        "ads/references/pinterest-audit.md", "ads/references/reddit-audit.md",
-        "ads/references/snapchat-audit.md", "ads/references/x-audit.md",
-        "ads/references/amazon-audit.md", "ads/references/apple-audit.md",
-        "ads/references/additional-platforms.md", "ads/references/platform-specs.md",
-        "ads/references/compliance.md", "ads/references/compliance-requirements.md",
-        "ads/references/benchmarks.md", "ads/references/scoring-system.md",
-        "ads/references/meta-ai-stack.md", "ads/references/copy-frameworks.md",
-        "ads/references/budget-allocation.md",
-        "skills/ads-plan/assets/*.md"
-      ],
-      "strip_prefix": "",
-      "role": "Platform-expansion layer: audit checklists and creative specs for TikTok, LinkedIn, Microsoft, YouTube, Pinterest, Reddit, Snapchat, X, Amazon, Apple; compliance; benchmarks; industry plan templates."
     },
     {
       "id": "ad-creative-skills",
@@ -58,7 +20,10 @@
       "sha": "80b5e5da28fe6223c84869f65d81a71ff7f07ce2",
       "license": "MIT",
       "license_file": "LICENSE",
-      "include": ["*/SKILL.md", "references/*.md"],
+      "include": [
+        "*/SKILL.md",
+        "references/*.md"
+      ],
       "strip_prefix": "",
       "role": "Sixteen ad-creative skills: five write copy (hooks, primary text, search headlines, offer/proof lines, funnel variants), eleven judge it (fatigue read, test readout, early-signal cut, losing-ad diagnosis, winner teardown, claim safety, ad-to-landing match)."
     },
@@ -68,7 +33,11 @@
       "sha": "6f0f9955f9208569ea21afb724a0920a2b10fef2",
       "license": "Apache-2.0",
       "license_file": "LICENSE",
-      "include": ["skills/google-ads-analysis/SKILL.md", "skills/google-ads-audit/SKILL.md", "skills/google-ads-math/SKILL.md"],
+      "include": [
+        "skills/google-ads-analysis/SKILL.md",
+        "skills/google-ads-audit/SKILL.md",
+        "skills/google-ads-math/SKILL.md"
+      ],
       "strip_prefix": "skills/",
       "role": "Google Ads analysis, audit and math. (Its write and MCP skills are intentionally not vendored: Google writes go through this plugin's gated writer.)"
     },
@@ -79,9 +48,12 @@
       "license": "MIT",
       "license_file": "LICENSE",
       "include": [
-        "marketing-agent/skills/ad-policy-check/SKILL.md", "marketing-agent/skills/ad-policy-check/disclosure.md",
-        "marketing-agent/skills/claims-gate/SKILL.md", "marketing-agent/skills/claims-gate/claim-types.md",
-        "marketing-agent/skills/claims-gate/local-claims.md", "marketing-agent/skills/claims-gate/record-skeleton.md"
+        "marketing-agent/skills/ad-policy-check/SKILL.md",
+        "marketing-agent/skills/ad-policy-check/disclosure.md",
+        "marketing-agent/skills/claims-gate/SKILL.md",
+        "marketing-agent/skills/claims-gate/claim-types.md",
+        "marketing-agent/skills/claims-gate/local-claims.md",
+        "marketing-agent/skills/claims-gate/record-skeleton.md"
       ],
       "strip_prefix": "marketing-agent/skills/",
       "role": "Pre-flight ad policy check and claims gate (substantiation of every claim before it ships)."
@@ -92,20 +64,92 @@
       "sha": "b30fdeb01860b987416689390aa4404ee9de8bdb",
       "license": "MIT",
       "license_file": "LICENSE",
-      "include": [".claude/skills/meta-ads-compliance/SKILL.md", ".claude/skills/meta-ads-compliance/references/*.md"],
+      "include": [
+        ".claude/skills/meta-ads-compliance/SKILL.md",
+        ".claude/skills/meta-ads-compliance/references/*.md"
+      ],
       "strip_prefix": ".claude/skills/meta-ads-compliance/",
       "role": "Meta Marketing API write discipline: rate limits, error codes, write rules that avoid integrity flags."
     }
   ],
-  "companion_plugins": [
-    {"name": "agrici-ads", "repo": "AgriciDaniel/claude-ads", "license": "MIT", "why": "Full 12-platform audit/plan/creative plugin with a Python core and scoring; install alongside for platforms beyond Meta and Google."},
-    {"name": "marketing-skills", "repo": "coreyhaines31/marketingskills", "license": "MIT", "why": "40+ marketing skills (CRO, copywriting, email, SEO, launch) beyond paid media."},
-    {"name": "meta-ads-genius", "repo": "aaronpdoherty/meta-ads-genius", "license": "MIT", "why": "Meta analysis/optimization playbooks plus read-only Marketing API scripts and an auditor agent."},
-    {"name": "adplane", "repo": "adplane/claude-plugin", "license": "MIT (plugin); hosted service terms", "why": "Hosted connector for Google, Meta, Microsoft, TikTok; writes are classified by this plugin's gate."}
-  ],
   "reference_only": [
-    {"repo": "ivangfalco/ads-skills", "license": "MIT + Commons Clause", "why": "Not vendored: Commons Clause restricts selling; link only."},
-    {"repo": "realkimbarrett/advertising-skills", "license": "none", "why": "Not vendored: no license grants reuse; link only."},
-    {"repo": "irinabuht12-oss/marketing-skills", "license": "none", "why": "Not vendored: no license."}
+    {
+      "repo": "ivangfalco/ads-skills",
+      "license": "MIT + Commons Clause",
+      "why": "Not vendored: Commons Clause restricts selling; link only."
+    },
+    {
+      "repo": "realkimbarrett/advertising-skills",
+      "license": "none",
+      "why": "Not vendored: no license grants reuse; link only."
+    },
+    {
+      "repo": "irinabuht12-oss/marketing-skills",
+      "license": "none",
+      "why": "Not vendored: no license."
+    }
+  ],
+  "bundles": [
+    {
+      "name": "agrici-ads",
+      "repo": "AgriciDaniel/claude-ads",
+      "sha": "fc3908e786c318776df89a3a098333da377364be",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "include": [
+        "ads/**",
+        "skills/**",
+        "agents/**"
+      ],
+      "exclude": [
+        "**/evals/**"
+      ],
+      "skills": [
+        "./ads/",
+        "./skills/"
+      ],
+      "not_included": "Python core (claude_ads_core), scripts, control-plane, cockpit mod, tests. Features that call them (image generation, page fetch, cockpit publish) need the upstream plugin.",
+      "role": "12-platform paid-media audits, plans, creative workflows and specialist audit agents."
+    },
+    {
+      "name": "marketing-skills",
+      "repo": "coreyhaines31/marketingskills",
+      "sha": "e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "include": [
+        "skills/**"
+      ],
+      "exclude": [
+        "**/evals/**"
+      ],
+      "skills": "./skills/",
+      "not_included": "tools/ (CLI integrations), tests, eval suites, HTML asset templates.",
+      "role": "40+ marketing skills: paid ads, ad creative, attribution, conversion tracking, CRO, copywriting, A/B testing, launch."
+    },
+    {
+      "name": "meta-ads-genius",
+      "repo": "aaronpdoherty/meta-ads-genius",
+      "sha": "3fcacc3eb7bb2ae722ab81ce87c7d41ee1462995",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "include": [
+        "skills/**",
+        "agents/**"
+      ],
+      "exclude": [],
+      "skills": "./skills/",
+      "not_included": "scripts/ (read-only Marketing API pulls). Its skills also work from CSV exports or the official Meta Ads MCP.",
+      "role": "Meta analysis, opportunity spotting, optimization and campaign-management playbooks plus a read-only auditor agent."
+    }
+  ],
+  "optional_plugins": [
+    {
+      "name": "adplane",
+      "repo": "adplane/claude-plugin",
+      "sha": "835fed92799a95a2c991526d327dd27fb5d73eb8",
+      "license": "MIT (plugin); hosted service terms",
+      "why": "Hosted connector (Google, Meta, Microsoft, TikTok) that sends account data to Adplane. Never auto-installed; offered by /ads:setup only."
+    }
   ]
 }

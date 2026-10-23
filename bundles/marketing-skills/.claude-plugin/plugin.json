@@ -1,0 +1,12 @@
+{
+  "name": "marketing-skills",
+  "version": "2.13.0+e85f3cb",
+  "description": "Marketing skills for AI agents \u2014 conversion optimization, copywriting, SEO, paid ads, ad creative, and growth [Bundled in Claude Meta Ads God Mode from coreyhaines31/marketingskills@e85f3cb; Ads God Mode safety rules take precedence.]",
+  "author": {
+    "name": "Corey Haines"
+  },
+  "homepage": "https://github.com/coreyhaines31/marketingskills",
+  "repository": "https://github.com/coreyhaines31/marketingskills",
+  "license": "MIT",
+  "skills": "./skills/"
+}

@@ -1,0 +1,1320 @@
+{
+  "name": "marketing-skills",
+  "repo": "coreyhaines31/marketingskills",
+  "sha": "e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b",
+  "license": "MIT",
+  "upstream_plugin_name": "marketing-skills",
+  "upstream_version": "2.13.0",
+  "url": "https://github.com/coreyhaines31/marketingskills/tree/e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b",
+  "not_included": "tools/ (CLI integrations), tests, eval suites, HTML asset templates.",
+  "files": [
+    {
+      "upstream": "skills/ab-testing/SKILL.md",
+      "local": "skills/ab-testing/SKILL.md"
+    },
+    {
+      "upstream": "skills/ab-testing/references/sample-size-guide.md",
+      "local": "skills/ab-testing/references/sample-size-guide.md"
+    },
+    {
+      "upstream": "skills/ab-testing/references/test-templates.md",
+      "local": "skills/ab-testing/references/test-templates.md"
+    },
+    {
+      "upstream": "skills/ad-creative/SKILL.md",
+      "local": "skills/ad-creative/SKILL.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/awareness-headlines.md",
+      "local": "skills/ad-creative/references/awareness-headlines.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/creative-review-page.md",
+      "local": "skills/ad-creative/references/creative-review-page.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/creative-roadmap.md",
+      "local": "skills/ad-creative/references/creative-roadmap.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/generative-tools.md",
+      "local": "skills/ad-creative/references/generative-tools.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/hook-system.md",
+      "local": "skills/ad-creative/references/hook-system.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/imessage-video-ads.md",
+      "local": "skills/ad-creative/references/imessage-video-ads.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/meta-creative-formats.md",
+      "local": "skills/ad-creative/references/meta-creative-formats.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/motion-video-ads.md",
+      "local": "skills/ad-creative/references/motion-video-ads.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/platform-specs.md",
+      "local": "skills/ad-creative/references/platform-specs.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/short-form-video-specs.md",
+      "local": "skills/ad-creative/references/short-form-video-specs.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/static-ad-templates.md",
+      "local": "skills/ad-creative/references/static-ad-templates.md"
+    },
+    {
+      "upstream": "skills/ads/SKILL.md",
+      "local": "skills/ads/SKILL.md"
+    },
+    {
+      "upstream": "skills/ads/references/abm-playbook.md",
+      "local": "skills/ads/references/abm-playbook.md"
+    },
+    {
+      "upstream": "skills/ads/references/ad-copy-templates.md",
+      "local": "skills/ads/references/ad-copy-templates.md"
+    },
+    {
+      "upstream": "skills/ads/references/audience-targeting.md",
+      "local": "skills/ads/references/audience-targeting.md"
+    },
+    {
+      "upstream": "skills/ads/references/audit-guardrails.md",
+      "local": "skills/ads/references/audit-guardrails.md"
+    },
+    {
+      "upstream": "skills/ads/references/b2b-paid-playbook.md",
+      "local": "skills/ads/references/b2b-paid-playbook.md"
+    },
+    {
+      "upstream": "skills/ads/references/creative-research-automation.md",
+      "local": "skills/ads/references/creative-research-automation.md"
+    },
+    {
+      "upstream": "skills/ads/references/google-ads-audit-checklist.md",
+      "local": "skills/ads/references/google-ads-audit-checklist.md"
+    },
+    {
+      "upstream": "skills/ads/references/google-search-playbook.md",
+      "local": "skills/ads/references/google-search-playbook.md"
+    },
+    {
+      "upstream": "skills/ads/references/linkedin-b2b-playbook.md",
+      "local": "skills/ads/references/linkedin-b2b-playbook.md"
+    },
+    {
+      "upstream": "skills/ads/references/meta-andromeda-playbook.md",
+      "local": "skills/ads/references/meta-andromeda-playbook.md"
+    },
+    {
+      "upstream": "skills/ads/references/meta-decision-system.md",
+      "local": "skills/ads/references/meta-decision-system.md"
+    },
+    {
+      "upstream": "skills/ads/references/operating-check.md",
+      "local": "skills/ads/references/operating-check.md"
+    },
+    {
+      "upstream": "skills/ads/references/payback-period.md",
+      "local": "skills/ads/references/payback-period.md"
+    },
+    {
+      "upstream": "skills/ads/references/platform-setup-checklists.md",
+      "local": "skills/ads/references/platform-setup-checklists.md"
+    },
+    {
+      "upstream": "skills/ads/references/reading-google-ads-data.md",
+      "local": "skills/ads/references/reading-google-ads-data.md"
+    },
+    {
+      "upstream": "skills/ads/references/rsa-output-spec.md",
+      "local": "skills/ads/references/rsa-output-spec.md"
+    },
+    {
+      "upstream": "skills/ai-seo/SKILL.md",
+      "local": "skills/ai-seo/SKILL.md"
+    },
+    {
+      "upstream": "skills/ai-seo/references/agent-defaults.md",
+      "local": "skills/ai-seo/references/agent-defaults.md"
+    },
+    {
+      "upstream": "skills/ai-seo/references/agent-readiness.md",
+      "local": "skills/ai-seo/references/agent-readiness.md"
+    },
+    {
+      "upstream": "skills/ai-seo/references/ai-attribution.md",
+      "local": "skills/ai-seo/references/ai-attribution.md"
+    },
+    {
+      "upstream": "skills/ai-seo/references/answer-accuracy.md",
+      "local": "skills/ai-seo/references/answer-accuracy.md"
+    },
+    {
+      "upstream": "skills/ai-seo/references/citations-vs-recommendations.md",
+      "local": "skills/ai-seo/references/citations-vs-recommendations.md"
+    },
+    {
+      "upstream": "skills/ai-seo/references/content-patterns.md",
+      "local": "skills/ai-seo/references/content-patterns.md"
+    },
+    {
+      "upstream": "skills/ai-seo/references/content-types.md",
+      "local": "skills/ai-seo/references/content-types.md"
+    },
+    {
+      "upstream": "skills/ai-seo/references/format-volatility.md",
+      "local": "skills/ai-seo/references/format-volatility.md"
+    },
+    {
+      "upstream": "skills/ai-seo/references/linkedin-ai-citations.md",
+      "local": "skills/ai-seo/references/linkedin-ai-citations.md"
+    },
+    {
+      "upstream": "skills/ai-seo/references/multilingual-and-commerce.md",
+      "local": "skills/ai-seo/references/multilingual-and-commerce.md"
+    },
+    {
+      "upstream": "skills/ai-seo/references/okf.md",
+      "local": "skills/ai-seo/references/okf.md"
+    },
+    {
+      "upstream": "skills/ai-seo/references/platform-ranking-factors.md",
+      "local": "skills/ai-seo/references/platform-ranking-factors.md"
+    },
+    {
+      "upstream": "skills/ai-seo/references/positioning-and-consensus.md",
+      "local": "skills/ai-seo/references/positioning-and-consensus.md"
+    },
+    {
+      "upstream": "skills/ai-seo/references/prompt-portfolio.md",
+      "local": "skills/ai-seo/references/prompt-portfolio.md"
+    },
+    {
+      "upstream": "skills/ai-seo/references/youtube-ai-citations.md",
+      "local": "skills/ai-seo/references/youtube-ai-citations.md"
+    },
+    {
+      "upstream": "skills/analytics/SKILL.md",
+      "local": "skills/analytics/SKILL.md"
+    },
+    {
+      "upstream": "skills/analytics/references/event-library.md",
+      "local": "skills/analytics/references/event-library.md"
+    },
+    {
+      "upstream": "skills/analytics/references/ga4-implementation.md",
+      "local": "skills/analytics/references/ga4-implementation.md"
+    },
+    {
+      "upstream": "skills/analytics/references/gtm-implementation.md",
+      "local": "skills/analytics/references/gtm-implementation.md"
+    },
+    {
+      "upstream": "skills/aso/SKILL.md",
+      "local": "skills/aso/SKILL.md"
+    },
+    {
+      "upstream": "skills/aso/references/apple-specs.md",
+      "local": "skills/aso/references/apple-specs.md"
+    },
+    {
+      "upstream": "skills/aso/references/benchmarks.md",
+      "local": "skills/aso/references/benchmarks.md"
+    },
+    {
+      "upstream": "skills/aso/references/google-play-specs.md",
+      "local": "skills/aso/references/google-play-specs.md"
+    },
+    {
+      "upstream": "skills/aso/references/report-template.md",
+      "local": "skills/aso/references/report-template.md"
+    },
+    {
+      "upstream": "skills/aso/references/scoring-criteria.md",
+      "local": "skills/aso/references/scoring-criteria.md"
+    },
+    {
+      "upstream": "skills/attribution/SKILL.md",
+      "local": "skills/attribution/SKILL.md"
+    },
+    {
+      "upstream": "skills/attribution/references/attribution-models.md",
+      "local": "skills/attribution/references/attribution-models.md"
+    },
+    {
+      "upstream": "skills/attribution/references/by-business-type.md",
+      "local": "skills/attribution/references/by-business-type.md"
+    },
+    {
+      "upstream": "skills/attribution/references/first-party-tracking.md",
+      "local": "skills/attribution/references/first-party-tracking.md"
+    },
+    {
+      "upstream": "skills/attribution/references/measurement-paradigms.md",
+      "local": "skills/attribution/references/measurement-paradigms.md"
+    },
+    {
+      "upstream": "skills/churn-prevention/SKILL.md",
+      "local": "skills/churn-prevention/SKILL.md"
+    },
+    {
+      "upstream": "skills/churn-prevention/references/cancel-flow-patterns.md",
+      "local": "skills/churn-prevention/references/cancel-flow-patterns.md"
+    },
+    {
+      "upstream": "skills/churn-prevention/references/dunning-playbook.md",
+      "local": "skills/churn-prevention/references/dunning-playbook.md"
+    },
+    {
+      "upstream": "skills/co-marketing/SKILL.md",
+      "local": "skills/co-marketing/SKILL.md"
+    },
+    {
+      "upstream": "skills/co-marketing/references/partnership-types.md",
+      "local": "skills/co-marketing/references/partnership-types.md"
+    },
+    {
+      "upstream": "skills/cold-email/SKILL.md",
+      "local": "skills/cold-email/SKILL.md"
+    },
+    {
+      "upstream": "skills/cold-email/references/benchmarks.md",
+      "local": "skills/cold-email/references/benchmarks.md"
+    },
+    {
+      "upstream": "skills/cold-email/references/deliverability.md",
+      "local": "skills/cold-email/references/deliverability.md"
+    },
+    {
+      "upstream": "skills/cold-email/references/follow-up-sequences.md",
+      "local": "skills/cold-email/references/follow-up-sequences.md"
+    },
+    {
+      "upstream": "skills/cold-email/references/frameworks.md",
+      "local": "skills/cold-email/references/frameworks.md"
+    },
+    {
+      "upstream": "skills/cold-email/references/linkedin-outreach.md",
+      "local": "skills/cold-email/references/linkedin-outreach.md"
+    },
+    {
+      "upstream": "skills/cold-email/references/multichannel-cadence.md",
+      "local": "skills/cold-email/references/multichannel-cadence.md"
+    },
+    {
+      "upstream": "skills/cold-email/references/outbound-plays.md",
+      "local": "skills/cold-email/references/outbound-plays.md"
+    },
+    {
+      "upstream": "skills/cold-email/references/personalization.md",
+      "local": "skills/cold-email/references/personalization.md"
+    },
+    {
+      "upstream": "skills/cold-email/references/reply-handling.md",
+      "local": "skills/cold-email/references/reply-handling.md"
+    },
+    {
+      "upstream": "skills/cold-email/references/subject-lines.md",
+      "local": "skills/cold-email/references/subject-lines.md"
+    },
+    {
+      "upstream": "skills/community-marketing/SKILL.md",
+      "local": "skills/community-marketing/SKILL.md"
+    },
+    {
+      "upstream": "skills/community-marketing/references/community-models.md",
+      "local": "skills/community-marketing/references/community-models.md"
+    },
+    {
+      "upstream": "skills/competitor-profiling/SKILL.md",
+      "local": "skills/competitor-profiling/SKILL.md"
+    },
+    {
+      "upstream": "skills/competitor-profiling/references/templates.md",
+      "local": "skills/competitor-profiling/references/templates.md"
+    },
+    {
+      "upstream": "skills/competitor-profiling/references/tool-reference.md",
+      "local": "skills/competitor-profiling/references/tool-reference.md"
+    },
+    {
+      "upstream": "skills/competitors/SKILL.md",
+      "local": "skills/competitors/SKILL.md"
+    },
+    {
+      "upstream": "skills/competitors/references/content-architecture.md",
+      "local": "skills/competitors/references/content-architecture.md"
+    },
+    {
+      "upstream": "skills/competitors/references/templates.md",
+      "local": "skills/competitors/references/templates.md"
+    },
+    {
+      "upstream": "skills/content-strategy/SKILL.md",
+      "local": "skills/content-strategy/SKILL.md"
+    },
+    {
+      "upstream": "skills/content-strategy/references/content-distribution.md",
+      "local": "skills/content-strategy/references/content-distribution.md"
+    },
+    {
+      "upstream": "skills/content-strategy/references/headless-cms.md",
+      "local": "skills/content-strategy/references/headless-cms.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/SKILL.md",
+      "local": "skills/conversion-tracking/SKILL.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/README.md",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/README.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-acuity-scheduling.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-acuity-scheduling.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-cal-com.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-cal-com.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-calendly.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-calendly.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-contact-form-7.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-contact-form-7.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-divi-forms.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-divi-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-elementor-forms.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-elementor-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-file-download.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-file-download.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-fluent-forms.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-fluent-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-formidable-forms.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-formidable-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-forminator.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-forminator.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-framer-forms.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-framer-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-generic-ajax-form.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-generic-ajax-form.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-gravity-forms.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-gravity-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-hubspot-forms.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-hubspot-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-jotform.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-jotform.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-ninja-forms.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-ninja-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-phone-click.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-phone-click.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-squarespace-forms.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-squarespace-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-tally.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-tally.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-thank-you-page.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-thank-you-page.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-typeform.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-typeform.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-webflow-forms.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-webflow-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-wix-forms.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-wix-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-wix-scheduling.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-wix-scheduling.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-wpforms.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-wpforms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-ws-form.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-ws-form.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/event-map.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/event-map.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/send/ga4.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/send/ga4.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/send/google-ads.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/send/google-ads.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/send/linkedin.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/send/linkedin.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/send/meta.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/send/meta.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/send/microsoft.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/send/microsoft.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/send/tiktok.json",
+      "local": "skills/conversion-tracking/assets/gtm-recipes/send/tiktok.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/snippets/README.md",
+      "local": "skills/conversion-tracking/assets/snippets/README.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/audit-playbook.md",
+      "local": "skills/conversion-tracking/references/audit-playbook.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/browser-side.md",
+      "local": "skills/conversion-tracking/references/browser-side.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/conversion-moments.md",
+      "local": "skills/conversion-tracking/references/conversion-moments.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/discrepancies.md",
+      "local": "skills/conversion-tracking/references/discrepancies.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/ecommerce-platforms.md",
+      "local": "skills/conversion-tracking/references/ecommerce-platforms.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/google-ads.md",
+      "local": "skills/conversion-tracking/references/google-ads.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/meta.md",
+      "local": "skills/conversion-tracking/references/meta.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/other-platforms.md",
+      "local": "skills/conversion-tracking/references/other-platforms.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/server-side.md",
+      "local": "skills/conversion-tracking/references/server-side.md"
+    },
+    {
+      "upstream": "skills/copy-editing/SKILL.md",
+      "local": "skills/copy-editing/SKILL.md"
+    },
+    {
+      "upstream": "skills/copy-editing/references/checklist.md",
+      "local": "skills/copy-editing/references/checklist.md"
+    },
+    {
+      "upstream": "skills/copy-editing/references/content-refresh.md",
+      "local": "skills/copy-editing/references/content-refresh.md"
+    },
+    {
+      "upstream": "skills/copy-editing/references/plain-english-alternatives.md",
+      "local": "skills/copy-editing/references/plain-english-alternatives.md"
+    },
+    {
+      "upstream": "skills/copywriting/SKILL.md",
+      "local": "skills/copywriting/SKILL.md"
+    },
+    {
+      "upstream": "skills/copywriting/references/ai-tells.md",
+      "local": "skills/copywriting/references/ai-tells.md"
+    },
+    {
+      "upstream": "skills/copywriting/references/copy-frameworks.md",
+      "local": "skills/copywriting/references/copy-frameworks.md"
+    },
+    {
+      "upstream": "skills/copywriting/references/natural-transitions.md",
+      "local": "skills/copywriting/references/natural-transitions.md"
+    },
+    {
+      "upstream": "skills/cro/SKILL.md",
+      "local": "skills/cro/SKILL.md"
+    },
+    {
+      "upstream": "skills/cro/references/experiments.md",
+      "local": "skills/cro/references/experiments.md"
+    },
+    {
+      "upstream": "skills/cro/references/form.md",
+      "local": "skills/cro/references/form.md"
+    },
+    {
+      "upstream": "skills/customer-research/SKILL.md",
+      "local": "skills/customer-research/SKILL.md"
+    },
+    {
+      "upstream": "skills/customer-research/references/interviews-and-surveys.md",
+      "local": "skills/customer-research/references/interviews-and-surveys.md"
+    },
+    {
+      "upstream": "skills/customer-research/references/source-guides.md",
+      "local": "skills/customer-research/references/source-guides.md"
+    },
+    {
+      "upstream": "skills/directory-submissions/SKILL.md",
+      "local": "skills/directory-submissions/SKILL.md"
+    },
+    {
+      "upstream": "skills/directory-submissions/references/directory-list.md",
+      "local": "skills/directory-submissions/references/directory-list.md"
+    },
+    {
+      "upstream": "skills/directory-submissions/references/positioning-variations.md",
+      "local": "skills/directory-submissions/references/positioning-variations.md"
+    },
+    {
+      "upstream": "skills/emails/SKILL.md",
+      "local": "skills/emails/SKILL.md"
+    },
+    {
+      "upstream": "skills/emails/references/copy-guidelines.md",
+      "local": "skills/emails/references/copy-guidelines.md"
+    },
+    {
+      "upstream": "skills/emails/references/email-types.md",
+      "local": "skills/emails/references/email-types.md"
+    },
+    {
+      "upstream": "skills/emails/references/sequence-templates.md",
+      "local": "skills/emails/references/sequence-templates.md"
+    },
+    {
+      "upstream": "skills/events/SKILL.md",
+      "local": "skills/events/SKILL.md"
+    },
+    {
+      "upstream": "skills/events/references/event-portfolio-strategy.md",
+      "local": "skills/events/references/event-portfolio-strategy.md"
+    },
+    {
+      "upstream": "skills/events/references/speaking.md",
+      "local": "skills/events/references/speaking.md"
+    },
+    {
+      "upstream": "skills/events/references/sponsorship-roi.md",
+      "local": "skills/events/references/sponsorship-roi.md"
+    },
+    {
+      "upstream": "skills/events/references/webinar-funnel.md",
+      "local": "skills/events/references/webinar-funnel.md"
+    },
+    {
+      "upstream": "skills/free-tools/SKILL.md",
+      "local": "skills/free-tools/SKILL.md"
+    },
+    {
+      "upstream": "skills/free-tools/references/tool-benchmarks.md",
+      "local": "skills/free-tools/references/tool-benchmarks.md"
+    },
+    {
+      "upstream": "skills/free-tools/references/tool-types.md",
+      "local": "skills/free-tools/references/tool-types.md"
+    },
+    {
+      "upstream": "skills/image/SKILL.md",
+      "local": "skills/image/SKILL.md"
+    },
+    {
+      "upstream": "skills/image/references/ai-image-prompting.md",
+      "local": "skills/image/references/ai-image-prompting.md"
+    },
+    {
+      "upstream": "skills/influencer-marketing/SKILL.md",
+      "local": "skills/influencer-marketing/SKILL.md"
+    },
+    {
+      "upstream": "skills/influencer-marketing/references/newsletter-sponsorships.md",
+      "local": "skills/influencer-marketing/references/newsletter-sponsorships.md"
+    },
+    {
+      "upstream": "skills/influencer-marketing/references/paid-ads-creator-program.md",
+      "local": "skills/influencer-marketing/references/paid-ads-creator-program.md"
+    },
+    {
+      "upstream": "skills/influencer-marketing/references/telegram-channels.md",
+      "local": "skills/influencer-marketing/references/telegram-channels.md"
+    },
+    {
+      "upstream": "skills/influencer-marketing/references/ugc-creator-program.md",
+      "local": "skills/influencer-marketing/references/ugc-creator-program.md"
+    },
+    {
+      "upstream": "skills/launch/SKILL.md",
+      "local": "skills/launch/SKILL.md"
+    },
+    {
+      "upstream": "skills/launch/references/shipped-changes.md",
+      "local": "skills/launch/references/shipped-changes.md"
+    },
+    {
+      "upstream": "skills/launch/references/site-launch-qa.md",
+      "local": "skills/launch/references/site-launch-qa.md"
+    },
+    {
+      "upstream": "skills/lead-magnets/SKILL.md",
+      "local": "skills/lead-magnets/SKILL.md"
+    },
+    {
+      "upstream": "skills/lead-magnets/references/benchmarks.md",
+      "local": "skills/lead-magnets/references/benchmarks.md"
+    },
+    {
+      "upstream": "skills/lead-magnets/references/content-to-skill-corpus-design.md",
+      "local": "skills/lead-magnets/references/content-to-skill-corpus-design.md"
+    },
+    {
+      "upstream": "skills/lead-magnets/references/content-to-skill-release.md",
+      "local": "skills/lead-magnets/references/content-to-skill-release.md"
+    },
+    {
+      "upstream": "skills/lead-magnets/references/content-to-skill.md",
+      "local": "skills/lead-magnets/references/content-to-skill.md"
+    },
+    {
+      "upstream": "skills/lead-magnets/references/format-guide.md",
+      "local": "skills/lead-magnets/references/format-guide.md"
+    },
+    {
+      "upstream": "skills/link-building/SKILL.md",
+      "local": "skills/link-building/SKILL.md"
+    },
+    {
+      "upstream": "skills/link-building/references/prospecting-and-outreach.md",
+      "local": "skills/link-building/references/prospecting-and-outreach.md"
+    },
+    {
+      "upstream": "skills/link-building/references/risk-policy.md",
+      "local": "skills/link-building/references/risk-policy.md"
+    },
+    {
+      "upstream": "skills/link-building/references/tactics.md",
+      "local": "skills/link-building/references/tactics.md"
+    },
+    {
+      "upstream": "skills/marketing-council/SKILL.md",
+      "local": "skills/marketing-council/SKILL.md"
+    },
+    {
+      "upstream": "skills/marketing-council/references/advisor-template.md",
+      "local": "skills/marketing-council/references/advisor-template.md"
+    },
+    {
+      "upstream": "skills/marketing-council/references/advisors/alex-hormozi.md",
+      "local": "skills/marketing-council/references/advisors/alex-hormozi.md"
+    },
+    {
+      "upstream": "skills/marketing-council/references/advisors/ann-handley.md",
+      "local": "skills/marketing-council/references/advisors/ann-handley.md"
+    },
+    {
+      "upstream": "skills/marketing-council/references/advisors/april-dunford.md",
+      "local": "skills/marketing-council/references/advisors/april-dunford.md"
+    },
+    {
+      "upstream": "skills/marketing-council/references/advisors/byron-sharp.md",
+      "local": "skills/marketing-council/references/advisors/byron-sharp.md"
+    },
+    {
+      "upstream": "skills/marketing-council/references/advisors/claude-hopkins.md",
+      "local": "skills/marketing-council/references/advisors/claude-hopkins.md"
+    },
+    {
+      "upstream": "skills/marketing-council/references/advisors/david-ogilvy.md",
+      "local": "skills/marketing-council/references/advisors/david-ogilvy.md"
+    },
+    {
+      "upstream": "skills/marketing-council/references/advisors/eugene-schwartz.md",
+      "local": "skills/marketing-council/references/advisors/eugene-schwartz.md"
+    },
+    {
+      "upstream": "skills/marketing-council/references/advisors/gary-halbert.md",
+      "local": "skills/marketing-council/references/advisors/gary-halbert.md"
+    },
+    {
+      "upstream": "skills/marketing-council/references/advisors/gary-vaynerchuk.md",
+      "local": "skills/marketing-council/references/advisors/gary-vaynerchuk.md"
+    },
+    {
+      "upstream": "skills/marketing-council/references/advisors/rory-sutherland.md",
+      "local": "skills/marketing-council/references/advisors/rory-sutherland.md"
+    },
+    {
+      "upstream": "skills/marketing-council/references/advisors/russell-brunson.md",
+      "local": "skills/marketing-council/references/advisors/russell-brunson.md"
+    },
+    {
+      "upstream": "skills/marketing-council/references/advisors/seth-godin.md",
+      "local": "skills/marketing-council/references/advisors/seth-godin.md"
+    },
+    {
+      "upstream": "skills/marketing-ideas/SKILL.md",
+      "local": "skills/marketing-ideas/SKILL.md"
+    },
+    {
+      "upstream": "skills/marketing-ideas/references/guerrilla-marketing.md",
+      "local": "skills/marketing-ideas/references/guerrilla-marketing.md"
+    },
+    {
+      "upstream": "skills/marketing-ideas/references/ideas-by-category.md",
+      "local": "skills/marketing-ideas/references/ideas-by-category.md"
+    },
+    {
+      "upstream": "skills/marketing-loops/SKILL.md",
+      "local": "skills/marketing-loops/SKILL.md"
+    },
+    {
+      "upstream": "skills/marketing-loops/references/loop-catalog.md",
+      "local": "skills/marketing-loops/references/loop-catalog.md"
+    },
+    {
+      "upstream": "skills/marketing-loops/references/loop-guardrails.md",
+      "local": "skills/marketing-loops/references/loop-guardrails.md"
+    },
+    {
+      "upstream": "skills/marketing-loops/references/loop-orchestration.md",
+      "local": "skills/marketing-loops/references/loop-orchestration.md"
+    },
+    {
+      "upstream": "skills/marketing-loops/references/loop-state.md",
+      "local": "skills/marketing-loops/references/loop-state.md"
+    },
+    {
+      "upstream": "skills/marketing-loops/references/loop-template.md",
+      "local": "skills/marketing-loops/references/loop-template.md"
+    },
+    {
+      "upstream": "skills/marketing-loops/references/outbound-operator.md",
+      "local": "skills/marketing-loops/references/outbound-operator.md"
+    },
+    {
+      "upstream": "skills/marketing-loops/references/seo-operator.md",
+      "local": "skills/marketing-loops/references/seo-operator.md"
+    },
+    {
+      "upstream": "skills/marketing-plan/SKILL.md",
+      "local": "skills/marketing-plan/SKILL.md"
+    },
+    {
+      "upstream": "skills/marketing-plan/references/aarrr-framework.md",
+      "local": "skills/marketing-plan/references/aarrr-framework.md"
+    },
+    {
+      "upstream": "skills/marketing-plan/references/budget-planning.md",
+      "local": "skills/marketing-plan/references/budget-planning.md"
+    },
+    {
+      "upstream": "skills/marketing-plan/references/client-types.md",
+      "local": "skills/marketing-plan/references/client-types.md"
+    },
+    {
+      "upstream": "skills/marketing-plan/references/current-state-rubric.md",
+      "local": "skills/marketing-plan/references/current-state-rubric.md"
+    },
+    {
+      "upstream": "skills/marketing-plan/references/example-quietude.md",
+      "local": "skills/marketing-plan/references/example-quietude.md"
+    },
+    {
+      "upstream": "skills/marketing-plan/references/funding-stage-unlocks.md",
+      "local": "skills/marketing-plan/references/funding-stage-unlocks.md"
+    },
+    {
+      "upstream": "skills/marketing-plan/references/growth-patterns.md",
+      "local": "skills/marketing-plan/references/growth-patterns.md"
+    },
+    {
+      "upstream": "skills/marketing-plan/references/idea-cross-reference.md",
+      "local": "skills/marketing-plan/references/idea-cross-reference.md"
+    },
+    {
+      "upstream": "skills/marketing-plan/references/market-sizing.md",
+      "local": "skills/marketing-plan/references/market-sizing.md"
+    },
+    {
+      "upstream": "skills/marketing-plan/references/measurement-framework.md",
+      "local": "skills/marketing-plan/references/measurement-framework.md"
+    },
+    {
+      "upstream": "skills/marketing-plan/references/methodology.md",
+      "local": "skills/marketing-plan/references/methodology.md"
+    },
+    {
+      "upstream": "skills/marketing-plan/references/ops-stack-mapping.md",
+      "local": "skills/marketing-plan/references/ops-stack-mapping.md"
+    },
+    {
+      "upstream": "skills/marketing-plan/references/plan-template.md",
+      "local": "skills/marketing-plan/references/plan-template.md"
+    },
+    {
+      "upstream": "skills/marketing-plan/references/team-and-agency-model.md",
+      "local": "skills/marketing-plan/references/team-and-agency-model.md"
+    },
+    {
+      "upstream": "skills/marketing-psychology/SKILL.md",
+      "local": "skills/marketing-psychology/SKILL.md"
+    },
+    {
+      "upstream": "skills/offers/SKILL.md",
+      "local": "skills/offers/SKILL.md"
+    },
+    {
+      "upstream": "skills/offers/references/bonus-stacking.md",
+      "local": "skills/offers/references/bonus-stacking.md"
+    },
+    {
+      "upstream": "skills/offers/references/examples.md",
+      "local": "skills/offers/references/examples.md"
+    },
+    {
+      "upstream": "skills/offers/references/guarantee-design.md",
+      "local": "skills/offers/references/guarantee-design.md"
+    },
+    {
+      "upstream": "skills/offers/references/offer-anatomy.md",
+      "local": "skills/offers/references/offer-anatomy.md"
+    },
+    {
+      "upstream": "skills/offers/references/offer-formats.md",
+      "local": "skills/offers/references/offer-formats.md"
+    },
+    {
+      "upstream": "skills/offers/references/saas-offers.md",
+      "local": "skills/offers/references/saas-offers.md"
+    },
+    {
+      "upstream": "skills/offers/references/scarcity-urgency.md",
+      "local": "skills/offers/references/scarcity-urgency.md"
+    },
+    {
+      "upstream": "skills/offers/references/value-equation.md",
+      "local": "skills/offers/references/value-equation.md"
+    },
+    {
+      "upstream": "skills/onboarding/SKILL.md",
+      "local": "skills/onboarding/SKILL.md"
+    },
+    {
+      "upstream": "skills/onboarding/references/activation-models.md",
+      "local": "skills/onboarding/references/activation-models.md"
+    },
+    {
+      "upstream": "skills/onboarding/references/experiments.md",
+      "local": "skills/onboarding/references/experiments.md"
+    },
+    {
+      "upstream": "skills/onboarding/references/minimum-path-to-value.md",
+      "local": "skills/onboarding/references/minimum-path-to-value.md"
+    },
+    {
+      "upstream": "skills/paywalls/SKILL.md",
+      "local": "skills/paywalls/SKILL.md"
+    },
+    {
+      "upstream": "skills/paywalls/references/experiments.md",
+      "local": "skills/paywalls/references/experiments.md"
+    },
+    {
+      "upstream": "skills/popups/SKILL.md",
+      "local": "skills/popups/SKILL.md"
+    },
+    {
+      "upstream": "skills/pricing/SKILL.md",
+      "local": "skills/pricing/SKILL.md"
+    },
+    {
+      "upstream": "skills/pricing/references/pricing-models.md",
+      "local": "skills/pricing/references/pricing-models.md"
+    },
+    {
+      "upstream": "skills/pricing/references/pricing-page-teardown.md",
+      "local": "skills/pricing/references/pricing-page-teardown.md"
+    },
+    {
+      "upstream": "skills/pricing/references/research-methods.md",
+      "local": "skills/pricing/references/research-methods.md"
+    },
+    {
+      "upstream": "skills/pricing/references/tier-structure.md",
+      "local": "skills/pricing/references/tier-structure.md"
+    },
+    {
+      "upstream": "skills/product-marketing/SKILL.md",
+      "local": "skills/product-marketing/SKILL.md"
+    },
+    {
+      "upstream": "skills/product-marketing/references/brand-voice.md",
+      "local": "skills/product-marketing/references/brand-voice.md"
+    },
+    {
+      "upstream": "skills/programmatic-seo/SKILL.md",
+      "local": "skills/programmatic-seo/SKILL.md"
+    },
+    {
+      "upstream": "skills/programmatic-seo/references/implementation-platforms.md",
+      "local": "skills/programmatic-seo/references/implementation-platforms.md"
+    },
+    {
+      "upstream": "skills/programmatic-seo/references/playbooks.md",
+      "local": "skills/programmatic-seo/references/playbooks.md"
+    },
+    {
+      "upstream": "skills/prospecting/SKILL.md",
+      "local": "skills/prospecting/SKILL.md"
+    },
+    {
+      "upstream": "skills/prospecting/references/account-research.md",
+      "local": "skills/prospecting/references/account-research.md"
+    },
+    {
+      "upstream": "skills/prospecting/references/b2b-prospecting.md",
+      "local": "skills/prospecting/references/b2b-prospecting.md"
+    },
+    {
+      "upstream": "skills/prospecting/references/compliance.md",
+      "local": "skills/prospecting/references/compliance.md"
+    },
+    {
+      "upstream": "skills/prospecting/references/data-sources.md",
+      "local": "skills/prospecting/references/data-sources.md"
+    },
+    {
+      "upstream": "skills/prospecting/references/demand-signals.md",
+      "local": "skills/prospecting/references/demand-signals.md"
+    },
+    {
+      "upstream": "skills/prospecting/references/enrichment-playbook.md",
+      "local": "skills/prospecting/references/enrichment-playbook.md"
+    },
+    {
+      "upstream": "skills/prospecting/references/local-prospecting.md",
+      "local": "skills/prospecting/references/local-prospecting.md"
+    },
+    {
+      "upstream": "skills/prospecting/references/saas-prospecting.md",
+      "local": "skills/prospecting/references/saas-prospecting.md"
+    },
+    {
+      "upstream": "skills/prospecting/references/signal-plays.md",
+      "local": "skills/prospecting/references/signal-plays.md"
+    },
+    {
+      "upstream": "skills/prospecting/references/sourcing-and-enrichment.md",
+      "local": "skills/prospecting/references/sourcing-and-enrichment.md"
+    },
+    {
+      "upstream": "skills/public-relations/SKILL.md",
+      "local": "skills/public-relations/SKILL.md"
+    },
+    {
+      "upstream": "skills/public-relations/references/crisis-communications.md",
+      "local": "skills/public-relations/references/crisis-communications.md"
+    },
+    {
+      "upstream": "skills/public-relations/references/journalist-pitching.md",
+      "local": "skills/public-relations/references/journalist-pitching.md"
+    },
+    {
+      "upstream": "skills/public-relations/references/media-outlets.md",
+      "local": "skills/public-relations/references/media-outlets.md"
+    },
+    {
+      "upstream": "skills/public-relations/references/newsjacking.md",
+      "local": "skills/public-relations/references/newsjacking.md"
+    },
+    {
+      "upstream": "skills/public-relations/references/podcast-guest-prep.md",
+      "local": "skills/public-relations/references/podcast-guest-prep.md"
+    },
+    {
+      "upstream": "skills/public-relations/references/press-platforms.md",
+      "local": "skills/public-relations/references/press-platforms.md"
+    },
+    {
+      "upstream": "skills/public-relations/references/statement-templates.md",
+      "local": "skills/public-relations/references/statement-templates.md"
+    },
+    {
+      "upstream": "skills/public-relations/references/story-angles.md",
+      "local": "skills/public-relations/references/story-angles.md"
+    },
+    {
+      "upstream": "skills/referrals/SKILL.md",
+      "local": "skills/referrals/SKILL.md"
+    },
+    {
+      "upstream": "skills/referrals/references/affiliate-operations.md",
+      "local": "skills/referrals/references/affiliate-operations.md"
+    },
+    {
+      "upstream": "skills/referrals/references/affiliate-programs.md",
+      "local": "skills/referrals/references/affiliate-programs.md"
+    },
+    {
+      "upstream": "skills/referrals/references/program-examples.md",
+      "local": "skills/referrals/references/program-examples.md"
+    },
+    {
+      "upstream": "skills/referrals/references/review-platform-rules.md",
+      "local": "skills/referrals/references/review-platform-rules.md"
+    },
+    {
+      "upstream": "skills/referrals/references/review-program-operations.md",
+      "local": "skills/referrals/references/review-program-operations.md"
+    },
+    {
+      "upstream": "skills/referrals/references/review-programs.md",
+      "local": "skills/referrals/references/review-programs.md"
+    },
+    {
+      "upstream": "skills/referrals/references/viral-mechanisms.md",
+      "local": "skills/referrals/references/viral-mechanisms.md"
+    },
+    {
+      "upstream": "skills/revops/SKILL.md",
+      "local": "skills/revops/SKILL.md"
+    },
+    {
+      "upstream": "skills/revops/references/automation-playbooks.md",
+      "local": "skills/revops/references/automation-playbooks.md"
+    },
+    {
+      "upstream": "skills/revops/references/inbound-routing.md",
+      "local": "skills/revops/references/inbound-routing.md"
+    },
+    {
+      "upstream": "skills/revops/references/lifecycle-definitions.md",
+      "local": "skills/revops/references/lifecycle-definitions.md"
+    },
+    {
+      "upstream": "skills/revops/references/routing-rules.md",
+      "local": "skills/revops/references/routing-rules.md"
+    },
+    {
+      "upstream": "skills/revops/references/scoring-models.md",
+      "local": "skills/revops/references/scoring-models.md"
+    },
+    {
+      "upstream": "skills/sales-enablement/SKILL.md",
+      "local": "skills/sales-enablement/SKILL.md"
+    },
+    {
+      "upstream": "skills/sales-enablement/references/cold-call-scripts.md",
+      "local": "skills/sales-enablement/references/cold-call-scripts.md"
+    },
+    {
+      "upstream": "skills/sales-enablement/references/deck-frameworks.md",
+      "local": "skills/sales-enablement/references/deck-frameworks.md"
+    },
+    {
+      "upstream": "skills/sales-enablement/references/demo-scripts.md",
+      "local": "skills/sales-enablement/references/demo-scripts.md"
+    },
+    {
+      "upstream": "skills/sales-enablement/references/objection-library.md",
+      "local": "skills/sales-enablement/references/objection-library.md"
+    },
+    {
+      "upstream": "skills/sales-enablement/references/one-pager-templates.md",
+      "local": "skills/sales-enablement/references/one-pager-templates.md"
+    },
+    {
+      "upstream": "skills/sales-enablement/references/win-loss-analysis.md",
+      "local": "skills/sales-enablement/references/win-loss-analysis.md"
+    },
+    {
+      "upstream": "skills/schema/SKILL.md",
+      "local": "skills/schema/SKILL.md"
+    },
+    {
+      "upstream": "skills/schema/references/schema-examples.md",
+      "local": "skills/schema/references/schema-examples.md"
+    },
+    {
+      "upstream": "skills/seo-audit/SKILL.md",
+      "local": "skills/seo-audit/SKILL.md"
+    },
+    {
+      "upstream": "skills/seo-audit/references/ai-writing-detection.md",
+      "local": "skills/seo-audit/references/ai-writing-detection.md"
+    },
+    {
+      "upstream": "skills/seo-audit/references/international-seo.md",
+      "local": "skills/seo-audit/references/international-seo.md"
+    },
+    {
+      "upstream": "skills/seo-audit/references/local-seo-pages-and-measurement.md",
+      "local": "skills/seo-audit/references/local-seo-pages-and-measurement.md"
+    },
+    {
+      "upstream": "skills/seo-audit/references/local-seo-profile-and-citations.md",
+      "local": "skills/seo-audit/references/local-seo-profile-and-citations.md"
+    },
+    {
+      "upstream": "skills/seo-audit/references/local-seo.md",
+      "local": "skills/seo-audit/references/local-seo.md"
+    },
+    {
+      "upstream": "skills/seo-audit/references/rankings-push.md",
+      "local": "skills/seo-audit/references/rankings-push.md"
+    },
+    {
+      "upstream": "skills/seo-audit/references/title-tags.md",
+      "local": "skills/seo-audit/references/title-tags.md"
+    },
+    {
+      "upstream": "skills/signup/SKILL.md",
+      "local": "skills/signup/SKILL.md"
+    },
+    {
+      "upstream": "skills/site-architecture/SKILL.md",
+      "local": "skills/site-architecture/SKILL.md"
+    },
+    {
+      "upstream": "skills/site-architecture/references/mermaid-templates.md",
+      "local": "skills/site-architecture/references/mermaid-templates.md"
+    },
+    {
+      "upstream": "skills/site-architecture/references/navigation-patterns.md",
+      "local": "skills/site-architecture/references/navigation-patterns.md"
+    },
+    {
+      "upstream": "skills/site-architecture/references/platforms-and-migration.md",
+      "local": "skills/site-architecture/references/platforms-and-migration.md"
+    },
+    {
+      "upstream": "skills/site-architecture/references/site-type-templates.md",
+      "local": "skills/site-architecture/references/site-type-templates.md"
+    },
+    {
+      "upstream": "skills/sms/SKILL.md",
+      "local": "skills/sms/SKILL.md"
+    },
+    {
+      "upstream": "skills/sms/references/compliance.md",
+      "local": "skills/sms/references/compliance.md"
+    },
+    {
+      "upstream": "skills/sms/references/platforms.md",
+      "local": "skills/sms/references/platforms.md"
+    },
+    {
+      "upstream": "skills/sms/references/sequence-templates.md",
+      "local": "skills/sms/references/sequence-templates.md"
+    },
+    {
+      "upstream": "skills/sms/references/whatsapp.md",
+      "local": "skills/sms/references/whatsapp.md"
+    },
+    {
+      "upstream": "skills/social/SKILL.md",
+      "local": "skills/social/SKILL.md"
+    },
+    {
+      "upstream": "skills/social/references/carousel-frameworks.md",
+      "local": "skills/social/references/carousel-frameworks.md"
+    },
+    {
+      "upstream": "skills/social/references/listening-sources-template.md",
+      "local": "skills/social/references/listening-sources-template.md"
+    },
+    {
+      "upstream": "skills/social/references/listening.md",
+      "local": "skills/social/references/listening.md"
+    },
+    {
+      "upstream": "skills/social/references/platform-limits.md",
+      "local": "skills/social/references/platform-limits.md"
+    },
+    {
+      "upstream": "skills/social/references/platforms.md",
+      "local": "skills/social/references/platforms.md"
+    },
+    {
+      "upstream": "skills/social/references/post-templates.md",
+      "local": "skills/social/references/post-templates.md"
+    },
+    {
+      "upstream": "skills/social/references/reverse-engineering.md",
+      "local": "skills/social/references/reverse-engineering.md"
+    },
+    {
+      "upstream": "skills/social/references/short-form-video.md",
+      "local": "skills/social/references/short-form-video.md"
+    },
+    {
+      "upstream": "skills/social/references/x-algorithm.md",
+      "local": "skills/social/references/x-algorithm.md"
+    },
+    {
+      "upstream": "skills/video/SKILL.md",
+      "local": "skills/video/SKILL.md"
+    },
+    {
+      "upstream": "skills/video/references/ai-video-prompting.md",
+      "local": "skills/video/references/ai-video-prompting.md"
+    },
+    {
+      "upstream": "skills/video/references/edit-anatomy.md",
+      "local": "skills/video/references/edit-anatomy.md"
+    },
+    {
+      "upstream": "skills/video/references/product-demo-recording.md",
+      "local": "skills/video/references/product-demo-recording.md"
+    }
+  ]
+}

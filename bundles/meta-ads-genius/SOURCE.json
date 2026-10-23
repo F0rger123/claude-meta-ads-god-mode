@@ -1,0 +1,84 @@
+{
+  "name": "meta-ads-genius",
+  "repo": "aaronpdoherty/meta-ads-genius",
+  "sha": "3fcacc3eb7bb2ae722ab81ce87c7d41ee1462995",
+  "license": "MIT",
+  "upstream_plugin_name": "meta-ads-genius",
+  "upstream_version": "0.1.0",
+  "url": "https://github.com/aaronpdoherty/meta-ads-genius/tree/3fcacc3eb7bb2ae722ab81ce87c7d41ee1462995",
+  "not_included": "scripts/ (read-only Marketing API pulls). Its skills also work from CSV exports or the official Meta Ads MCP.",
+  "files": [
+    {
+      "upstream": "agents/meta-ads-auditor.md",
+      "local": "agents/meta-ads-auditor.md"
+    },
+    {
+      "upstream": "skills/ad-analysis/SKILL.md",
+      "local": "skills/ad-analysis/SKILL.md"
+    },
+    {
+      "upstream": "skills/ad-analysis/references/audit-checklist.md",
+      "local": "skills/ad-analysis/references/audit-checklist.md"
+    },
+    {
+      "upstream": "skills/ad-analysis/references/breakdown-effect.md",
+      "local": "skills/ad-analysis/references/breakdown-effect.md"
+    },
+    {
+      "upstream": "skills/ad-analysis/references/delivery-system.md",
+      "local": "skills/ad-analysis/references/delivery-system.md"
+    },
+    {
+      "upstream": "skills/ad-analysis/references/diagnostics.md",
+      "local": "skills/ad-analysis/references/diagnostics.md"
+    },
+    {
+      "upstream": "skills/ad-optimization/SKILL.md",
+      "local": "skills/ad-optimization/SKILL.md"
+    },
+    {
+      "upstream": "skills/ad-optimization/references/decision-tree.md",
+      "local": "skills/ad-optimization/references/decision-tree.md"
+    },
+    {
+      "upstream": "skills/ad-optimization/references/safety-governance.md",
+      "local": "skills/ad-optimization/references/safety-governance.md"
+    },
+    {
+      "upstream": "skills/ad-optimization/references/scaling-budget.md",
+      "local": "skills/ad-optimization/references/scaling-budget.md"
+    },
+    {
+      "upstream": "skills/campaign-management/SKILL.md",
+      "local": "skills/campaign-management/SKILL.md"
+    },
+    {
+      "upstream": "skills/campaign-management/references/creative-playbook.md",
+      "local": "skills/campaign-management/references/creative-playbook.md"
+    },
+    {
+      "upstream": "skills/campaign-management/references/structure-audiences.md",
+      "local": "skills/campaign-management/references/structure-audiences.md"
+    },
+    {
+      "upstream": "skills/campaign-management/references/tracking-signals.md",
+      "local": "skills/campaign-management/references/tracking-signals.md"
+    },
+    {
+      "upstream": "skills/opportunity-spotting/SKILL.md",
+      "local": "skills/opportunity-spotting/SKILL.md"
+    },
+    {
+      "upstream": "skills/opportunity-spotting/references/ad-library-recon.md",
+      "local": "skills/opportunity-spotting/references/ad-library-recon.md"
+    },
+    {
+      "upstream": "skills/opportunity-spotting/references/opportunity-lenses.md",
+      "local": "skills/opportunity-spotting/references/opportunity-lenses.md"
+    },
+    {
+      "upstream": "skills/pulse/SKILL.md",
+      "local": "skills/pulse/SKILL.md"
+    }
+  ]
+}

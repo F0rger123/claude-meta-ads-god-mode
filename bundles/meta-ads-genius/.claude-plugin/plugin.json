@@ -1,0 +1,13 @@
+{
+  "name": "meta-ads-genius",
+  "version": "0.1.0+3fcacc3",
+  "description": "Meta Ads (Facebook & Instagram) expertise for Claude: ad account analysis built on Meta's delivery-system mechanics (breakdown effect, learning phase, auction dynamics), account audits, market opportunity spotting and Ad Library competitor research, optimization playbooks with safety guardrails, campaign planning, and dependency-free Marketing API scripts. [Bundled in Claude Meta Ads God Mode from aaronpdoherty/meta-ads-genius@3fcacc3; Ads God Mode safety rules take precedence.]",
+  "author": {
+    "name": "Aaron Doherty",
+    "url": "https://github.com/aaronpdoherty"
+  },
+  "homepage": "https://github.com/aaronpdoherty/meta-ads-genius",
+  "repository": "https://github.com/aaronpdoherty/meta-ads-genius",
+  "license": "MIT",
+  "skills": "./skills/"
+}

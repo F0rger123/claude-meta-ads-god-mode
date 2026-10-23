@@ -97,9 +97,9 @@ class Manifests(unittest.TestCase):
 
     def test_markdown_links_resolve(self):
         broken = []
-        vendor = os.path.join(ROOT, "community", "vendor")
+        upstream = (os.path.join(ROOT, "community", "vendor"), os.path.join(ROOT, "bundles"))
         for p in repo_files():
-            if not p.endswith(".md") or p.startswith(vendor):  # upstream text, kept verbatim
+            if not p.endswith(".md") or p.startswith(upstream):  # upstream text, kept verbatim
                 continue
             for link in re.findall(r"\]\(([^)#\s]+)(?:#[^)]*)?\)", open(p, encoding="utf-8").read()):
                 if re.match(r"^(https?:|mailto:)", link):
@@ -114,10 +114,19 @@ VENDOR = os.path.join(ROOT, "community", "vendor")
 HIDDEN_UNICODE = re.compile("[​-‏‪-‮⁠-⁤﻿]")
 
 
+BUNDLES = os.path.join(ROOT, "bundles")
+
+
 def vendored_files():
-    for dirpath, _, files in os.walk(VENDOR):
-        for f in files:
-            yield os.path.join(dirpath, f)
+    for base in (VENDOR, BUNDLES):
+        for dirpath, _, files in os.walk(base):
+            for f in files:
+                yield os.path.join(dirpath, f)
+
+
+def load_json(*parts):
+    with open(os.path.join(ROOT, *parts), encoding="utf-8") as fh:
+        return json.load(fh)
 
 
 class CommunityVendoring(unittest.TestCase):
@@ -157,11 +166,71 @@ class CommunityVendoring(unittest.TestCase):
     def test_umbrella_index_paths_exist(self):
         with open(os.path.join(ROOT, "skills", "ads-community", "SKILL.md"), encoding="utf-8") as fh:
             text = fh.read()
-        ids = "|".join(re.escape(s["id"]) for s in self.manifest["sources"])
-        refs = re.findall(r"`((?:%s)/[^`{*]+?)`" % ids, text)
+        refs = re.findall(r"`((?:community/vendor|bundles)/[^`{*]+?)`", text)
         self.assertGreater(len(refs), 20)
         for ref in refs:
-            self.assertTrue(os.path.exists(os.path.join(VENDOR, *ref.rstrip("/").split("/"))), ref)
+            self.assertTrue(os.path.exists(os.path.join(ROOT, *ref.rstrip("/").split("/"))), ref)
+
+
+class BundledCompanions(unittest.TestCase):
+    def setUp(self):
+        self.manifest = load_json("community", "sources.json")
+        self.bundles = {b["name"]: b for b in self.manifest["bundles"]}
+        self.plugin = load_json(".claude-plugin", "plugin.json")
+        self.market = load_json(".claude-plugin", "marketplace.json")
+        self.codex_market = load_json(".agents", "plugins", "marketplace.json")
+
+    def test_bundles_synced_pinned_and_licensed(self):
+        for name, b in self.bundles.items():
+            d = os.path.join(BUNDLES, name)
+            self.assertIn(b["license"], ("MIT", "Apache-2.0"))
+            self.assertRegex(b["sha"], r"^[0-9a-f]{40}$")
+            self.assertTrue(os.path.exists(os.path.join(d, "LICENSE")), name)
+            self.assertEqual(load_json("bundles", name, "SOURCE.json")["sha"], b["sha"])
+            for kind in (".claude-plugin", ".codex-plugin"):
+                m = load_json("bundles", name, kind, "plugin.json")
+                self.assertEqual(m["name"], name)
+                self.assertEqual(m["license"], b["license"])
+                self.assertIn(b["repo"], m["repository"])
+                skills = m["skills"] if isinstance(m["skills"], list) else [m["skills"]]
+                for sk in skills:
+                    self.assertTrue(os.path.isdir(os.path.join(d, sk)), f"{name}: {sk}")
+
+    def test_companions_are_dependencies_of_ads(self):
+        self.assertEqual(sorted(self.plugin["dependencies"]), sorted(self.bundles))
+
+    def test_optional_hosted_plugins_are_never_dependencies(self):
+        for o in self.manifest.get("optional_plugins", []):
+            self.assertNotIn(o["name"], self.plugin["dependencies"])
+
+    def test_claude_marketplace_serves_bundles_from_this_repo(self):
+        entries = {p["name"]: p for p in self.market["plugins"]}
+        self.assertEqual(entries["ads"]["source"], "./")
+        for name in self.bundles:
+            self.assertEqual(entries[name]["source"], f"./bundles/{name}")
+        for o in self.manifest.get("optional_plugins", []):
+            self.assertRegex(entries[o["name"]]["source"]["sha"], r"^[0-9a-f]{40}$")  # remote entries pinned
+
+    def test_codex_marketplace_lists_everything_locally(self):
+        entries = {p["name"]: p for p in self.codex_market["plugins"]}
+        self.assertEqual(set(entries), {"ads", *self.bundles})
+        for name, e in entries.items():
+            self.assertEqual(e["source"]["source"], "local")
+            path = os.path.join(ROOT, e["source"]["path"])
+            self.assertTrue(os.path.exists(os.path.join(path, ".codex-plugin", "plugin.json")), name)
+        self.assertEqual(load_json(".codex-plugin", "plugin.json")["name"], "ads")
+
+    def test_installer_commands(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("install", os.path.join(ROOT, "scripts", "install.py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        claude = [" ".join(c) for c in mod.claude_cmds("owner/repo", "user", False)]
+        self.assertIn("claude plugin install ads@claude-meta-ads-god-mode --scope user", claude)
+        self.assertFalse(any("adplane" in c for c in claude))
+        codex = [" ".join(c) for c in mod.codex_cmds("owner/repo")]
+        for name in ["ads", *self.bundles]:
+            self.assertIn(f"codex plugin add {name}@claude-meta-ads-god-mode", codex)
 
 
 if __name__ == "__main__":

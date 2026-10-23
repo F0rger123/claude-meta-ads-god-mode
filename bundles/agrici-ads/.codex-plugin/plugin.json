@@ -1,0 +1,16 @@
+{
+  "name": "agrici-ads",
+  "version": "2.1.0+fc3908e",
+  "description": "Claude-first, portable paid-media operations for Google, Meta, YouTube, LinkedIn, TikTok, Microsoft, Apple, Amazon, Reddit, Pinterest, Snapchat, and X. Source-grounded audits, plans, creative workflows, monitoring, experiments, versioned JSON reports, deterministic findings and evidence coverage, and capability-gated account changes. [Bundled in Claude Meta Ads God Mode from AgriciDaniel/claude-ads@fc3908e; Ads God Mode safety rules take precedence.]",
+  "author": {
+    "name": "AgriciDaniel",
+    "url": "https://github.com/AgriciDaniel"
+  },
+  "homepage": "https://github.com/AgriciDaniel/claude-ads",
+  "repository": "https://github.com/AgriciDaniel/claude-ads",
+  "license": "MIT",
+  "skills": [
+    "./ads/",
+    "./skills/"
+  ]
+}
