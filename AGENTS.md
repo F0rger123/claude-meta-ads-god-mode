@@ -2,6 +2,10 @@
 
 Instructions for any AI agent (Claude Code, Codex, Cursor, Gemini CLI, etc.) using or modifying this repository.
 
+## 0. First thing
+
+Asked to *set this up*, *install it*, or *explain what it is* (often after someone pasted the repo link)? Follow [`docs/SETUP_WIZARD.md`](docs/SETUP_WIZARD.md): detect where you run, ask the short interview, install, connect accounts read-only first, verify with `adsgm doctor` / `/ads:doctor`, then onboard the first client. Everything below applies throughout.
+
 ## Using it to manage ads
 
 1. Read `skills/ads-core/SKILL.md` first; it defines client resolution, connector routing and the write rules. Then load only the platform skill (`skills/meta-ads` or `skills/google-ads`) and the one task skill/workflow the request needs.

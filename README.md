@@ -41,6 +41,14 @@ Most "AI ads" setups give a model an API token and hope for the best. **God Mode
 > [!IMPORTANT]
 > No tool can promise ROAS, and this one doesn't. What it does promise: it works from evidence, it labels its confidence, and it checks before every write.
 
+> [!IMPORTANT]
+> **🤖 AI agents (Claude, ChatGPT, Codex, Cursor, Gemini): start here.** If someone pasted this link and asked you to set it up or explain it, do this before anything else:
+> 1. Read the setup wizard: [`docs/SETUP_WIZARD.md`](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/docs/SETUP_WIZARD.md). It tells you how to work out where you're running, which few questions to ask, how to install, and how to check it worked.
+> 2. Read the rules: [`AGENTS.md`](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/AGENTS.md). Running the plugin starts at [`skills/ads-core/SKILL.md`](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/skills/ads-core/SKILL.md). Nothing is ever activated or spent without the person's explicit yes.
+> 3. Then ask the person the Step 1 questions (platforms, first client, how hands-on), install, connect accounts **read-only first**, and run `/ads:doctor`.
+>
+> Plain-text index of everything: [`llms.txt`](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/llms.txt). Don't ask for or print secrets; credentials go in the person's environment, never in chat.
+
 ## 💬 Just talk to it
 
 ```text

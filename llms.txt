@@ -1,0 +1,18 @@
+# Claude Meta Ads God Mode
+
+> A safety-first paid-media operating system for Claude Code and Codex. Meta Ads first, Google Ads built in. Reads, analyses and drafts freely; creates everything PAUSED; never spends without an explicit human yes. A write gate verifies client, platform, account and entity before any change.
+
+If a person pasted this repository and asked you to set it up, start with the setup wizard. If you are running the plugin, start with skills/ads-core/SKILL.md.
+
+## Start here
+- [Setup wizard for AI agents](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/docs/SETUP_WIZARD.md): where you're running, the short interview, install, read-only checks, first client
+- [AGENTS.md](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/AGENTS.md): rules for any agent using or modifying this repo (Codex must call the write gate itself)
+- [Core skill](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/skills/ads-core/SKILL.md): client resolution, connector routing, write rules
+- [README](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/README.md)
+
+## Reference
+- [Client profile template](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/templates/client-profile.json)
+- [Meta connector](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/connectors/meta/README.md)
+- [Google connector](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/connectors/google/README.md)
+- [Security](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/SECURITY.md)
+- [Environment variables (placeholders only)](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/.env.example)
