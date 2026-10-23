@@ -151,5 +151,127 @@
       "license": "MIT (plugin); hosted service terms",
       "why": "Hosted connector (Google, Meta, Microsoft, TikTok) that sends account data to Adplane. Never auto-installed; offered by /ads:setup only."
     }
+  ],
+  "featured": [
+    {
+      "id": "agrici-ads/ads-tiktok",
+      "use_for": "TikTok audit/plan"
+    },
+    {
+      "id": "agrici-ads/ads-linkedin",
+      "use_for": "LinkedIn B2B audit/plan"
+    },
+    {
+      "id": "agrici-ads/ads-microsoft",
+      "use_for": "Microsoft (Bing) Ads"
+    },
+    {
+      "id": "agrici-ads/ads-youtube",
+      "use_for": "YouTube / video campaigns"
+    },
+    {
+      "id": "agrici-ads/ads-amazon",
+      "use_for": "Amazon retail media"
+    },
+    {
+      "id": "agrici-ads/ads-plan",
+      "use_for": "industry plan templates (local service, ecommerce, SaaS...)"
+    },
+    {
+      "id": "agrici-ads/ads-math",
+      "use_for": "ad math: break-even CPA, LTV, budget scenarios"
+    },
+    {
+      "id": "agrici-ads/ads-server-side-tracking",
+      "use_for": "server-side tracking / CAPI setup"
+    },
+    {
+      "id": "agrici-ads/agent:audit-policy-compliance",
+      "use_for": "second-opinion policy audit (subagent)"
+    },
+    {
+      "id": "marketing-skills/copywriting",
+      "use_for": "landing-page and ad copy"
+    },
+    {
+      "id": "marketing-skills/cro",
+      "use_for": "conversion-rate optimization of a page"
+    },
+    {
+      "id": "marketing-skills/offers",
+      "use_for": "designing a stronger offer"
+    },
+    {
+      "id": "marketing-skills/ad-creative",
+      "use_for": "creative system, hooks, static/video formats"
+    },
+    {
+      "id": "marketing-skills/attribution",
+      "use_for": "attribution model choice by business type"
+    },
+    {
+      "id": "marketing-skills/conversion-tracking",
+      "use_for": "tracking audit + GTM recipes"
+    },
+    {
+      "id": "marketing-skills/ab-testing",
+      "use_for": "test design and sample size"
+    },
+    {
+      "id": "meta-ads-genius/pulse",
+      "use_for": "5-minute Meta health scorecard"
+    },
+    {
+      "id": "meta-ads-genius/opportunity-spotting",
+      "use_for": "finding Meta growth opportunities"
+    },
+    {
+      "id": "meta-ads-genius/ad-optimization",
+      "use_for": "kill / swap / scale decision tree"
+    },
+    {
+      "id": "meta-ads-analyzer/meta-ads-analyzer",
+      "use_for": "Meta diagnosis from exports"
+    },
+    {
+      "id": "ad-creative-skills/creative-fatigue-read-ad-creative",
+      "use_for": "is this ad really fatigued?"
+    },
+    {
+      "id": "ad-creative-skills/creative-test-readout-ad-creative",
+      "use_for": "reading a creative test"
+    },
+    {
+      "id": "ad-creative-skills/early-signal-cut-ad-creative",
+      "use_for": "cut early or keep spending"
+    },
+    {
+      "id": "ad-creative-skills/video-hook-lines-ad-creative",
+      "use_for": "video hook lines"
+    },
+    {
+      "id": "ad-creative-skills/paid-social-primary-text-ad-creative",
+      "use_for": "Meta primary text"
+    },
+    {
+      "id": "ad-creative-skills/search-headline-set-ad-creative",
+      "use_for": "Google RSA headline sets"
+    },
+    {
+      "id": "goose-compliance/claims-gate",
+      "use_for": "substantiate every claim before launch"
+    },
+    {
+      "id": "goose-compliance/ad-policy-check",
+      "use_for": "ad policy pre-flight"
+    },
+    {
+      "id": "google-ads-skills/google-ads-math",
+      "use_for": "Google Ads math"
+    },
+    {
+      "id": "meta-ads-compliance/meta-ads-compliance",
+      "use_for": "Meta API write discipline"
+    }
   ]
 }

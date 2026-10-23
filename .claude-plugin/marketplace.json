@@ -5,34 +5,34 @@
     "url": "https://github.com/F0rger123"
   },
   "metadata": {
-    "description": "Claude Meta Ads God Mode and its bundled companion plugins (pinned, vetted copies shipped in this repo). The God Mode write gate applies to every ad-platform write."
+    "description": "Claude Meta Ads God Mode plus optional native installs of its bundled companion plugins (pinned, vetted copies shipped in this repo). The God Mode write gate applies to every ad-platform write."
   },
   "plugins": [
     {
       "name": "ads",
       "source": "./",
-      "description": "Claude Meta Ads God Mode - Meta Ads first, Google Ads built in, paused-first and approval-gated. Installs its bundled companion plugins automatically.",
-      "version": "0.3.0",
+      "description": "Claude Meta Ads God Mode - Meta Ads first, Google Ads built in, paused-first and approval-gated. Includes an on-demand router to 137 bundled community skills (nothing extra preloaded).",
+      "version": "0.4.0",
       "license": "MIT"
     },
     {
       "name": "agrici-ads",
       "source": "./bundles/agrici-ads",
-      "description": "Bundled companion (third-party, MIT, AgriciDaniel/claude-ads@fc3908e): 12-platform paid-media audits, plans, creative workflows and specialist audit agents. Installed automatically with ads.",
+      "description": "Bundled companion (third-party, MIT, AgriciDaniel/claude-ads@fc3908e): 12-platform paid-media audits, plans, creative workflows and specialist audit agents. Optional native install - God Mode already routes to these skills on demand without installing them.",
       "license": "MIT",
       "category": "companion"
     },
     {
       "name": "marketing-skills",
       "source": "./bundles/marketing-skills",
-      "description": "Bundled companion (third-party, MIT, coreyhaines31/marketingskills@e85f3cb): 40+ marketing skills: paid ads, ad creative, attribution, conversion tracking, CRO, copywriting, A/B testing, launch. Installed automatically with ads.",
+      "description": "Bundled companion (third-party, MIT, coreyhaines31/marketingskills@e85f3cb): 40+ marketing skills: paid ads, ad creative, attribution, conversion tracking, CRO, copywriting, A/B testing, launch. Optional native install - God Mode already routes to these skills on demand without installing them.",
       "license": "MIT",
       "category": "companion"
     },
     {
       "name": "meta-ads-genius",
       "source": "./bundles/meta-ads-genius",
-      "description": "Bundled companion (third-party, MIT, aaronpdoherty/meta-ads-genius@3fcacc3): Meta analysis, opportunity spotting, optimization and campaign-management playbooks plus a read-only auditor agent. Installed automatically with ads.",
+      "description": "Bundled companion (third-party, MIT, aaronpdoherty/meta-ads-genius@3fcacc3): Meta analysis, opportunity spotting, optimization and campaign-management playbooks plus a read-only auditor agent. Optional native install - God Mode already routes to these skills on demand without installing them.",
       "license": "MIT",
       "category": "companion"
     },

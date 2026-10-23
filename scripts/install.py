@@ -5,12 +5,14 @@
     python scripts/install.py --yes           # run them
     python scripts/install.py --codex --yes   # only Codex
     python scripts/install.py --claude --scope project --yes
+    python scripts/install.py --native --yes  # also install companions as always-loaded plugins
     python scripts/install.py --check         # report what is installed
 
-Claude Code: installing `ads` also installs its dependencies (the bundled
-companions) automatically. Codex has no dependency mechanism, so every plugin is
-added explicitly. Companions come from bundles/ in this repo (pinned, vetted
-copies), never from a live upstream branch.
+By default only `ads` is installed: it already routes to every bundled companion
+skill on demand (skills/ads-community), so nothing extra is preloaded.
+--native also installs the companions as real plugins (always loaded, about
++17k tokens of skill descriptions per session). Companions come from bundles/
+in this repo (pinned, vetted copies), never from a live upstream branch.
 
 Optional plugins (adplane: hosted, sends account data to a third party) are only
 installed with --with-optional.
@@ -41,17 +43,19 @@ def optional():
     return [o["name"] for o in _manifest().get("optional_plugins", [])]
 
 
-def claude_cmds(source: str, scope: str, with_optional: bool):
+def claude_cmds(source: str, scope: str, with_optional: bool, native: bool = False):
     cmds = [["claude", "plugin", "marketplace", "add", source, "--scope", scope],
             ["claude", "plugin", "install", f"ads@{MARKETPLACE}", "--scope", scope]]
+    if native:
+        cmds += [["claude", "plugin", "install", f"{p}@{MARKETPLACE}", "--scope", scope] for p in companions()]
     if with_optional:
         cmds += [["claude", "plugin", "install", f"{p}@{MARKETPLACE}", "--scope", scope] for p in optional()]
     return cmds
 
 
-def codex_cmds(source: str):
+def codex_cmds(source: str, native: bool = False):
     cmds = [["codex", "plugin", "marketplace", "add", source]]
-    cmds += [["codex", "plugin", "add", f"{p}@{MARKETPLACE}"] for p in ["ads"] + companions()]
+    cmds += [["codex", "plugin", "add", f"{p}@{MARKETPLACE}"] for p in ["ads"] + (companions() if native else [])]
     return cmds
 
 
@@ -82,7 +86,7 @@ def check() -> int:
         report["codex"] = {p: any(l.startswith(f"{p}@{MARKETPLACE}") and "installed" in l for l in out.splitlines())
                            for p in wanted}
     print(json.dumps(report, indent=2))
-    return 0 if report and all(all(v.values()) for v in report.values()) else 1
+    return 0 if report and all(v.get("ads") for v in report.values()) else 1  # companions optional
 
 
 def main() -> int:
@@ -91,6 +95,7 @@ def main() -> int:
     ap.add_argument("--codex", action="store_true", help="only Codex")
     ap.add_argument("--scope", default="user", choices=["user", "project", "local"], help="Claude Code scope")
     ap.add_argument("--source", help=f"marketplace source (default: GitHub {REPO}; use '.' for this checkout)")
+    ap.add_argument("--native", action="store_true", help="also install bundled companions as always-loaded plugins")
     ap.add_argument("--with-optional", action="store_true", help="also install optional third-party hosted plugins")
     ap.add_argument("--yes", action="store_true", help="run the commands (default: dry run)")
     ap.add_argument("--check", action="store_true", help="report what is installed")
@@ -100,13 +105,14 @@ def main() -> int:
     source = ROOT if a.source == "." else (a.source or REPO)
     targets = []
     if not a.codex and shutil.which("claude"):
-        targets.append(("Claude Code", claude_cmds(source, a.scope, a.with_optional)))
+        targets.append(("Claude Code", claude_cmds(source, a.scope, a.with_optional, a.native)))
     if not a.claude and shutil.which("codex"):
-        targets.append(("Codex", codex_cmds(source)))
+        targets.append(("Codex", codex_cmds(source, a.native)))
     if not targets:
         print("Neither `claude` nor `codex` CLI found on PATH.")
         return 1
-    print(f"Companions bundled with ads: {', '.join(companions())}")
+    print(f"Bundled companions ({', '.join(companions())}) are routed on demand by ads-community."
+          + ("" if a.native else " Use --native to also install them as always-loaded plugins."))
     if not a.yes:
         print("Dry run. Re-run with --yes to execute.\n")
     rc = 0

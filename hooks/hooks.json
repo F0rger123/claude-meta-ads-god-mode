@@ -1,5 +1,5 @@
 {
-  "description": "Ads God Mode write gate: verifies client, account and change plan before any ad-platform write, and audits every write.",
+  "description": "Ads God Mode: write gate on every ad-platform write (PreToolUse/PostToolUse) and an on-demand community skill router (UserPromptSubmit).",
   "hooks": {
     "PreToolUse": [
       {
@@ -21,6 +21,17 @@
             "type": "command",
             "command": "if python3 -c '' 2>/dev/null; then P=python3; else P=python; fi; \"$P\" \"${CLAUDE_PLUGIN_ROOT}/hooks/write_gate.py\" post",
             "timeout": 15
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if python3 -c '' 2>/dev/null; then P=python3; else P=python; fi; \"$P\" \"${CLAUDE_PLUGIN_ROOT}/hooks/skill_router.py\"",
+            "timeout": 10
           }
         ]
       }

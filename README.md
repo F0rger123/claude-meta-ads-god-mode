@@ -10,8 +10,8 @@
 [![Meta Ads](https://img.shields.io/badge/Meta%20Ads-official%20MCP-0866ff?style=flat&logo=meta&logoColor=white)](connectors/meta/README.md)
 [![Google Ads](https://img.shields.io/badge/Google%20Ads-API%20v26-4285F4?style=flat&logo=googleads&logoColor=white)](connectors/google/README.md)
 [![Python](https://img.shields.io/badge/python-3.9%2B-3776AB?style=flat&logo=python&logoColor=white)](#-tests)
-[![Tests](https://img.shields.io/badge/tests-126%20passing-22c55e?style=flat)](#-tests)
-[![Skills](https://img.shields.io/badge/skills-128%20%2B%2026%20agents-a033ff?style=flat)](#-the-skill-umbrella)
+[![Tests](https://img.shields.io/badge/tests-140%20passing-22c55e?style=flat)](#-tests)
+[![Skills](https://img.shields.io/badge/skills-137%20on--demand-a033ff?style=flat)](#-the-skill-umbrella)
 [![Codex](https://img.shields.io/badge/Codex-plugin-111827?style=flat&logo=openai&logoColor=white)](#-install-in-60-seconds)
 
 **Turn Claude into a senior paid-media operator that cannot spend your money by accident.**
@@ -105,13 +105,13 @@ Onboarding, audits, launches, optimization cycles, budget reviews, creative test
 <td valign="top">
 
 ### ☂️ Skill umbrella
-**3 companion plugins ship inside**, and they install automatically with God Mode. Together with the vendored community skills, that adds **114 more skills and 26 agents**, covering **10 more ad platforms**. All of it runs under God Mode's rules.
+**137 community skills and agents ship inside**, covering **10 more ad platforms**. None are preloaded: a router picks the 1–2 a request needs, so they cost no context until used.
 
 </td>
 <td valign="top">
 
 ### ✅ Tested
-**126 tests**, stdlib only: isolation, routing, gating, budget limits, approvals, secret scanning, license and pin checks, and install wiring.
+**140 tests**, stdlib only: isolation, routing, gating, budget limits, approvals, skill routing, secret scanning, and license and pin checks.
 
 </td>
 </tr>
@@ -195,38 +195,61 @@ Full details: [safety model](references/safety-model.md) · [approval matrix](re
 
 ## ☂️ The skill umbrella
 
-God Mode doesn't try to write everything itself. It **ships strong open-source ad plugins inside the repo**, installs them for you, and puts **its own safety rules on top**.
+God Mode doesn't try to write everything itself. It **ships 137 open-source ad skills and agents inside the repo**, picks the right ones **automatically for each request**, and puts **its own safety rules on top**.
 
 ```mermaid
 flowchart TB
-    U([your request]) --> CORE["<b>ads-core</b><br/>client · routing · write-gate rules"]
-    CORE --> OWN["God Mode skills<br/>meta-ads · google-ads · audit · strategy · budgeting<br/>optimization · creative · tracking · reporting · landing page"]
-    CORE --> C1["<b>agrici-ads</b> (bundled)<br/>TikTok · LinkedIn · Microsoft · YouTube · Pinterest<br/>Reddit · Snap · X · Amazon · Apple + 25 audit agents"]
-    CORE --> C2["<b>marketing-skills</b> (bundled)<br/>copywriting · CRO · offers · attribution<br/>conversion tracking · A/B testing · 50+ more"]
-    CORE --> C3["<b>meta-ads-genius</b> (bundled)<br/>pulse · opportunity spotting · kill/scale playbooks"]
-    CORE --> C4["<b>ads-community</b> index<br/>creative judging · claims gate · Meta mechanics · Google math"]
-    OWN & C1 & C2 & C3 & C4 -.every ad-account write.-> GATE{{"🛡️ write gate"}}
+    U([your request]) --> R{{"🧭 skill router<br/>(UserPromptSubmit hook)"}}
+    R -- "Meta / Google work" --> CORE["<b>ads-core</b> + God Mode skills<br/>meta-ads · google-ads · audit · budgeting · optimization · reporting"]
+    R -- "TikTok, LinkedIn, Amazon…" --> P["agrici-ads platform skill<br/>e.g. ads-tiktok"]
+    R -- "fatigue, A/B test, GTM, CRO…" --> S["specialist skill<br/>e.g. creative-fatigue-read · ab-testing"]
+    R -- "nothing ads-related" --> N([no-op, zero tokens])
+    P & S -.read 1–2 files only.-> CORE
+    CORE -.every ad-account write.-> GATE{{"🛡️ write gate"}}
 ```
 
-### What installs automatically
+### How it picks: zero context until needed
 
-| Bundled plugin | Author | License | Pinned | Brings |
-|---|---|---|---|---|
-| `agrici-ads` | [AgriciDaniel/claude-ads](https://github.com/AgriciDaniel/claude-ads) | MIT | `fc3908e` | 34 skills + 25 agents for 12 platforms: audits, plans, creative, monitoring |
-| `marketing-skills` | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | MIT | `e85f3cb` | 52 marketing skills: ads, ad creative, copy, CRO, offers, attribution, tracking |
-| `meta-ads-genius` | [aaronpdoherty/meta-ads-genius](https://github.com/aaronpdoherty/meta-ads-genius) | MIT | `3fcacc3` | 5 Meta skills + auditor agent |
+Loading every companion as a normal skill would add **~17k tokens to every session**. Of that, ~10k is marketing-skills alone, which is mostly non-ads material like SEO, SMS and churn. Instead, God Mode routes on demand at three levels:
 
-| Host | How companions arrive |
+1. **The prompt hook.** It matches your request against [routing rules](community/router_rules.json) and tells Claude which **one or two** bundled `SKILL.md` files to read. Unrelated prompts get no output at all.
+2. **The `ads-community` skill.** It holds 30 curated picks plus a searchable [catalog](skills/ads-community/catalog.md) of all 137 entries, so Claude can choose by hand when no rule matched.
+3. **The core routing table.** `ads-core` lists when a companion beats God Mode's own skill: other platforms, specialist reads, or a second opinion.
+
+Tested live in Claude Code:
+
+| Prompt | What was read |
 |---|---|
-| **Claude Code** | They are `dependencies` of `ads`, so `claude plugin install ads@claude-meta-ads-god-mode` installs all three. Verified: *"Successfully installed plugin: ads (+ 3 dependencies)"*. |
-| **Codex** | Codex has no plugin dependencies, so add the four plugins once (commands below), run `python scripts/install.py --codex --yes` from a clone, or ask Codex to run `/ads:setup`. All four plugins come from this repo's [Codex marketplace](.agents/plugins/marketplace.json). |
+| *"Audit my TikTok ads for Spark Ads and Smart+ issues"* | `bundles/agrici-ads/skills/ads-tiktok/SKILL.md` |
+| *"Is my best Meta video ad fatigued, or did the audience shrink?"* | `ads-core`, `meta-ads`, `ads-creative-analysis` and `community/vendor/ad-creative-skills/creative-fatigue-read-ad-creative/SKILL.md` |
 
-### How they are used
+Before the hook existed, Claude missed the TikTok skill. On machines with many plugins, Claude Code drops skill descriptions to fit its listing budget, so a description alone wasn't enough.
 
-`ads-core` tells Claude and Codex **when** to reach for each companion: other platforms, second-opinion audits, copy and CRO, Meta pulse. It also tells them **how**:
+### What's inside
+
+| Source | Author | License | Pinned | Brings |
+|---|---|---|---|---|
+| `agrici-ads` | [AgriciDaniel/claude-ads](https://github.com/AgriciDaniel/claude-ads) | MIT | `fc3908e` | 33 skills + 23 agents for 12 platforms: audits, plans, creative, monitoring |
+| `marketing-skills` | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | MIT | `e85f3cb` | 52 skills: ads, ad creative, copy, CRO, offers, attribution, tracking (plus non-ads marketing) |
+| `meta-ads-genius` | [aaronpdoherty/meta-ads-genius](https://github.com/aaronpdoherty/meta-ads-genius) | MIT | `3fcacc3` | 5 Meta skills + auditor agent |
+| 5 smaller sources | mathiaschu · mardab96 · itallstartedwithaidea · gooseworks-ai · thaleslaray | MIT / Apache-2.0 | pinned | 23 skills: creative judging, claims gate, Meta mechanics, Google math |
+
+Every rule is the same whichever skill is in use:
 - resolve the client first;
 - God Mode's rules win;
-- any activate, budget or delete instruction from a companion turns into a recommendation that goes through `adsgm plan` and the gate.
+- any activate, budget or delete instruction from a community skill turns into a recommendation that goes through `adsgm plan` and the gate.
+
+<details>
+<summary><b>Native mode (optional): always-loaded companion plugins</b></summary>
+
+Some users want companion skills to show up as normal slash-skills. Each bundle is also a full Claude Code and Codex plugin, served from this repo:
+
+```bash
+python scripts/install.py --native          # dry run
+python scripts/install.py --native --yes    # +~17k tokens per session
+```
+Or run `/ads:setup native`. The router keeps working either way.
+</details>
 
 ### Why bundled instead of linked
 
@@ -234,7 +257,7 @@ Each companion is a text-only copy pinned to a reviewed commit, with its upstrea
 
 What's left out: each companion's code and scripts (e.g. claude-ads' Python core, which powers image generation and cockpit publishing). For those features, install the upstream plugin.
 
-**Plus 23 single-file community skills** from mathiaschu, mardab96, itallstartedwithaidea, gooseworks-ai and thaleslaray. They're routed by `ads-community`, so they aren't loaded into every session. **Optional:** `adplane`, a hosted connector that sends account data to Adplane. It is never installed automatically. Details: [community/README.md](community/README.md).
+**Optional:** `adplane`, a hosted connector that sends account data to Adplane. It is never installed automatically. Details: [community/README.md](community/README.md).
 
 ## 🔌 Connectors
 
@@ -265,22 +288,21 @@ claude plugin marketplace add F0rger123/claude-meta-ads-god-mode
 claude plugin install ads@claude-meta-ads-god-mode
 ```
 
-This installs God Mode **plus its 3 bundled companions**. Then, inside Claude Code: `/mcp` → **meta-ads** → sign in with Facebook, then run `/ads:doctor`.
+That installs God Mode with all 137 community skills on board. They're routed on demand, so nothing extra is preloaded. Then, inside Claude Code: `/mcp` → **meta-ads** → sign in with Facebook, then run `/ads:doctor`.
 
 **Codex**
 
 ```bash
 codex plugin marketplace add F0rger123/claude-meta-ads-god-mode
 codex plugin add ads@claude-meta-ads-god-mode
-codex plugin add agrici-ads@claude-meta-ads-god-mode
-codex plugin add marketing-skills@claude-meta-ads-god-mode
-codex plugin add meta-ads-genius@claude-meta-ads-god-mode
 ```
 
-**Both at once, from a clone:** `python scripts/install.py` (dry run), then `python scripts/install.py --yes`.
+**From a clone, both hosts:** `python scripts/install.py` (dry run), then `python scripts/install.py --yes`.
 
 > [!NOTE]
-> Codex doesn't run Claude Code hooks, so the write gate isn't automatic there. `AGENTS.md` tells Codex to call `hooks/write_gate.py` before every ad write. Keep write-capable connectors off in Codex if you need a hard guarantee.
+> Codex doesn't run Claude Code hooks, so two things work differently there:
+> - **The write gate isn't automatic.** `AGENTS.md` tells Codex to call `hooks/write_gate.py` before every ad write. Keep write-capable connectors off in Codex if you need a hard guarantee.
+> - **There is no prompt router.** Codex picks community skills through the `ads-community` skill and its catalog instead.
 
 <details>
 <summary><b>Meta setup</b></summary>
@@ -349,16 +371,16 @@ python adsgm.py use "D-Hauss"             # active client for writes (expires af
 | 📡 | `/ads:tracking <client>` | Pixel, CAPI, conversions, GA4, GTM, UTMs and CRM attribution |
 | ⏸️ | `/ads:pause <client> <entities>` | pauses exactly what you named, after verifying it |
 | 🚨 | `/ads:emergency-stop <client>` | finds runaway spend, pauses precisely and explains what happened |
-| 🧩 | `/ads:setup` | checks the bundled companions in Claude Code and Codex, and installs or repairs them with your OK |
+| 🧩 | `/ads:setup` | checks the install in Claude Code and Codex; can add companions as always-loaded plugins (native mode) |
 | 🩺 | `/ads:doctor` | checks the setup without printing secrets |
 
 ## 🗂️ Repository layout
 
 ```text
-.claude-plugin/   Claude Code plugin (with dependencies) + marketplace
+.claude-plugin/   Claude Code plugin + marketplace (bundles listed for optional native install)
 .codex-plugin/    Codex plugin manifest
 .agents/plugins/  Codex marketplace (ads + bundled companions, local paths)
-bundles/          bundled companion plugins: agrici-ads · marketing-skills · meta-ads-genius
+bundles/          bundled companion plugins (routed on demand; optional native install)
 skills/           ads-core · meta-ads · google-ads · ads-community · 11 task skills
 community/        single-file community skills (pinned, licensed) + sources.json for everything vendored
 workflows/        10 end-to-end workflows
@@ -367,15 +389,15 @@ templates/        profiles · briefs · launch plan · reports · experiment log
 commands/         /ads:* slash commands
 connectors/       adapters · tool registry · Google writer · example MCP configs
 godmode/          stdlib safety core + adsgm CLI
-hooks/            PreToolUse / PostToolUse write gate
-scripts/          install.py (Claude Code + Codex) · sync_community.py (re-vendor pinned commits)
+hooks/            write gate (PreToolUse/PostToolUse) · skill router (UserPromptSubmit)
+scripts/          install.py (Claude Code + Codex) · sync_community.py (re-vendor pins) · build_catalog.py
 tests/            routing · isolation · gating · budget · approval · hygiene
 ```
 
 ## 🧪 Tests
 
 ```bash
-python tests/run_all.py   # 126 tests · stdlib only · no network · Google API mocked
+python tests/run_all.py   # 140 tests · stdlib only · no network · Google API mocked
 ```
 
 The suite covers:
@@ -385,7 +407,7 @@ The suite covers:
 - budget safeguards and automation limits
 - destructive-action blocking and the emergency stop
 - secret scanning, plus license and pin checks on vendored skills and bundles
-- dependency and marketplace wiring for Claude Code and Codex
+- the skill router (prompt to skill choices) and marketplace wiring for Claude Code and Codex
 
 Before any live write, use Google Ads test accounts or a Meta test ad account.
 

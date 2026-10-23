@@ -1,0 +1,1376 @@
+{
+  "generated_by": "scripts/build_catalog.py",
+  "count": 137,
+  "entries": [
+    {
+      "id": "agrici-ads/ads",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/ads/SKILL.md",
+      "category": "paid-ads-core",
+      "featured": false,
+      "use_for": "",
+      "summary": "Operate professional paid advertising across Google, Meta, YouTube, LinkedIn, TikTok, Microsoft, Apple, Amazon, Reddit, Pinterest, Snapchat, and X."
+    },
+    {
+      "id": "agrici-ads/ads-amazon",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-amazon/SKILL.md",
+      "category": "platform-other",
+      "featured": true,
+      "use_for": "Amazon retail media",
+      "summary": "Audit Amazon Ads profiles, regions, Sponsored Products, Sponsored Brands, Sponsored Display, DSP, portfolios, targeting, search terms, retail readiness, creative, budgets, ACOS,..."
+    },
+    {
+      "id": "agrici-ads/ads-apple",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-apple/SKILL.md",
+      "category": "platform-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "Audit Apple Ads measurement, AdServices and AdAttributionKit, campaign and keyword structure, Search Match, App Store placements, custom product pages, bidding, budgets, MMP..."
+    },
+    {
+      "id": "agrici-ads/ads-attribution",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-attribution/SKILL.md",
+      "category": "measurement",
+      "featured": false,
+      "use_for": "",
+      "summary": "Audit cross-platform attribution, conversion definitions, reporting windows, GA4, AdServices and AdAttributionKit, MMPs, browser and server events, offline conversions, and..."
+    },
+    {
+      "id": "agrici-ads/ads-audit",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-audit/SKILL.md",
+      "category": "audit-ops",
+      "featured": false,
+      "use_for": "",
+      "summary": "Run a source-grounded paid-advertising audit for one or more of Google, Meta, YouTube, LinkedIn, TikTok, Microsoft, Apple, Amazon, Reddit, Pinterest, Snapchat, and X."
+    },
+    {
+      "id": "agrici-ads/ads-budget",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-budget/SKILL.md",
+      "category": "strategy-planning",
+      "featured": false,
+      "use_for": "",
+      "summary": "Plan and review paid-media budgets, bidding, pacing, marginal return, targets, constraints, and allocation across supported platforms."
+    },
+    {
+      "id": "agrici-ads/ads-competitor",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-competitor/SKILL.md",
+      "category": "strategy-planning",
+      "featured": false,
+      "use_for": "",
+      "summary": "Research competitor paid-ad presence, messaging, creative, formats, landing pages, keyword and auction signals, transparent ad libraries, and strategic gaps across supported..."
+    },
+    {
+      "id": "agrici-ads/ads-create",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-create/SKILL.md",
+      "category": "audit-ops",
+      "featured": false,
+      "use_for": "",
+      "summary": "Create source-grounded paid-ad campaign concepts, messaging, copy, creative briefs, and production plans from a validated brand profile, campaign objective, platform requirements,..."
+    },
+    {
+      "id": "agrici-ads/ads-creative",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-creative/SKILL.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "Audit paid-ad copy, images, video, hooks, concepts, format coverage, platform-native fit, message match, creative fatigue, accessibility, and policy across supported platforms."
+    },
+    {
+      "id": "agrici-ads/ads-dna",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-dna/SKILL.md",
+      "category": "strategy-planning",
+      "featured": false,
+      "use_for": "",
+      "summary": "Extract a public-safe brand and offer profile for paid advertising from an authorized website and operator input."
+    },
+    {
+      "id": "agrici-ads/ads-generate",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-generate/SKILL.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "Generate paid-ad image assets from a validated creative brief and brand profile using an explicitly configured image provider."
+    },
+    {
+      "id": "agrici-ads/ads-google",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-google/SKILL.md",
+      "category": "google",
+      "featured": false,
+      "use_for": "",
+      "summary": "Audit Google Ads measurement, Search, Shopping, Performance Max, Demand Gen, YouTube-linked inventory, keywords and search terms, negative-keyword generation or review, creative..."
+    },
+    {
+      "id": "agrici-ads/ads-landing",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-landing/SKILL.md",
+      "category": "landing-cro",
+      "featured": false,
+      "use_for": "",
+      "summary": "Audit paid-ad landing pages for message match, mobile experience, performance, accessibility, trust, forms, consent, tracking, security, and conversion friction."
+    },
+    {
+      "id": "agrici-ads/ads-launch",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-launch/SKILL.md",
+      "category": "strategy-planning",
+      "featured": false,
+      "use_for": "",
+      "summary": "Draft or explicitly apply a paid-ad campaign launch through Claude Ads capability-gated adapters."
+    },
+    {
+      "id": "agrici-ads/ads-linkedin",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-linkedin/SKILL.md",
+      "category": "platform-other",
+      "featured": true,
+      "use_for": "LinkedIn B2B audit/plan",
+      "summary": "Audit LinkedIn Ads measurement, Insight Tag and conversions, professional audiences, lead generation, ABM, creative, bidding, budgets, pacing, automation, and policy."
+    },
+    {
+      "id": "agrici-ads/ads-math",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-math/SKILL.md",
+      "category": "strategy-planning",
+      "featured": true,
+      "use_for": "ad math: break-even CPA, LTV, budget scenarios",
+      "summary": "Calculate and model paid-media CPA, CPL, CPC, CPM, ROAS, MER, break-even targets, contribution margin, LTV:CAC, impression-share opportunity, budgets, forecasts, and experiment..."
+    },
+    {
+      "id": "agrici-ads/ads-meta",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-meta/SKILL.md",
+      "category": "meta",
+      "featured": false,
+      "use_for": "",
+      "summary": "Audit Meta Ads measurement, Pixel and Events Manager, attribution, Facebook and Instagram creative, audiences, placements, automation, budgets, account structure, and policy."
+    },
+    {
+      "id": "agrici-ads/ads-microsoft",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-microsoft/SKILL.md",
+      "category": "platform-other",
+      "featured": true,
+      "use_for": "Microsoft (Bing) Ads",
+      "summary": "Audit Microsoft Advertising measurement, UET, search and audience campaigns, Google imports, syndication, keywords, creative, bidding, budgets, Copilot inventory, and policy."
+    },
+    {
+      "id": "agrici-ads/ads-monitor",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-monitor/SKILL.md",
+      "category": "audit-ops",
+      "featured": false,
+      "use_for": "",
+      "summary": "Monitor paid-ad account pacing, delivery, performance, creative fatigue, tracking, policy, and data quality across supported platforms."
+    },
+    {
+      "id": "agrici-ads/ads-optimize",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-optimize/SKILL.md",
+      "category": "audit-ops",
+      "featured": false,
+      "use_for": "",
+      "summary": "Diagnose and draft or explicitly apply paid-ad optimizations using evidence, financial constraints, experiments, and capability-gated adapters."
+    },
+    {
+      "id": "agrici-ads/ads-photoshoot",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-photoshoot/SKILL.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "Generate rights-cleared paid-ad product photography variants from an authorized source image and validated brand profile."
+    },
+    {
+      "id": "agrici-ads/ads-pinterest",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-pinterest/SKILL.md",
+      "category": "platform-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "Audit Pinterest Ads measurement, Pinterest Tag and Conversions API, catalog and shopping readiness, visual creative, audiences, Performance+ intent, budgets, brand safety, and..."
+    },
+    {
+      "id": "agrici-ads/ads-plan",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-plan/SKILL.md",
+      "category": "strategy-planning",
+      "featured": true,
+      "use_for": "industry plan templates (local service, ecommerce, SaaS...)",
+      "summary": "Create a professional paid-advertising strategy covering objectives, economics, platform selection, campaign architecture, audiences, budget, creative, measurement, experiments,..."
+    },
+    {
+      "id": "agrici-ads/ads-reddit",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-reddit/SKILL.md",
+      "category": "platform-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "Audit Reddit Ads measurement, campaign structure, community and interest targeting, creative-native fit, catalog advertising, budgets, brand safety, and reporting."
+    },
+    {
+      "id": "agrici-ads/ads-report",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-report/SKILL.md",
+      "category": "audit-ops",
+      "featured": false,
+      "use_for": "",
+      "summary": "Render Markdown, HTML, or PDF paid-advertising reports from a validated Claude Ads JSON run bundle."
+    },
+    {
+      "id": "agrici-ads/ads-research",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-research/SKILL.md",
+      "category": "strategy-planning",
+      "featured": false,
+      "use_for": "",
+      "summary": "Refresh Claude Ads platform, API, policy, regulation, benchmark, issue, pull-request, fork, and repository evidence."
+    },
+    {
+      "id": "agrici-ads/ads-server-side-tracking",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-server-side-tracking/SKILL.md",
+      "category": "measurement",
+      "featured": true,
+      "use_for": "server-side tracking / CAPI setup",
+      "summary": "Audit server-side paid-media measurement including server-side tag management, platform conversion APIs, event taxonomy, browser/server deduplication, consent, hashing, data..."
+    },
+    {
+      "id": "agrici-ads/ads-snapchat",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-snapchat/SKILL.md",
+      "category": "platform-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "Audit Snapchat Ads measurement, Snap Pixel and Conversions API, mobile and app campaigns, creative, AR and catalog formats, audiences, budgets, brand safety, and reporting."
+    },
+    {
+      "id": "agrici-ads/ads-test",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-test/SKILL.md",
+      "category": "testing",
+      "featured": false,
+      "use_for": "",
+      "summary": "Design and evaluate paid-ad experiments with hypotheses, randomization units, sample-size and duration assumptions, guardrails, platform experiment tools, analysis, and decision..."
+    },
+    {
+      "id": "agrici-ads/ads-tiktok",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-tiktok/SKILL.md",
+      "category": "platform-other",
+      "featured": true,
+      "use_for": "TikTok audit/plan",
+      "summary": "Audit TikTok Ads measurement, Pixel, mobile-first creative, audiences, Smart+, Shop and commerce campaigns, bidding, budgets, pacing, attribution, and policy."
+    },
+    {
+      "id": "agrici-ads/ads-validate",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-validate/SKILL.md",
+      "category": "audit-ops",
+      "featured": false,
+      "use_for": "",
+      "summary": "Validate Claude Ads contracts, scoring inputs, run bundles, capabilities, source freshness, safety, installation, uninstall, or release readiness."
+    },
+    {
+      "id": "agrici-ads/ads-x",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-x/SKILL.md",
+      "category": "platform-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "Audit X Ads measurement, X Pixel and Conversions API, campaign objectives, keyword and conversation targeting, creative, budgets, brand safety, app measurement, and reporting."
+    },
+    {
+      "id": "agrici-ads/ads-youtube",
+      "type": "skill",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/skills/ads-youtube/SKILL.md",
+      "category": "platform-other",
+      "featured": true,
+      "use_for": "YouTube / video campaigns",
+      "summary": "Audit YouTube Ads campaign setup, video inventory, Shorts, in-stream, CTV, creative, audiences, brand safety, bidding, and measurement."
+    },
+    {
+      "id": "agrici-ads/agent:audit-amazon",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/audit-amazon.md",
+      "category": "platform-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "Amazon Ads evidence and controls specialist."
+    },
+    {
+      "id": "agrici-ads/agent:audit-apple",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/audit-apple.md",
+      "category": "platform-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "Apple Ads evidence and controls specialist."
+    },
+    {
+      "id": "agrici-ads/agent:audit-budget",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/audit-budget.md",
+      "category": "strategy-planning",
+      "featured": false,
+      "use_for": "",
+      "summary": "Budget and finance specialist."
+    },
+    {
+      "id": "agrici-ads/agent:audit-creative",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/audit-creative.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "Cross-platform creative specialist."
+    },
+    {
+      "id": "agrici-ads/agent:audit-google",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/audit-google.md",
+      "category": "google",
+      "featured": false,
+      "use_for": "",
+      "summary": "Google Ads evidence and controls specialist."
+    },
+    {
+      "id": "agrici-ads/agent:audit-linkedin",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/audit-linkedin.md",
+      "category": "platform-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "LinkedIn Ads evidence and controls specialist."
+    },
+    {
+      "id": "agrici-ads/agent:audit-meta",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/audit-meta.md",
+      "category": "meta",
+      "featured": false,
+      "use_for": "",
+      "summary": "Meta Ads evidence and controls specialist."
+    },
+    {
+      "id": "agrici-ads/agent:audit-microsoft",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/audit-microsoft.md",
+      "category": "platform-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "Microsoft Advertising evidence and controls specialist."
+    },
+    {
+      "id": "agrici-ads/agent:audit-pinterest",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/audit-pinterest.md",
+      "category": "platform-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "Pinterest Ads evidence and controls specialist."
+    },
+    {
+      "id": "agrici-ads/agent:audit-policy-compliance",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/audit-policy-compliance.md",
+      "category": "compliance",
+      "featured": true,
+      "use_for": "second-opinion policy audit (subagent)",
+      "summary": "Platform policy specialist."
+    },
+    {
+      "id": "agrici-ads/agent:audit-reddit",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/audit-reddit.md",
+      "category": "platform-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "Reddit Ads evidence and controls specialist."
+    },
+    {
+      "id": "agrici-ads/agent:audit-regulatory-compliance",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/audit-regulatory-compliance.md",
+      "category": "compliance",
+      "featured": false,
+      "use_for": "",
+      "summary": "Regulatory and privacy specialist."
+    },
+    {
+      "id": "agrici-ads/agent:audit-snapchat",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/audit-snapchat.md",
+      "category": "platform-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "Snapchat Ads evidence and controls specialist."
+    },
+    {
+      "id": "agrici-ads/agent:audit-tiktok",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/audit-tiktok.md",
+      "category": "platform-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "TikTok Ads evidence and controls specialist."
+    },
+    {
+      "id": "agrici-ads/agent:audit-tracking",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/audit-tracking.md",
+      "category": "measurement",
+      "featured": false,
+      "use_for": "",
+      "summary": "Tracking and attribution specialist."
+    },
+    {
+      "id": "agrici-ads/agent:audit-x",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/audit-x.md",
+      "category": "platform-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "X Ads evidence and controls specialist."
+    },
+    {
+      "id": "agrici-ads/agent:audit-youtube",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/audit-youtube.md",
+      "category": "platform-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "YouTube Ads evidence and controls specialist."
+    },
+    {
+      "id": "agrici-ads/agent:copy-writer",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/copy-writer.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "Bounded paid-media copy worker."
+    },
+    {
+      "id": "agrici-ads/agent:creative-strategist",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/creative-strategist.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "Bounded paid-media concept worker."
+    },
+    {
+      "id": "agrici-ads/agent:format-adapter",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/format-adapter.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "Bounded creative-format verification worker."
+    },
+    {
+      "id": "agrici-ads/agent:research-worker",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/research-worker.md",
+      "category": "strategy-planning",
+      "featured": false,
+      "use_for": "",
+      "summary": "Paid-media research worker for one bounded platform, policy, API, issue, pull-request, or repository slice."
+    },
+    {
+      "id": "agrici-ads/agent:source-verifier",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/source-verifier.md",
+      "category": "compliance",
+      "featured": false,
+      "use_for": "",
+      "summary": "Adversarial source and claim verifier for paid-media facts, thresholds, policies, APIs, benchmarks, and repository evidence."
+    },
+    {
+      "id": "agrici-ads/agent:visual-designer",
+      "type": "agent",
+      "source": "agrici-ads",
+      "path": "bundles/agrici-ads/agents/visual-designer.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "Bounded provider-neutral visual candidate worker."
+    },
+    {
+      "id": "marketing-skills/ab-testing",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/ab-testing/SKILL.md",
+      "category": "testing",
+      "featured": true,
+      "use_for": "test design and sample size",
+      "summary": "When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program."
+    },
+    {
+      "id": "marketing-skills/ad-creative",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/ad-creative/SKILL.md",
+      "category": "creative",
+      "featured": true,
+      "use_for": "creative system, hooks, static/video formats",
+      "summary": "When the user wants to generate, iterate, or scale ad creative \u2014 headlines, descriptions, primary text, or full ad variations \u2014 for any paid advertising platform."
+    },
+    {
+      "id": "marketing-skills/ads",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/ads/SKILL.md",
+      "category": "paid-ads-core",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms."
+    },
+    {
+      "id": "marketing-skills/ai-seo",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/ai-seo/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers."
+    },
+    {
+      "id": "marketing-skills/analytics",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/analytics/SKILL.md",
+      "category": "measurement",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to set up, improve, or audit analytics tracking and measurement."
+    },
+    {
+      "id": "marketing-skills/aso",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/aso/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to audit or optimize an App Store or Google Play listing."
+    },
+    {
+      "id": "marketing-skills/attribution",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/attribution/SKILL.md",
+      "category": "measurement",
+      "featured": true,
+      "use_for": "attribution model choice by business type",
+      "summary": "When the user wants to figure out which marketing actually drives conversions and revenue, choose or interpret an attribution model, or reconcile conflicting numbers across tools."
+    },
+    {
+      "id": "marketing-skills/churn-prevention",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/churn-prevention/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to reduce churn, build cancellation flows, set up save offers, recover failed payments, or implement retention strategies."
+    },
+    {
+      "id": "marketing-skills/co-marketing",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/co-marketing/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership opportunities."
+    },
+    {
+      "id": "marketing-skills/cold-email",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/cold-email/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "Write and run B2B cold outbound that gets replies, from cold emails and follow-ups to sending setup, LinkedIn, multichannel cadences, and reply handling."
+    },
+    {
+      "id": "marketing-skills/community-marketing",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/community-marketing/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "Build and leverage online communities to drive product growth and brand loyalty."
+    },
+    {
+      "id": "marketing-skills/competitor-profiling",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/competitor-profiling/SKILL.md",
+      "category": "strategy-planning",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to research, profile, or analyze competitors from their URLs."
+    },
+    {
+      "id": "marketing-skills/competitors",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/competitors/SKILL.md",
+      "category": "strategy-planning",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to create competitor comparison or alternative pages for SEO and buyer-facing use."
+    },
+    {
+      "id": "marketing-skills/content-strategy",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/content-strategy/SKILL.md",
+      "category": "strategy-planning",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover."
+    },
+    {
+      "id": "marketing-skills/conversion-tracking",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/conversion-tracking/SKILL.md",
+      "category": "measurement",
+      "featured": true,
+      "use_for": "tracking audit + GTM recipes",
+      "summary": "Set up, audit, verify, or fix website conversion tracking."
+    },
+    {
+      "id": "marketing-skills/copy-editing",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/copy-editing/SKILL.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to edit, review, or improve existing marketing copy, or refresh outdated content."
+    },
+    {
+      "id": "marketing-skills/copywriting",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/copywriting/SKILL.md",
+      "category": "creative",
+      "featured": true,
+      "use_for": "landing-page and ad copy",
+      "summary": "When the user wants to write, rewrite, or improve marketing copy for any page, including homepage, landing pages, pricing pages, feature pages, about pages, or product pages."
+    },
+    {
+      "id": "marketing-skills/cro",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/cro/SKILL.md",
+      "category": "landing-cro",
+      "featured": true,
+      "use_for": "conversion-rate optimization of a page",
+      "summary": "When the user wants to optimize, improve, or increase conversions on any marketing page or form \u2014 including homepage, landing pages, pricing pages, feature pages, lead capture..."
+    },
+    {
+      "id": "marketing-skills/customer-research",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/customer-research/SKILL.md",
+      "category": "strategy-planning",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to conduct, analyze, or synthesize customer research."
+    },
+    {
+      "id": "marketing-skills/directory-submissions",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/directory-submissions/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to submit their product to startup, SaaS, AI, agent, MCP, no-code, or review directories for backlinks, domain rating, and discovery."
+    },
+    {
+      "id": "marketing-skills/emails",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/emails/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program."
+    },
+    {
+      "id": "marketing-skills/events",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/events/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to plan, run, sponsor, speak at, or get pipeline from events \u2014 webinars, conferences, trade shows, meetups, dinners, workshops, virtual summits, or user..."
+    },
+    {
+      "id": "marketing-skills/free-tools",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/free-tools/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to plan, evaluate, or build a free tool for marketing purposes \u2014 lead generation, SEO value, or brand awareness."
+    },
+    {
+      "id": "marketing-skills/image",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/image/SKILL.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to create, generate, edit, or optimize images for marketing \u2014 blog heroes, social graphics, product mockups, profile banners, listing visuals, or brand assets."
+    },
+    {
+      "id": "marketing-skills/influencer-marketing",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/influencer-marketing/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to run influencer, creator, or ambassador partnerships to promote their product \u2014 finding and vetting partners, structuring deals, briefing creators,..."
+    },
+    {
+      "id": "marketing-skills/launch",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/launch/SKILL.md",
+      "category": "strategy-planning",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to plan a product launch, feature announcement, or release strategy."
+    },
+    {
+      "id": "marketing-skills/lead-magnets",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/lead-magnets/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation."
+    },
+    {
+      "id": "marketing-skills/link-building",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/link-building/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to earn backlinks or third-party mentions that lift rankings and AI citations."
+    },
+    {
+      "id": "marketing-skills/marketing-council",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/marketing-council/SKILL.md",
+      "category": "strategy-planning",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants multiple expert perspectives on a marketing question \u2014 a simulated board of advisors staffed by legendary marketers (Seth Godin, David Ogilvy, Eugene Schwartz,..."
+    },
+    {
+      "id": "marketing-skills/marketing-ideas",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/marketing-ideas/SKILL.md",
+      "category": "strategy-planning",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product."
+    },
+    {
+      "id": "marketing-skills/marketing-loops",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/marketing-loops/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to set up a recurring, self-running marketing workflow \u2014 a repeatable loop an AI agent runs on a cadence (weekly, daily, on a trigger) rather than a one-off..."
+    },
+    {
+      "id": "marketing-skills/marketing-plan",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/marketing-plan/SKILL.md",
+      "category": "strategy-planning",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user needs a comprehensive marketing plan for a client, a company they advise, or their own product."
+    },
+    {
+      "id": "marketing-skills/marketing-psychology",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/marketing-psychology/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to apply psychological principles, mental models, or behavioral science to marketing."
+    },
+    {
+      "id": "marketing-skills/offers",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/offers/SKILL.md",
+      "category": "strategy-planning",
+      "featured": true,
+      "use_for": "designing a stronger offer",
+      "summary": "When the user wants to design, construct, or improve an offer \u2014 the thing they actually sell \u2014 including value framing, bonus stacking, guarantee design, scarcity/urgency, naming,..."
+    },
+    {
+      "id": "marketing-skills/onboarding",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/onboarding/SKILL.md",
+      "category": "landing-cro",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value."
+    },
+    {
+      "id": "marketing-skills/paywalls",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/paywalls/SKILL.md",
+      "category": "landing-cro",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates."
+    },
+    {
+      "id": "marketing-skills/popups",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/popups/SKILL.md",
+      "category": "landing-cro",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conversion purposes."
+    },
+    {
+      "id": "marketing-skills/pricing",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/pricing/SKILL.md",
+      "category": "strategy-planning",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants help with pricing decisions, packaging, or monetization strategy."
+    },
+    {
+      "id": "marketing-skills/product-marketing",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/product-marketing/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to create or update their product marketing context document."
+    },
+    {
+      "id": "marketing-skills/programmatic-seo",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/programmatic-seo/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to create SEO-driven pages at scale using templates and data."
+    },
+    {
+      "id": "marketing-skills/prospecting",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/prospecting/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to find, qualify, and build a list of prospects to reach out to, across B2B SaaS, general B2B, or local small businesses."
+    },
+    {
+      "id": "marketing-skills/public-relations",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/public-relations/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants help with public relations, earned media, press coverage, journalist outreach, or media strategy (not pull requests)."
+    },
+    {
+      "id": "marketing-skills/referrals",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/referrals/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy."
+    },
+    {
+      "id": "marketing-skills/revops",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/revops/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales handoff processes."
+    },
+    {
+      "id": "marketing-skills/sales-enablement",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/sales-enablement/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts."
+    },
+    {
+      "id": "marketing-skills/schema",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/schema/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to add, fix, or optimize schema markup and structured data on their site."
+    },
+    {
+      "id": "marketing-skills/seo-audit",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/seo-audit/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to audit, review, or diagnose SEO issues on their site."
+    },
+    {
+      "id": "marketing-skills/signup",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/signup/SKILL.md",
+      "category": "landing-cro",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to optimize signup, registration, account creation, or trial activation flows."
+    },
+    {
+      "id": "marketing-skills/site-architecture",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/site-architecture/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to plan, map, or restructure their website's page hierarchy, navigation, URL structure, or internal linking."
+    },
+    {
+      "id": "marketing-skills/sms",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/sms/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to plan, build, or optimize SMS, MMS, or WhatsApp marketing \u2014 including welcome flows, abandoned cart texts, post-purchase, win-back, promotional sends, or..."
+    },
+    {
+      "id": "marketing-skills/social",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/social/SKILL.md",
+      "category": "marketing-other",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, or Facebook, or wants to do social listening and..."
+    },
+    {
+      "id": "marketing-skills/video",
+      "type": "skill",
+      "source": "marketing-skills",
+      "path": "bundles/marketing-skills/skills/video/SKILL.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "When the user wants to create, generate, or produce video content using AI tools or programmatic frameworks."
+    },
+    {
+      "id": "meta-ads-genius/ad-analysis",
+      "type": "skill",
+      "source": "meta-ads-genius",
+      "path": "bundles/meta-ads-genius/skills/ad-analysis/SKILL.md",
+      "category": "meta",
+      "featured": false,
+      "use_for": "",
+      "summary": "Expert diagnosis of Meta Ads performance \u2014 interpret Ads Manager/API data, find root causes, and produce evidence-cited reports that respect Meta's delivery mechanics (breakdown..."
+    },
+    {
+      "id": "meta-ads-genius/ad-optimization",
+      "type": "skill",
+      "source": "meta-ads-genius",
+      "path": "bundles/meta-ads-genius/skills/ad-optimization/SKILL.md",
+      "category": "meta",
+      "featured": true,
+      "use_for": "kill / swap / scale decision tree",
+      "summary": "Turn Meta Ads findings into specific, safe, approved changes \u2014 kill/scale/iterate decisions, budget shifts, creative swaps, fatigue fixes, learning-phase-aware scheduling of edits."
+    },
+    {
+      "id": "meta-ads-genius/campaign-management",
+      "type": "skill",
+      "source": "meta-ads-genius",
+      "path": "bundles/meta-ads-genius/skills/campaign-management/SKILL.md",
+      "category": "meta",
+      "featured": false,
+      "use_for": "",
+      "summary": "Plan, structure, and launch Meta Ads campaigns \u2014 account architecture (CBO/ABO, testing vs scaling), audience strategy and lookalikes, conversion tracking setup..."
+    },
+    {
+      "id": "meta-ads-genius/opportunity-spotting",
+      "type": "skill",
+      "source": "meta-ads-genius",
+      "path": "bundles/meta-ads-genius/skills/opportunity-spotting/SKILL.md",
+      "category": "meta",
+      "featured": true,
+      "use_for": "finding Meta growth opportunities",
+      "summary": "Find growth opportunities in and around a Meta Ads account \u2014 underexploited audiences and angles in account data, competitor gaps via Meta Ad Library research, seasonal/auction..."
+    },
+    {
+      "id": "meta-ads-genius/pulse",
+      "type": "skill",
+      "source": "meta-ads-genius",
+      "path": "bundles/meta-ads-genius/skills/pulse/SKILL.md",
+      "category": "meta",
+      "featured": true,
+      "use_for": "5-minute Meta health scorecard",
+      "summary": "Quick Meta Ads account health check \u2014 last 7 days vs."
+    },
+    {
+      "id": "meta-ads-genius/agent:meta-ads-auditor",
+      "type": "agent",
+      "source": "meta-ads-genius",
+      "path": "bundles/meta-ads-genius/agents/meta-ads-auditor.md",
+      "category": "meta",
+      "featured": false,
+      "use_for": "",
+      "summary": "Read-only deep audit of a Meta Ads account."
+    },
+    {
+      "id": "meta-ads-analyzer/meta-ads-analyzer",
+      "type": "skill",
+      "source": "meta-ads-analyzer",
+      "path": "community/vendor/meta-ads-analyzer/SKILL.md",
+      "category": "meta",
+      "featured": true,
+      "use_for": "Meta diagnosis from exports",
+      "summary": "Provides expert-level analysis and diagnosis for Meta Ads campaigns."
+    },
+    {
+      "id": "ad-creative-skills/ad-to-landing-page-match-ad-creative",
+      "type": "skill",
+      "source": "ad-creative-skills",
+      "path": "community/vendor/ad-creative-skills/ad-to-landing-page-match-ad-creative/SKILL.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "Compares one ad against the page it clicks through to and reports whether the promise, the offer and the call to action are all delivered where the arriving reader can see them..."
+    },
+    {
+      "id": "ad-creative-skills/angle-inventory-ad-creative",
+      "type": "skill",
+      "source": "ad-creative-skills",
+      "path": "community/vendor/ad-creative-skills/angle-inventory-ad-creative/SKILL.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "Inventories the distinct arguments an account has genuinely put in front of buyers, collapses the ones that are the same argument in different clothes, and names the untested..."
+    },
+    {
+      "id": "ad-creative-skills/asset-coverage-check-ad-creative",
+      "type": "skill",
+      "source": "ad-creative-skills",
+      "path": "community/vendor/ad-creative-skills/asset-coverage-check-ad-creative/SKILL.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "Counts what is actually live in an ad set, distinct angles, formats and aspect ratios, and reports whether the account has enough variety to learn anything from a week of spend."
+    },
+    {
+      "id": "ad-creative-skills/claim-safety-review-ad-creative",
+      "type": "skill",
+      "source": "ad-creative-skills",
+      "path": "community/vendor/ad-creative-skills/claim-safety-review-ad-creative/SKILL.md",
+      "category": "compliance",
+      "featured": false,
+      "use_for": "",
+      "summary": "Reads finished ad copy before launch and flags unsourced numbers, unqualified superlatives and restricted-category wording, line by line."
+    },
+    {
+      "id": "ad-creative-skills/creative-brief-from-account-data-ad-creative",
+      "type": "skill",
+      "source": "ad-creative-skills",
+      "path": "community/vendor/ad-creative-skills/creative-brief-from-account-data-ad-creative/SKILL.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "Turns a pasted ad-level performance export into the brief for the next production round, so the next batch is derived from what the account already ran rather than from a..."
+    },
+    {
+      "id": "ad-creative-skills/creative-fatigue-read-ad-creative",
+      "type": "skill",
+      "source": "ad-creative-skills",
+      "path": "community/vendor/ad-creative-skills/creative-fatigue-read-ad-creative/SKILL.md",
+      "category": "creative",
+      "featured": true,
+      "use_for": "is this ad really fatigued?",
+      "summary": "Decides whether one long-running creative is genuinely tired, or whether the audience got small or the auction got expensive underneath it."
+    },
+    {
+      "id": "ad-creative-skills/creative-test-readout-ad-creative",
+      "type": "skill",
+      "source": "ad-creative-skills",
+      "path": "community/vendor/ad-creative-skills/creative-test-readout-ad-creative/SKILL.md",
+      "category": "creative",
+      "featured": true,
+      "use_for": "reading a creative test",
+      "summary": "Reads a finished creative test across two or more variants and says whether one genuinely won or the result is a tie that should be reported as a tie."
+    },
+    {
+      "id": "ad-creative-skills/early-signal-cut-ad-creative",
+      "type": "skill",
+      "source": "ad-creative-skills",
+      "path": "community/vendor/ad-creative-skills/early-signal-cut-ad-creative/SKILL.md",
+      "category": "creative",
+      "featured": true,
+      "use_for": "cut early or keep spending",
+      "summary": "Decides which newly launched creatives to cut in their first days on leading indicators, and states the error rate it accepts for doing so."
+    },
+    {
+      "id": "ad-creative-skills/funnel-stage-variants-ad-creative",
+      "type": "skill",
+      "source": "ad-creative-skills",
+      "path": "community/vendor/ad-creative-skills/funnel-stage-variants-ad-creative/SKILL.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "Takes one angle that is already proven and rewrites it three ways, for cold prospecting, warm audiences and retargeting, naming what changes between stages and what must stay..."
+    },
+    {
+      "id": "ad-creative-skills/losing-ad-diagnosis-ad-creative",
+      "type": "skill",
+      "source": "ad-creative-skills",
+      "path": "community/vendor/ad-creative-skills/losing-ad-diagnosis-ad-creative/SKILL.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "Takes one underperforming ad and locates the stage where it loses people, so a hook problem, an offer problem and a targeting or delivery problem are told apart instead of guessed..."
+    },
+    {
+      "id": "ad-creative-skills/offer-and-proof-line-ad-creative",
+      "type": "skill",
+      "source": "ad-creative-skills",
+      "path": "community/vendor/ad-creative-skills/offer-and-proof-line-ad-creative/SKILL.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "Converts a vague benefit into a stated offer, the single proof that carries it, and a risk reducer, and refuses to supply proof the advertiser has not evidenced."
+    },
+    {
+      "id": "ad-creative-skills/paid-social-primary-text-ad-creative",
+      "type": "skill",
+      "source": "ad-creative-skills",
+      "path": "community/vendor/ad-creative-skills/paid-social-primary-text-ad-creative/SKILL.md",
+      "category": "creative",
+      "featured": true,
+      "use_for": "Meta primary text",
+      "summary": "Writes Meta and LinkedIn primary text, headline and link description variants for one stated angle, built around the point where the feed reader stops reading."
+    },
+    {
+      "id": "ad-creative-skills/search-headline-set-ad-creative",
+      "type": "skill",
+      "source": "ad-creative-skills",
+      "path": "community/vendor/ad-creative-skills/search-headline-set-ad-creative/SKILL.md",
+      "category": "google",
+      "featured": true,
+      "use_for": "Google RSA headline sets",
+      "summary": "Builds a full Responsive Search Ad asset set for one Google Ads ad group, decides pinning, and names which headlines are duplicates wearing different words."
+    },
+    {
+      "id": "ad-creative-skills/video-hook-lines-ad-creative",
+      "type": "skill",
+      "source": "ad-creative-skills",
+      "path": "community/vendor/ad-creative-skills/video-hook-lines-ad-creative/SKILL.md",
+      "category": "creative",
+      "featured": true,
+      "use_for": "video hook lines",
+      "summary": "Writes and ranks the opening of a video ad as three synchronised parts, spoken line, on-screen line and opening shot, for one angle at one audience temperature."
+    },
+    {
+      "id": "ad-creative-skills/weekly-creative-readout-ad-creative",
+      "type": "skill",
+      "source": "ad-creative-skills",
+      "path": "community/vendor/ad-creative-skills/weekly-creative-readout-ad-creative/SKILL.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "Assembles the Monday creative readout from the other skills' outputs and states what to ship, what to cut and what to test this week, in language a client will read without a..."
+    },
+    {
+      "id": "ad-creative-skills/winning-ad-teardown-ad-creative",
+      "type": "skill",
+      "source": "ad-creative-skills",
+      "path": "community/vendor/ad-creative-skills/winning-ad-teardown-ad-creative/SKILL.md",
+      "category": "creative",
+      "featured": false,
+      "use_for": "",
+      "summary": "Takes one named ad, your own top performer or a competitor ad pulled from a public ad library, and reverse-engineers it into a reusable pattern of angle, promise, proof and..."
+    },
+    {
+      "id": "google-ads-skills/google-ads-analysis",
+      "type": "skill",
+      "source": "google-ads-skills",
+      "path": "community/vendor/google-ads-skills/google-ads-analysis/SKILL.md",
+      "category": "google",
+      "featured": false,
+      "use_for": "",
+      "summary": "> Google Ads campaign performance analysis using GAQL (Google Ads Query Language)."
+    },
+    {
+      "id": "google-ads-skills/google-ads-audit",
+      "type": "skill",
+      "source": "google-ads-skills",
+      "path": "community/vendor/google-ads-skills/google-ads-audit/SKILL.md",
+      "category": "google",
+      "featured": false,
+      "use_for": "",
+      "summary": "> Structured Google Ads account audit across 7 dimensions."
+    },
+    {
+      "id": "google-ads-skills/google-ads-math",
+      "type": "skill",
+      "source": "google-ads-skills",
+      "path": "community/vendor/google-ads-skills/google-ads-math/SKILL.md",
+      "category": "google",
+      "featured": true,
+      "use_for": "Google Ads math",
+      "summary": "> Google Ads math and forecasting calculations."
+    },
+    {
+      "id": "goose-compliance/ad-policy-check",
+      "type": "skill",
+      "source": "goose-compliance",
+      "path": "community/vendor/goose-compliance/ad-policy-check/SKILL.md",
+      "category": "compliance",
+      "featured": true,
+      "use_for": "ad policy pre-flight",
+      "summary": ">- Checks paid ads against the ad platform's rules (Meta, TikTok, Google, LinkedIn and others) and the brand's category rules: the copy, on-image or on-screen text, pictures and..."
+    },
+    {
+      "id": "goose-compliance/claims-gate",
+      "type": "skill",
+      "source": "goose-compliance",
+      "path": "community/vendor/goose-compliance/claims-gate/SKILL.md",
+      "category": "compliance",
+      "featured": true,
+      "use_for": "substantiate every claim before launch",
+      "summary": ">- Checks every claim in a piece of copy (ads, emails, posts, pages, scripts, briefs) against the claims the brand has approved."
+    },
+    {
+      "id": "meta-ads-compliance/meta-ads-compliance",
+      "type": "skill",
+      "source": "meta-ads-compliance",
+      "path": "community/vendor/meta-ads-compliance/SKILL.md",
+      "category": "meta",
+      "featured": true,
+      "use_for": "Meta API write discipline",
+      "summary": "> Regras de compliance e preven\u00e7\u00e3o de ban para operar Meta Ads via AI."
+    }
+  ]
+}

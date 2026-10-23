@@ -163,14 +163,6 @@ class CommunityVendoring(unittest.TestCase):
             with open(p, encoding="utf-8", errors="ignore") as fh:
                 self.assertIsNone(HIDDEN_UNICODE.search(fh.read()), p)
 
-    def test_umbrella_index_paths_exist(self):
-        with open(os.path.join(ROOT, "skills", "ads-community", "SKILL.md"), encoding="utf-8") as fh:
-            text = fh.read()
-        refs = [r for r in re.findall(r"`((?:community/vendor|bundles)/[^`{*]+?)`", text) if "..." not in r]
-        self.assertGreater(len(refs), 20)
-        for ref in refs:
-            self.assertTrue(os.path.exists(os.path.join(ROOT, *ref.rstrip("/").split("/"))), ref)
-
 
 class BundledCompanions(unittest.TestCase):
     def setUp(self):
@@ -196,12 +188,13 @@ class BundledCompanions(unittest.TestCase):
                 for sk in skills:
                     self.assertTrue(os.path.isdir(os.path.join(d, sk)), f"{name}: {sk}")
 
-    def test_companions_are_dependencies_of_ads(self):
-        self.assertEqual(sorted(self.plugin["dependencies"]), sorted(self.bundles))
+    def test_companions_not_preloaded_by_default(self):
+        # on-demand routing: installing ads must not register ~17k tokens of companion skills
+        self.assertFalse(self.plugin.get("dependencies"))
 
     def test_optional_hosted_plugins_are_never_dependencies(self):
         for o in self.manifest.get("optional_plugins", []):
-            self.assertNotIn(o["name"], self.plugin["dependencies"])
+            self.assertNotIn(o["name"], self.plugin.get("dependencies", []))
 
     def test_claude_marketplace_serves_bundles_from_this_repo(self):
         entries = {p["name"]: p for p in self.market["plugins"]}
@@ -228,9 +221,69 @@ class BundledCompanions(unittest.TestCase):
         claude = [" ".join(c) for c in mod.claude_cmds("owner/repo", "user", False)]
         self.assertIn("claude plugin install ads@claude-meta-ads-god-mode --scope user", claude)
         self.assertFalse(any("adplane" in c for c in claude))
+        self.assertFalse(any(name in c for c in claude for name in self.bundles))
+        native = [" ".join(c) for c in mod.claude_cmds("owner/repo", "user", False, native=True)]
+        for name in self.bundles:
+            self.assertIn(f"claude plugin install {name}@claude-meta-ads-god-mode --scope user", native)
         codex = [" ".join(c) for c in mod.codex_cmds("owner/repo")]
+        self.assertEqual([c for c in codex if " add " in c and "marketplace" not in c],
+                         ["codex plugin add ads@claude-meta-ads-god-mode"])
+        codex_native = [" ".join(c) for c in mod.codex_cmds("owner/repo", native=True)]
         for name in ["ads", *self.bundles]:
-            self.assertIn(f"codex plugin add {name}@claude-meta-ads-god-mode", codex)
+            self.assertIn(f"codex plugin add {name}@claude-meta-ads-god-mode", codex_native)
+
+
+def expand_braces(path):
+    m = __import__("re").search(r"\{([^}]*)\}", path)
+    if not m:
+        return [path]
+    out = []
+    for part in m.group(1).split(","):
+        out += expand_braces(path[:m.start()] + part + path[m.end():])
+    return out
+
+
+class OnDemandRouter(unittest.TestCase):
+    def setUp(self):
+        self.catalog = load_json("community", "catalog.json")["entries"]
+        with open(os.path.join(ROOT, "skills", "ads-community", "SKILL.md"), encoding="utf-8") as fh:
+            self.router = fh.read()
+
+    def test_catalog_is_fresh(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("build_catalog", os.path.join(ROOT, "scripts", "build_catalog.py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        items = mod.entries()
+        self.assertEqual(len(items), len(self.catalog), "run python scripts/build_catalog.py")
+        with open(mod.CATALOG_MD, encoding="utf-8") as fh:
+            self.assertEqual(fh.read(), mod.render_md(items) + "\n", "run python scripts/build_catalog.py")
+
+    def test_catalog_paths_exist_and_cover_every_bundled_skill(self):
+        paths = {e["path"] for e in self.catalog}
+        for p in paths:
+            self.assertTrue(os.path.exists(os.path.join(ROOT, p)), p)
+        for base in ("bundles", os.path.join("community", "vendor")):
+            for dirpath, _, files in os.walk(os.path.join(ROOT, base)):
+                if "SKILL.md" in files:
+                    rel = os.path.relpath(os.path.join(dirpath, "SKILL.md"), ROOT).replace(os.sep, "/")
+                    if rel.endswith("ads-setup/SKILL.md"):
+                        continue  # upstream installer skill, intentionally excluded
+                    self.assertIn(rel, paths)
+
+    def test_featured_picks_exist(self):
+        featured = [e for e in self.catalog if e["featured"]]
+        self.assertGreaterEqual(len(featured), 20)
+
+    def test_router_paths_resolve(self):
+        refs = __import__("re").findall(r"`((?:community/vendor|bundles)/[^`]+?\.md)`", self.router)
+        self.assertGreater(len(refs), 15)
+        for ref in refs:
+            for p in expand_braces(ref):
+                self.assertTrue(os.path.exists(os.path.join(ROOT, *p.split("/"))), p)
+
+    def test_router_is_lean(self):
+        self.assertLess(len(self.router.splitlines()), 120)
 
 
 if __name__ == "__main__":
