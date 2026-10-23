@@ -1,6 +1,24 @@
 # Third-party software and licenses
 
-No third-party code is vendored in this repository. The components below are **installed separately by the user** and run as their own processes or services. This repository is MIT-licensed; using these components alongside it does not change their licenses.
+## Vendored community skills (text only)
+
+`community/vendor/` contains Markdown/JSON skill files copied verbatim (line endings normalized) from the MIT and Apache-2.0 projects below, each with its original `LICENSE` and a `SOURCE.json` pinning the commit. Copyright remains with their authors. Details: [community/README.md](community/README.md).
+
+| Project | License |
+|---|---|
+| [mathiaschu/meta-ads-analyzer](https://github.com/mathiaschu/meta-ads-analyzer) | MIT |
+| [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | MIT |
+| [AgriciDaniel/claude-ads](https://github.com/AgriciDaniel/claude-ads) | MIT |
+| [mardab96/ad-creative-claude-skills](https://github.com/mardab96/ad-creative-claude-skills) | MIT |
+| [itallstartedwithaidea/google-ads-skills](https://github.com/itallstartedwithaidea/google-ads-skills) | Apache-2.0 (no NOTICE file upstream) |
+| [gooseworks-ai/goose-skills](https://github.com/gooseworks-ai/goose-skills) | MIT |
+| [thaleslaray/meta-ads-claude-starter](https://github.com/thaleslaray/meta-ads-claude-starter) | MIT |
+
+Companion plugins listed in `.claude-plugin/marketplace.json` (AgriciDaniel/claude-ads, coreyhaines31/marketingskills, aaronpdoherty/meta-ads-genius, adplane/claude-plugin) are installed from their own repositories, not redistributed here.
+
+## Runtime components
+
+None of these is vendored. The components below are **installed separately by the user** and run as their own processes or services. This repository is MIT-licensed; using these components alongside it does not change their licenses.
 
 | Component | Role here | License | Notes |
 |---|---|---|---|

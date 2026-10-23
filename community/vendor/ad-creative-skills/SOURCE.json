@@ -1,0 +1,81 @@
+{
+  "id": "ad-creative-skills",
+  "repo": "mardab96/ad-creative-claude-skills",
+  "sha": "80b5e5da28fe6223c84869f65d81a71ff7f07ce2",
+  "license": "MIT",
+  "url": "https://github.com/mardab96/ad-creative-claude-skills/tree/80b5e5da28fe6223c84869f65d81a71ff7f07ce2",
+  "files": [
+    {
+      "upstream": "ad-to-landing-page-match-ad-creative/SKILL.md",
+      "local": "ad-to-landing-page-match-ad-creative/SKILL.md"
+    },
+    {
+      "upstream": "angle-inventory-ad-creative/SKILL.md",
+      "local": "angle-inventory-ad-creative/SKILL.md"
+    },
+    {
+      "upstream": "asset-coverage-check-ad-creative/SKILL.md",
+      "local": "asset-coverage-check-ad-creative/SKILL.md"
+    },
+    {
+      "upstream": "claim-safety-review-ad-creative/SKILL.md",
+      "local": "claim-safety-review-ad-creative/SKILL.md"
+    },
+    {
+      "upstream": "creative-brief-from-account-data-ad-creative/SKILL.md",
+      "local": "creative-brief-from-account-data-ad-creative/SKILL.md"
+    },
+    {
+      "upstream": "creative-fatigue-read-ad-creative/SKILL.md",
+      "local": "creative-fatigue-read-ad-creative/SKILL.md"
+    },
+    {
+      "upstream": "creative-test-readout-ad-creative/SKILL.md",
+      "local": "creative-test-readout-ad-creative/SKILL.md"
+    },
+    {
+      "upstream": "early-signal-cut-ad-creative/SKILL.md",
+      "local": "early-signal-cut-ad-creative/SKILL.md"
+    },
+    {
+      "upstream": "funnel-stage-variants-ad-creative/SKILL.md",
+      "local": "funnel-stage-variants-ad-creative/SKILL.md"
+    },
+    {
+      "upstream": "losing-ad-diagnosis-ad-creative/SKILL.md",
+      "local": "losing-ad-diagnosis-ad-creative/SKILL.md"
+    },
+    {
+      "upstream": "offer-and-proof-line-ad-creative/SKILL.md",
+      "local": "offer-and-proof-line-ad-creative/SKILL.md"
+    },
+    {
+      "upstream": "paid-social-primary-text-ad-creative/SKILL.md",
+      "local": "paid-social-primary-text-ad-creative/SKILL.md"
+    },
+    {
+      "upstream": "references/output-standard.md",
+      "local": "references/output-standard.md"
+    },
+    {
+      "upstream": "references/thresholds.md",
+      "local": "references/thresholds.md"
+    },
+    {
+      "upstream": "search-headline-set-ad-creative/SKILL.md",
+      "local": "search-headline-set-ad-creative/SKILL.md"
+    },
+    {
+      "upstream": "video-hook-lines-ad-creative/SKILL.md",
+      "local": "video-hook-lines-ad-creative/SKILL.md"
+    },
+    {
+      "upstream": "weekly-creative-readout-ad-creative/SKILL.md",
+      "local": "weekly-creative-readout-ad-creative/SKILL.md"
+    },
+    {
+      "upstream": "winning-ad-teardown-ad-creative/SKILL.md",
+      "local": "winning-ad-teardown-ad-creative/SKILL.md"
+    }
+  ]
+}

@@ -47,4 +47,4 @@ Legend: R read, W write, ✓ yes, ✗ no, ~ partial, ? not documented.
 
 ## Licenses of dependencies
 
-See [THIRD_PARTY.md](../THIRD_PARTY.md). Nothing third-party is vendored in this repository; connectors are installed by the user.
+See [THIRD_PARTY.md](../THIRD_PARTY.md). Connectors are installed by the user, not vendored. Community skill text vendored under `community/vendor/` is listed there with licenses.

@@ -1,0 +1,49 @@
+{
+  "id": "meta-ads-analyzer",
+  "repo": "mathiaschu/meta-ads-analyzer",
+  "sha": "9088472ddacdb89f3c5943c3db6be7b8ee25c922",
+  "license": "MIT",
+  "url": "https://github.com/mathiaschu/meta-ads-analyzer/tree/9088472ddacdb89f3c5943c3db6be7b8ee25c922",
+  "files": [
+    {
+      "upstream": "skill/SKILL.md",
+      "local": "SKILL.md"
+    },
+    {
+      "upstream": "skill/references/ad_auctions.md",
+      "local": "references/ad_auctions.md"
+    },
+    {
+      "upstream": "skill/references/ad_relevance_diagnostics.md",
+      "local": "references/ad_relevance_diagnostics.md"
+    },
+    {
+      "upstream": "skill/references/auction_overlap.md",
+      "local": "references/auction_overlap.md"
+    },
+    {
+      "upstream": "skill/references/bid_strategies.md",
+      "local": "references/bid_strategies.md"
+    },
+    {
+      "upstream": "skill/references/breakdown_effect.md",
+      "local": "references/breakdown_effect.md"
+    },
+    {
+      "upstream": "skill/references/core_concepts.md",
+      "local": "references/core_concepts.md"
+    },
+    {
+      "upstream": "skill/references/learning_phase.md",
+      "local": "references/learning_phase.md"
+    },
+    {
+      "upstream": "skill/references/pacing.md",
+      "local": "references/pacing.md"
+    },
+    {
+      "upstream": "skill/references/performance_fluctuations.md",
+      "local": "references/performance_fluctuations.md"
+    }
+  ]
+}

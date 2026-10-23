@@ -1,0 +1,33 @@
+{
+  "id": "goose-compliance",
+  "repo": "gooseworks-ai/goose-skills",
+  "sha": "6d5d5f160c623613d7eb682b6a467beb165cc2a4",
+  "license": "MIT",
+  "url": "https://github.com/gooseworks-ai/goose-skills/tree/6d5d5f160c623613d7eb682b6a467beb165cc2a4",
+  "files": [
+    {
+      "upstream": "marketing-agent/skills/ad-policy-check/SKILL.md",
+      "local": "ad-policy-check/SKILL.md"
+    },
+    {
+      "upstream": "marketing-agent/skills/ad-policy-check/disclosure.md",
+      "local": "ad-policy-check/disclosure.md"
+    },
+    {
+      "upstream": "marketing-agent/skills/claims-gate/SKILL.md",
+      "local": "claims-gate/SKILL.md"
+    },
+    {
+      "upstream": "marketing-agent/skills/claims-gate/claim-types.md",
+      "local": "claims-gate/claim-types.md"
+    },
+    {
+      "upstream": "marketing-agent/skills/claims-gate/local-claims.md",
+      "local": "claims-gate/local-claims.md"
+    },
+    {
+      "upstream": "marketing-agent/skills/claims-gate/record-skeleton.md",
+      "local": "claims-gate/record-skeleton.md"
+    }
+  ]
+}

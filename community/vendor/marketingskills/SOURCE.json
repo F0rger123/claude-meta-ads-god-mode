@@ -1,0 +1,333 @@
+{
+  "id": "marketingskills",
+  "repo": "coreyhaines31/marketingskills",
+  "sha": "e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b",
+  "license": "MIT",
+  "url": "https://github.com/coreyhaines31/marketingskills/tree/e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b",
+  "files": [
+    {
+      "upstream": "skills/ab-testing/SKILL.md",
+      "local": "ab-testing/SKILL.md"
+    },
+    {
+      "upstream": "skills/ab-testing/references/sample-size-guide.md",
+      "local": "ab-testing/references/sample-size-guide.md"
+    },
+    {
+      "upstream": "skills/ab-testing/references/test-templates.md",
+      "local": "ab-testing/references/test-templates.md"
+    },
+    {
+      "upstream": "skills/ad-creative/SKILL.md",
+      "local": "ad-creative/SKILL.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/awareness-headlines.md",
+      "local": "ad-creative/references/awareness-headlines.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/creative-review-page.md",
+      "local": "ad-creative/references/creative-review-page.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/creative-roadmap.md",
+      "local": "ad-creative/references/creative-roadmap.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/generative-tools.md",
+      "local": "ad-creative/references/generative-tools.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/hook-system.md",
+      "local": "ad-creative/references/hook-system.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/imessage-video-ads.md",
+      "local": "ad-creative/references/imessage-video-ads.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/meta-creative-formats.md",
+      "local": "ad-creative/references/meta-creative-formats.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/motion-video-ads.md",
+      "local": "ad-creative/references/motion-video-ads.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/platform-specs.md",
+      "local": "ad-creative/references/platform-specs.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/short-form-video-specs.md",
+      "local": "ad-creative/references/short-form-video-specs.md"
+    },
+    {
+      "upstream": "skills/ad-creative/references/static-ad-templates.md",
+      "local": "ad-creative/references/static-ad-templates.md"
+    },
+    {
+      "upstream": "skills/ads/SKILL.md",
+      "local": "ads/SKILL.md"
+    },
+    {
+      "upstream": "skills/ads/references/abm-playbook.md",
+      "local": "ads/references/abm-playbook.md"
+    },
+    {
+      "upstream": "skills/ads/references/ad-copy-templates.md",
+      "local": "ads/references/ad-copy-templates.md"
+    },
+    {
+      "upstream": "skills/ads/references/audience-targeting.md",
+      "local": "ads/references/audience-targeting.md"
+    },
+    {
+      "upstream": "skills/ads/references/audit-guardrails.md",
+      "local": "ads/references/audit-guardrails.md"
+    },
+    {
+      "upstream": "skills/ads/references/b2b-paid-playbook.md",
+      "local": "ads/references/b2b-paid-playbook.md"
+    },
+    {
+      "upstream": "skills/ads/references/creative-research-automation.md",
+      "local": "ads/references/creative-research-automation.md"
+    },
+    {
+      "upstream": "skills/ads/references/google-ads-audit-checklist.md",
+      "local": "ads/references/google-ads-audit-checklist.md"
+    },
+    {
+      "upstream": "skills/ads/references/google-search-playbook.md",
+      "local": "ads/references/google-search-playbook.md"
+    },
+    {
+      "upstream": "skills/ads/references/linkedin-b2b-playbook.md",
+      "local": "ads/references/linkedin-b2b-playbook.md"
+    },
+    {
+      "upstream": "skills/ads/references/meta-andromeda-playbook.md",
+      "local": "ads/references/meta-andromeda-playbook.md"
+    },
+    {
+      "upstream": "skills/ads/references/meta-decision-system.md",
+      "local": "ads/references/meta-decision-system.md"
+    },
+    {
+      "upstream": "skills/ads/references/operating-check.md",
+      "local": "ads/references/operating-check.md"
+    },
+    {
+      "upstream": "skills/ads/references/payback-period.md",
+      "local": "ads/references/payback-period.md"
+    },
+    {
+      "upstream": "skills/ads/references/platform-setup-checklists.md",
+      "local": "ads/references/platform-setup-checklists.md"
+    },
+    {
+      "upstream": "skills/ads/references/reading-google-ads-data.md",
+      "local": "ads/references/reading-google-ads-data.md"
+    },
+    {
+      "upstream": "skills/ads/references/rsa-output-spec.md",
+      "local": "ads/references/rsa-output-spec.md"
+    },
+    {
+      "upstream": "skills/attribution/SKILL.md",
+      "local": "attribution/SKILL.md"
+    },
+    {
+      "upstream": "skills/attribution/references/attribution-models.md",
+      "local": "attribution/references/attribution-models.md"
+    },
+    {
+      "upstream": "skills/attribution/references/by-business-type.md",
+      "local": "attribution/references/by-business-type.md"
+    },
+    {
+      "upstream": "skills/attribution/references/first-party-tracking.md",
+      "local": "attribution/references/first-party-tracking.md"
+    },
+    {
+      "upstream": "skills/attribution/references/measurement-paradigms.md",
+      "local": "attribution/references/measurement-paradigms.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/SKILL.md",
+      "local": "conversion-tracking/SKILL.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/README.md",
+      "local": "conversion-tracking/assets/gtm-recipes/README.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-acuity-scheduling.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-acuity-scheduling.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-cal-com.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-cal-com.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-calendly.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-calendly.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-contact-form-7.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-contact-form-7.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-divi-forms.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-divi-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-elementor-forms.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-elementor-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-file-download.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-file-download.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-fluent-forms.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-fluent-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-formidable-forms.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-formidable-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-forminator.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-forminator.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-framer-forms.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-framer-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-generic-ajax-form.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-generic-ajax-form.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-gravity-forms.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-gravity-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-hubspot-forms.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-hubspot-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-jotform.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-jotform.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-ninja-forms.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-ninja-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-phone-click.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-phone-click.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-squarespace-forms.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-squarespace-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-tally.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-tally.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-thank-you-page.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-thank-you-page.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-typeform.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-typeform.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-webflow-forms.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-webflow-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-wix-forms.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-wix-forms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-wix-scheduling.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-wix-scheduling.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-wpforms.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-wpforms.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/detect/detect-ws-form.json",
+      "local": "conversion-tracking/assets/gtm-recipes/detect/detect-ws-form.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/event-map.json",
+      "local": "conversion-tracking/assets/gtm-recipes/event-map.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/send/ga4.json",
+      "local": "conversion-tracking/assets/gtm-recipes/send/ga4.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/send/google-ads.json",
+      "local": "conversion-tracking/assets/gtm-recipes/send/google-ads.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/send/linkedin.json",
+      "local": "conversion-tracking/assets/gtm-recipes/send/linkedin.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/send/meta.json",
+      "local": "conversion-tracking/assets/gtm-recipes/send/meta.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/send/microsoft.json",
+      "local": "conversion-tracking/assets/gtm-recipes/send/microsoft.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/assets/gtm-recipes/send/tiktok.json",
+      "local": "conversion-tracking/assets/gtm-recipes/send/tiktok.json"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/audit-playbook.md",
+      "local": "conversion-tracking/references/audit-playbook.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/browser-side.md",
+      "local": "conversion-tracking/references/browser-side.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/conversion-moments.md",
+      "local": "conversion-tracking/references/conversion-moments.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/discrepancies.md",
+      "local": "conversion-tracking/references/discrepancies.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/ecommerce-platforms.md",
+      "local": "conversion-tracking/references/ecommerce-platforms.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/google-ads.md",
+      "local": "conversion-tracking/references/google-ads.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/meta.md",
+      "local": "conversion-tracking/references/meta.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/other-platforms.md",
+      "local": "conversion-tracking/references/other-platforms.md"
+    },
+    {
+      "upstream": "skills/conversion-tracking/references/server-side.md",
+      "local": "conversion-tracking/references/server-side.md"
+    }
+  ]
+}

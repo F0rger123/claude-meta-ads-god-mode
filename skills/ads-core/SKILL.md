@@ -48,6 +48,7 @@ Load the smallest set: this skill + one platform skill (`meta-ads` or `google-ad
 | tracking / pixel / CAPI / GA4 | ads-tracking | (skill only) |
 | landing page | ads-landing-page | (skill only) |
 | runaway spend | (this skill) | workflows/emergency-stop.md |
+| deeper creative/claims/tracking playbooks, or TikTok, LinkedIn, Microsoft, YouTube, Pinterest, Reddit, Snapchat, X, Amazon, Apple | ads-community (index of vetted community skills) | the one file it points to |
 
 ## Step 3 - Pick the connector (adapters hide the details)
 

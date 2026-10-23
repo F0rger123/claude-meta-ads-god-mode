@@ -1,0 +1,21 @@
+{
+  "id": "google-ads-skills",
+  "repo": "itallstartedwithaidea/google-ads-skills",
+  "sha": "6f0f9955f9208569ea21afb724a0920a2b10fef2",
+  "license": "Apache-2.0",
+  "url": "https://github.com/itallstartedwithaidea/google-ads-skills/tree/6f0f9955f9208569ea21afb724a0920a2b10fef2",
+  "files": [
+    {
+      "upstream": "skills/google-ads-analysis/SKILL.md",
+      "local": "google-ads-analysis/SKILL.md"
+    },
+    {
+      "upstream": "skills/google-ads-audit/SKILL.md",
+      "local": "google-ads-audit/SKILL.md"
+    },
+    {
+      "upstream": "skills/google-ads-math/SKILL.md",
+      "local": "google-ads-math/SKILL.md"
+    }
+  ]
+}

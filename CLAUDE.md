@@ -4,7 +4,7 @@ This repo is a Claude Code plugin (`ads`) that operates real ad accounts. Two au
 
 ## Developing
 
-- Layout: `skills/` (SKILL.md + references/workflows), `workflows/`, `references/`, `templates/`, `commands/` (slash commands `/ads:*`), `hooks/` (write gate), `godmode/` (stdlib safety core + `adsgm` CLI), `connectors/` (adapters, registry, Google writer), `tests/`.
+- Layout: `skills/` (SKILL.md + references/workflows), `workflows/`, `references/`, `templates/`, `commands/` (slash commands `/ads:*`), `hooks/` (write gate), `godmode/` (stdlib safety core + `adsgm` CLI), `connectors/` (adapters, registry, Google writer), `community/` (vendored third-party skills - never edit by hand; bump the pin in `community/sources.json` and run `scripts/sync_community.py`), `tests/`.
 - Run `python tests/run_all.py` after every change. All suites must pass; they need no network.
 - Never add credentials, real account ids, client names with real data, or anything from `~/.ads-godmode/` to the repo.
 - Safety code fails closed. New tool -> registry rule + test. Do not widen `ALWAYS_BLOCKED`/`ALWAYS_APPROVAL` exceptions without a test and a reason.

@@ -1,0 +1,149 @@
+{
+  "id": "claude-ads-platforms",
+  "repo": "AgriciDaniel/claude-ads",
+  "sha": "fc3908e786c318776df89a3a098333da377364be",
+  "license": "MIT",
+  "url": "https://github.com/AgriciDaniel/claude-ads/tree/fc3908e786c318776df89a3a098333da377364be",
+  "files": [
+    {
+      "upstream": "ads/references/additional-platforms.md",
+      "local": "ads/references/additional-platforms.md"
+    },
+    {
+      "upstream": "ads/references/amazon-audit.md",
+      "local": "ads/references/amazon-audit.md"
+    },
+    {
+      "upstream": "ads/references/apple-audit.md",
+      "local": "ads/references/apple-audit.md"
+    },
+    {
+      "upstream": "ads/references/benchmarks.md",
+      "local": "ads/references/benchmarks.md"
+    },
+    {
+      "upstream": "ads/references/budget-allocation.md",
+      "local": "ads/references/budget-allocation.md"
+    },
+    {
+      "upstream": "ads/references/compliance-requirements.md",
+      "local": "ads/references/compliance-requirements.md"
+    },
+    {
+      "upstream": "ads/references/compliance.md",
+      "local": "ads/references/compliance.md"
+    },
+    {
+      "upstream": "ads/references/copy-frameworks.md",
+      "local": "ads/references/copy-frameworks.md"
+    },
+    {
+      "upstream": "ads/references/linkedin-audit.md",
+      "local": "ads/references/linkedin-audit.md"
+    },
+    {
+      "upstream": "ads/references/linkedin-creative-specs.md",
+      "local": "ads/references/linkedin-creative-specs.md"
+    },
+    {
+      "upstream": "ads/references/meta-ai-stack.md",
+      "local": "ads/references/meta-ai-stack.md"
+    },
+    {
+      "upstream": "ads/references/microsoft-audit.md",
+      "local": "ads/references/microsoft-audit.md"
+    },
+    {
+      "upstream": "ads/references/microsoft-creative-specs.md",
+      "local": "ads/references/microsoft-creative-specs.md"
+    },
+    {
+      "upstream": "ads/references/pinterest-audit.md",
+      "local": "ads/references/pinterest-audit.md"
+    },
+    {
+      "upstream": "ads/references/platform-specs.md",
+      "local": "ads/references/platform-specs.md"
+    },
+    {
+      "upstream": "ads/references/reddit-audit.md",
+      "local": "ads/references/reddit-audit.md"
+    },
+    {
+      "upstream": "ads/references/scoring-system.md",
+      "local": "ads/references/scoring-system.md"
+    },
+    {
+      "upstream": "ads/references/snapchat-audit.md",
+      "local": "ads/references/snapchat-audit.md"
+    },
+    {
+      "upstream": "ads/references/tiktok-audit.md",
+      "local": "ads/references/tiktok-audit.md"
+    },
+    {
+      "upstream": "ads/references/tiktok-creative-specs.md",
+      "local": "ads/references/tiktok-creative-specs.md"
+    },
+    {
+      "upstream": "ads/references/x-audit.md",
+      "local": "ads/references/x-audit.md"
+    },
+    {
+      "upstream": "ads/references/youtube-audit.md",
+      "local": "ads/references/youtube-audit.md"
+    },
+    {
+      "upstream": "ads/references/youtube-creative-specs.md",
+      "local": "ads/references/youtube-creative-specs.md"
+    },
+    {
+      "upstream": "skills/ads-plan/assets/agency.md",
+      "local": "skills/ads-plan/assets/agency.md"
+    },
+    {
+      "upstream": "skills/ads-plan/assets/b2b-enterprise.md",
+      "local": "skills/ads-plan/assets/b2b-enterprise.md"
+    },
+    {
+      "upstream": "skills/ads-plan/assets/ecommerce-creative.md",
+      "local": "skills/ads-plan/assets/ecommerce-creative.md"
+    },
+    {
+      "upstream": "skills/ads-plan/assets/ecommerce.md",
+      "local": "skills/ads-plan/assets/ecommerce.md"
+    },
+    {
+      "upstream": "skills/ads-plan/assets/finance.md",
+      "local": "skills/ads-plan/assets/finance.md"
+    },
+    {
+      "upstream": "skills/ads-plan/assets/generic.md",
+      "local": "skills/ads-plan/assets/generic.md"
+    },
+    {
+      "upstream": "skills/ads-plan/assets/healthcare.md",
+      "local": "skills/ads-plan/assets/healthcare.md"
+    },
+    {
+      "upstream": "skills/ads-plan/assets/info-products.md",
+      "local": "skills/ads-plan/assets/info-products.md"
+    },
+    {
+      "upstream": "skills/ads-plan/assets/local-service.md",
+      "local": "skills/ads-plan/assets/local-service.md"
+    },
+    {
+      "upstream": "skills/ads-plan/assets/mobile-app.md",
+      "local": "skills/ads-plan/assets/mobile-app.md"
+    },
+    {
+      "upstream": "skills/ads-plan/assets/real-estate.md",
+      "local": "skills/ads-plan/assets/real-estate.md"
+    },
+    {
+      "upstream": "skills/ads-plan/assets/saas.md",
+      "local": "skills/ads-plan/assets/saas.md"
+    }
+  ]
+}

@@ -97,8 +97,9 @@ class Manifests(unittest.TestCase):
 
     def test_markdown_links_resolve(self):
         broken = []
+        vendor = os.path.join(ROOT, "community", "vendor")
         for p in repo_files():
-            if not p.endswith(".md"):
+            if not p.endswith(".md") or p.startswith(vendor):  # upstream text, kept verbatim
                 continue
             for link in re.findall(r"\]\(([^)#\s]+)(?:#[^)]*)?\)", open(p, encoding="utf-8").read()):
                 if re.match(r"^(https?:|mailto:)", link):
@@ -107,6 +108,60 @@ class Manifests(unittest.TestCase):
                 if not os.path.exists(target):
                     broken.append(f"{os.path.relpath(p, ROOT)} -> {link}")
         self.assertEqual(broken, [])
+
+
+VENDOR = os.path.join(ROOT, "community", "vendor")
+HIDDEN_UNICODE = re.compile("[​-‏‪-‮⁠-⁤﻿]")
+
+
+def vendored_files():
+    for dirpath, _, files in os.walk(VENDOR):
+        for f in files:
+            yield os.path.join(dirpath, f)
+
+
+class CommunityVendoring(unittest.TestCase):
+    def setUp(self):
+        with open(os.path.join(ROOT, "community", "sources.json"), encoding="utf-8") as fh:
+            self.manifest = json.load(fh)
+
+    def test_only_permissive_licenses_vendored(self):
+        for src in self.manifest["sources"]:
+            self.assertIn(src["license"], ("MIT", "Apache-2.0"), src["id"])
+
+    def test_every_source_synced_with_license_and_pinned_sha(self):
+        for src in self.manifest["sources"]:
+            self.assertRegex(src["sha"], r"^[0-9a-f]{40}$")
+            d = os.path.join(VENDOR, src["id"])
+            self.assertTrue(os.path.exists(os.path.join(d, "LICENSE")), src["id"])
+            with open(os.path.join(d, "SOURCE.json"), encoding="utf-8") as fh:
+                rec = json.load(fh)
+            self.assertEqual(rec["sha"], src["sha"], src["id"])
+            for f in rec["files"]:
+                self.assertTrue(os.path.exists(os.path.join(d, *f["local"].split("/"))), f["local"])
+
+    def test_no_executables_vendored(self):
+        for p in vendored_files():
+            self.assertNotRegex(p, r"\.(py|sh|js|ts|exe|bat|ps1|cmd)$")
+
+    def test_vendored_skills_not_auto_registered(self):
+        # community skills stay out of skills/ so their descriptions do not load into every session
+        for d in os.listdir(os.path.join(ROOT, "skills")):
+            self.assertFalse(os.path.exists(os.path.join(ROOT, "skills", d, "SOURCE.json")), d)
+
+    def test_no_hidden_unicode_in_vendored_text(self):
+        for p in vendored_files():
+            with open(p, encoding="utf-8", errors="ignore") as fh:
+                self.assertIsNone(HIDDEN_UNICODE.search(fh.read()), p)
+
+    def test_umbrella_index_paths_exist(self):
+        with open(os.path.join(ROOT, "skills", "ads-community", "SKILL.md"), encoding="utf-8") as fh:
+            text = fh.read()
+        ids = "|".join(re.escape(s["id"]) for s in self.manifest["sources"])
+        refs = re.findall(r"`((?:%s)/[^`{*]+?)`" % ids, text)
+        self.assertGreater(len(refs), 20)
+        for ref in refs:
+            self.assertTrue(os.path.exists(os.path.join(VENDOR, *ref.rstrip("/").split("/"))), ref)
 
 
 if __name__ == "__main__":

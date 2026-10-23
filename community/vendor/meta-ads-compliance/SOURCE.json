@@ -1,0 +1,25 @@
+{
+  "id": "meta-ads-compliance",
+  "repo": "thaleslaray/meta-ads-claude-starter",
+  "sha": "b30fdeb01860b987416689390aa4404ee9de8bdb",
+  "license": "MIT",
+  "url": "https://github.com/thaleslaray/meta-ads-claude-starter/tree/b30fdeb01860b987416689390aa4404ee9de8bdb",
+  "files": [
+    {
+      "upstream": ".claude/skills/meta-ads-compliance/SKILL.md",
+      "local": "SKILL.md"
+    },
+    {
+      "upstream": ".claude/skills/meta-ads-compliance/references/error-codes.md",
+      "local": "references/error-codes.md"
+    },
+    {
+      "upstream": ".claude/skills/meta-ads-compliance/references/rate-limits.md",
+      "local": "references/rate-limits.md"
+    },
+    {
+      "upstream": ".claude/skills/meta-ads-compliance/references/write-rules.md",
+      "local": "references/write-rules.md"
+    }
+  ]
+}
