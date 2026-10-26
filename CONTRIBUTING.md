@@ -15,6 +15,7 @@ Thanks for helping. This project manages real ad spend, so the bar for safety ch
 
 ```bash
 python tests/run_all.py          # stdlib only, no network
+python tests/e2e/run_e2e.py      # real Claude Code session + fake Meta server (needs claude CLI signed in)
 python adsgm.py doctor
 claude plugin validate .claude-plugin/plugin.json
 ```

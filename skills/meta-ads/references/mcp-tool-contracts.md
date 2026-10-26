@@ -2,6 +2,12 @@
 
 Source: Meta's published tool list for the Ads MCP server (developers.facebook.com/documentation/ads-commerce/ads-ai-connectors/ads-mcp-server/), read 2026-10-23. Meta changes this surface; if a tool errors on a param, call `ads_get_field_context` and `ads_get_help_article` rather than guessing.
 
+## Verified (2026-10-26)
+
+- The endpoint advertises OAuth with **dynamic client registration** and **PKCE** (`/.well-known/oauth-protected-resource/ads` → authorization server `https://www.facebook.com/ads`, registration at `https://mcp.facebook.com/.well-known/register/ads`, Graph v26.0 dialog). Standard MCP clients (Claude Code, claude.ai custom connectors) can therefore register and sign in without a Meta app of your own.
+- Scopes it offers: `ads_read`, `ads_management`, `ads_mcp_management`, `business_management`, `catalog_management`, `pages_show_list`, `pages_manage_ads`, `instagram_basic` and branded-content scopes.
+- Meta doesn't publish parameter schemas. Call `ads_get_field_context` before unfamiliar fields; the write gate reads account and entity ids from any parameter name or JSON string.
+
 ## Connect
 
 ```bash
@@ -12,7 +18,7 @@ Then `/mcp` -> `meta-ads` -> sign in with Facebook Login for Business. Permissio
 ## Read tools (gate passes them through)
 
 Accounts and structure: `ads_get_ad_accounts`, `ads_get_ad_account_pages`, `ads_get_pages_for_business`, `ads_get_user_pages`, `ads_get_ad_entities`, `ads_get_field_context`
-Reporting: `ads_insights_performance_trend`, `ads_insights_anomaly_signal`, `ads_insights_advertiser_context`, `ads_insights_auction_ranking_benchmarks`, `ads_insights_industry_benchmark`, `ads_get_opportunity_score`
+Reporting: `ads_get_ad_entities` (Meta calls it the primary reporting tool: spend, impressions, CTR, CPC, CPM, conversions, with filters, breakdowns, sorting and date ranges), `ads_insights_performance_trend`, `ads_insights_anomaly_signal`, `ads_insights_advertiser_context`, `ads_insights_auction_ranking_benchmarks`, `ads_insights_industry_benchmark`, `ads_get_opportunity_score`
 Creative: `ads_get_creatives`, `ads_get_creative_ads`, `ads_get_ad_images`, `ads_get_ad_videos`, `ads_get_ad_preview`, `ads_get_ig_accounts`, `ads_get_ig_media`
 Audiences: `ads_get_ad_account_custom_audiences`, `ads_get_custom_audience`, `ads_get_custom_audience_adsets`
 Signals: `ads_get_datasets`, `ads_get_dataset_details`, `ads_get_dataset_stats`, `ads_get_dataset_quality`, `ads_pixel_event_read`, `ads_pixel_parameter_read`, `ads_get_customconversions`

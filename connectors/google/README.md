@@ -28,7 +28,7 @@ Keep `client_secret.json` outside the repo. Keep the server name `google-ads` so
 ## Writes - bundled writer
 
 ```bash
-pip install -r requirements-google.txt   # use a google-ads release from after 2026-09; older ones may still demand a developer token
+pip install -r requirements-google.txt   # google-ads >= 34.0.0: developer token optional (verified 2026-10-26)
 # GOOGLE_ADS_CLIENT_ID, GOOGLE_ADS_CLIENT_SECRET,
 # GOOGLE_ADS_REFRESH_TOKEN, GOOGLE_ADS_LOGIN_CUSTOMER_ID (if via MCC) in your private env
 python adsgm.py google apply --plan plan.json            # validate_only - changes nothing

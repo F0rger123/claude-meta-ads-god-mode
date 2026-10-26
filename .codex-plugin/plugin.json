@@ -1,6 +1,6 @@
 {
   "name": "ads",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Claude Meta Ads God Mode - a safety-first paid-media operating system for Claude: Meta Ads first, Google Ads built in. Client profiles, account isolation, a write gate that creates PAUSED and spends only with approval, audits, optimization, reporting and creative briefs.",
   "author": {
     "name": "F0rger123",

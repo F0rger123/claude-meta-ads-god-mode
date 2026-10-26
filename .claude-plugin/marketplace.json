@@ -12,7 +12,7 @@
       "name": "ads",
       "source": "./",
       "description": "Claude Meta Ads God Mode - Meta Ads first, Google Ads built in, paused-first and approval-gated. Includes an on-demand router to 137 bundled community skills (nothing extra preloaded).",
-      "version": "0.6.0",
+      "version": "0.6.1",
       "license": "MIT"
     },
     {

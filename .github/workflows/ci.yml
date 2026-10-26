@@ -14,5 +14,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
+      - name: Install Google's client library on one version (real-proto test)
+        if: matrix.python == '3.12'
+        run: pip install google-ads
       - name: Unit, safety and hygiene tests (stdlib only, no network)
         run: python tests/run_all.py

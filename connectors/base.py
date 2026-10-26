@@ -11,7 +11,7 @@ class CapabilityNotSupported(Exception):
 # Logical operations used by skills and workflows.
 OPS = (
     "list_accounts", "account_info", "list_campaigns", "list_adsets", "list_ads",
-    "insights", "breakdowns", "creatives", "ad_preview", "audiences", "datasets",
+    "insights", "breakdowns", "trend", "creatives", "ad_preview", "audiences", "datasets",
     "dataset_quality", "activity_log", "ad_library", "search_terms", "keywords",
     "gaql",
     "create_campaign", "create_adset", "create_ad", "create_creative",

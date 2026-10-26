@@ -10,7 +10,7 @@
 [![Meta Ads](https://img.shields.io/badge/Meta%20Ads-official%20MCP-0866ff?style=flat&logo=meta&logoColor=white)](connectors/meta/README.md)
 [![Google Ads](https://img.shields.io/badge/Google%20Ads-API%20v26-4285F4?style=flat&logo=googleads&logoColor=white)](connectors/google/README.md)
 [![Python](https://img.shields.io/badge/python-3.9%2B-3776AB?style=flat&logo=python&logoColor=white)](#-tests)
-[![Tests](https://img.shields.io/badge/tests-197%20passing-22c55e?style=flat)](#-tests)
+[![Tests](https://img.shields.io/badge/tests-204%20passing-22c55e?style=flat)](#-tests)
 [![Skills](https://img.shields.io/badge/skills-137%20on--demand-a033ff?style=flat)](#-the-skill-umbrella)
 [![Codex](https://img.shields.io/badge/Codex-plugin-111827?style=flat&logo=openai&logoColor=white)](#-install-in-60-seconds)
 
@@ -130,7 +130,7 @@ Claude works out the **client, platform, account, objective, campaign, timeframe
 <td valign="top">
 
 ### ✅ Tested
-**197 tests**, stdlib only: isolation, routing, gating, budget limits, approvals, sweeps, learning, unattended runs, ad rendering, and secret and license checks.
+**204 tests**, stdlib only: isolation, routing, gating, budget limits, approvals, sweeps, learning, unattended runs, ad rendering, and secret and license checks.
 
 </td>
 </tr>
@@ -541,7 +541,7 @@ tests/            routing · isolation · gating · budget · approval · hygien
 ## 🧪 Tests
 
 ```bash
-python tests/run_all.py   # 197 tests · stdlib only · no network · Google API mocked
+python tests/run_all.py   # 204 tests · stdlib only · no network · Google API mocked
 ```
 
 The suite covers:
@@ -552,6 +552,17 @@ The suite covers:
 - destructive-action blocking and the emergency stop
 - secret scanning, plus license and pin checks on vendored skills and bundles
 - the skill router (prompt to skill choices) and marketplace wiring for Claude Code and Codex
+
+**Real-session check:** `python tests/e2e/run_e2e.py` starts real Claude Code sessions against a fake Meta server and confirms the gate does the following:
+- allows a paused create in the client's own account;
+- blocks another client's account;
+- blocks creating something ACTIVE;
+- blocks activation without a plan;
+- blocks changes that need approval when nobody can approve;
+- lets autopilot pauses through;
+- passes reads through.
+
+Last run: 7/7. CI also builds real Google Ads API requests with Google's own client library.
 
 Before any live write, use Google Ads test accounts or a Meta test ad account.
 

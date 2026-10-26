@@ -31,8 +31,9 @@ OFFICIAL = Backend(
         "list_campaigns": "ads_get_ad_entities",
         "list_adsets": "ads_get_ad_entities",
         "list_ads": "ads_get_ad_entities",
-        "insights": "ads_insights_performance_trend",
-        "breakdowns": "ads_insights_performance_trend",
+        "insights": "ads_get_ad_entities",          # Meta: "the primary reporting tool" (metrics, breakdowns, dates)
+        "breakdowns": "ads_get_ad_entities",
+        "trend": "ads_insights_performance_trend",
         "creatives": "ads_get_creatives",
         "ad_preview": "ads_get_ad_preview",
         "audiences": "ads_get_ad_account_custom_audiences",

@@ -76,6 +76,7 @@ def cmd_doctor(a) -> int:
     except profiles.ProfileError as exc:
         checks["clients_error"] = str(exc)
     checks["active_client"] = session.get_active()
+    checks["unattended_mode"] = session.unattended()
     checks["full_auto_enabled"] = policy.full_auto_enabled()
     return out(checks)
 
@@ -440,9 +441,19 @@ def cmd_niche(a) -> int:
     return out({**pb, "stale": niche.stale(pb), "clients": niche.clients_in(a.name)})
 
 
+def cmd_unattended(a) -> int:
+    if a.sub == "on":
+        session.set_unattended(a.hours)
+        audit.log("unattended_on", hours=a.hours)
+    elif a.sub == "off":
+        session.clear_unattended()
+        audit.log("unattended_off")
+    return out({"unattended": session.unattended()})
+
+
 def cmd_schedule(a) -> int:
     osn = a.os or ("windows" if os.name == "nt" else "posix")
-    return out(schedule.plan(osn))
+    return out(schedule.plan(osn, write=a.write))
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -574,9 +585,15 @@ def build_parser() -> argparse.ArgumentParser:
     ni.add_argument("name", nargs="?"); ni.add_argument("--file")
     ni.set_defaults(fn=cmd_niche)
 
+    un = sp.add_parser("unattended")
+    un.add_argument("sub", choices=["on", "off", "status"])
+    un.add_argument("--hours", type=float, default=3.0)
+    un.set_defaults(fn=cmd_unattended)
+
     sc = sp.add_parser("schedule")
     sc.add_argument("sub", choices=["plan"])
     sc.add_argument("--os", choices=["windows", "posix"])
+    sc.add_argument("--write", action="store_true", help="write the wrapper scripts to ~/.ads-godmode/jobs/")
     sc.set_defaults(fn=cmd_schedule)
     return ap
 

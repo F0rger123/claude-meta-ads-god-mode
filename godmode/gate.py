@@ -134,11 +134,12 @@ def decide(hook_input: Dict) -> Optional[GateResult]:
         return GateResult(DENY, f"Ads God Mode: active client profile is unusable: {exc}", c)
 
     # Scheduled / headless runs: nobody can approve, and writes are off unless the client opted in.
-    if os.environ.get("ADS_GODMODE_UNATTENDED") == "1":
+    if session.unattended():
         from . import autopilot as AP
         if not (profile.data.get("automation", {}).get("allow_unattended_writes") or AP.active(profile)):
             return GateResult(DENY, f"Ads God Mode: unattended run - writes are disabled for {active} "
-                                    "(autopilot is off and automation.allow_unattended_writes is not true). Report instead.", c)
+                                    "(autopilot is off and automation.allow_unattended_writes is not true). Report instead. "
+                                    "If a person is here, they can run `adsgm unattended off`.", c)
         permission_mode = "dontAsk"  # anything needing approval becomes deny
 
     # Google writes through the bundled writer: the ticket id is on the command line.

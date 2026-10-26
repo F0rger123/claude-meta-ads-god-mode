@@ -9,4 +9,6 @@ Arguments: $ARGUMENTS
 2. `on`: explain what autopilot does and never does, ask for the daily spend cap and which fixes to enable, then `adsgm autopilot on --client <slug> --cap <amount>`. `off`: `adsgm autopilot off --client <slug>`. `status`: `adsgm autopilot status --client <slug>`.
 3. `all run`: every client with autopilot on (`adsgm autopilot status` per client), one at a time with `adsgm use`. `run` (or no action): run the "Each run" steps. Only `auto` verdicts are executed; everything else is listed as waiting for approval.
 
+If the arguments include `unattended` (scheduled runs from a scheduler that can't set environment variables), run `adsgm unattended on --hours 3` before anything else and `adsgm unattended off` at the very end. Don't ask questions in that mode; write the report.
+
 `adsgm` = `python "${CLAUDE_PLUGIN_ROOT}/adsgm.py"`.

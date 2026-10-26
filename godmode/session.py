@@ -40,3 +40,40 @@ def get_active(now: Optional[float] = None) -> Optional[str]:
     if now - float(data.get("selected_at", 0)) > SESSION_TTL_SECONDS:
         return None
     return data.get("client")
+
+
+# ---- unattended switch -------------------------------------------------------
+# Scheduled runs set ADS_GODMODE_UNATTENDED=1. Schedulers that cannot set
+# environment variables (e.g. the Claude desktop app's scheduled tasks) run
+# `adsgm unattended on` first instead; the switch expires on its own.
+
+def _unattended_file():
+    return paths.state_dir() / "unattended.json"
+
+
+def set_unattended(hours: float = 3.0) -> Dict:
+    paths.ensure_dirs()
+    data = {"until": time.time() + hours * 3600}
+    _unattended_file().write_text(json.dumps(data), encoding="utf-8")
+    return data
+
+
+def clear_unattended() -> None:
+    f = _unattended_file()
+    if f.exists():
+        f.unlink()
+
+
+def unattended(now: Optional[float] = None) -> bool:
+    import os
+    if os.environ.get("ADS_GODMODE_UNATTENDED") == "1":
+        return True
+    f = _unattended_file()
+    if not f.exists():
+        return False
+    try:
+        until = float(json.loads(f.read_text(encoding="utf-8")).get("until", 0))
+    except (OSError, ValueError, json.JSONDecodeError):
+        return True  # unreadable switch: stay on the safe side
+    return (time.time() if now is None else now) < until
+

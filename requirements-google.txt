@@ -1,3 +1,3 @@
 # Only needed for Google Ads writes through `adsgm google apply`.
 # Google's official client (Apache-2.0). Use a release that supports Google Ads API v26.
-google-ads
+google-ads>=34.0.0

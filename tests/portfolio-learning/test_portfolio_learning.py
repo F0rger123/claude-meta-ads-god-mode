@@ -222,16 +222,38 @@ class Unattended(Sandbox):
         self.assertEqual(r.decision, gate.DENY)
 
 
-class Schedules(unittest.TestCase):
-    def test_jobs_are_unattended(self):
+class UnattendedSwitch(Sandbox):
+    def test_switch_turns_on_unattended_mode_and_expires(self):
+        from godmode import session
+        import time as _t
+        self.assertFalse(session.unattended())
+        session.set_unattended(1)
+        self.assertTrue(session.unattended())
+        r = gate.decide(self.hook(META + "ads_create_campaign", {"ad_account_id": ALPHA_META}))
+        self.assertEqual(r.decision, gate.DENY)
+        self.assertFalse(session.unattended(now=_t.time() + 7200))
+        session.clear_unattended()
+        self.assertFalse(session.unattended())
+
+
+class Schedules(Sandbox):
+    def test_jobs_and_short_scheduler_entries(self):
         for osn in ("posix", "windows"):
-            plan = schedule.plan(osn)
-            self.assertEqual([j["name"] for j in plan["jobs"]], ["daily-check", "weekly-review", "autopilot-run", "monthly-report"])
+            plan = schedule.plan(osn, write=True)
+            self.assertEqual([j["name"] for j in plan["jobs"]],
+                             ["daily-check", "weekly-review", "autopilot-run", "monthly-report"])
             for j in plan["jobs"]:
                 self.assertEqual(j["env"]["ADS_GODMODE_UNATTENDED"], "1")
-                self.assertIn("ADS_GODMODE_UNATTENDED=1", j["command"])
-                self.assertTrue("/ads:sweep" in j["command"] or "/ads:autopilot" in j["command"])
-        self.assertTrue(schedule.plan("windows")["jobs"][0]["command"].startswith("schtasks /Create"))
+                self.assertTrue(os.path.exists(j["script"]))
+                with open(j["script"], encoding="utf-8") as fh:
+                    body = fh.read()
+                self.assertIn("ADS_GODMODE_UNATTENDED=1", body)
+                self.assertTrue("/ads:sweep" in body or "/ads:autopilot" in body)
+                if osn == "windows":
+                    self.assertTrue(j["command"].startswith("schtasks /Create"))
+                    tr = j["command"].split("/TR ", 1)[1].rsplit(" /F", 1)[0]
+                    self.assertLessEqual(len(tr), 261)  # schtasks /TR limit
+                    self.assertEqual(tr.count('"'), 4)  # "\"<path>\"" - no nested command quoting
 
     def test_allowed_tools_exclude_raw_shell(self):
         self.assertNotIn("Bash", schedule.ALLOWED_TOOLS)
