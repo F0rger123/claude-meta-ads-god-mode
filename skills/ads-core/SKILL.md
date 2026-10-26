@@ -48,6 +48,10 @@ Load the smallest set: this skill + one platform skill (`meta-ads` or `google-ad
 | tracking / pixel / CAPI / GA4 | ads-tracking | (skill only) |
 | landing page | ads-landing-page | (skill only) |
 | runaway spend | (this skill) | workflows/emergency-stop.md |
+| all clients at once / which accounts need attention | ads-portfolio | workflows/portfolio-sweep.md |
+| did that change work / what works for this client | ads-portfolio | workflows/learning-loop.md |
+| automate / schedule reviews | ads-portfolio | workflows/scheduled-runs.md |
+| ad images / graphic ads | ads-creative-analysis | workflows/graphic-ads.md |
 | deeper creative/claims/tracking playbooks, or TikTok, LinkedIn, Microsoft, YouTube, Pinterest, Reddit, Snapchat, X, Amazon, Apple | ads-community (index of vetted community skills) | the one file it points to |
 
 ## Step 2b - Community skills, chosen on demand
@@ -87,6 +91,7 @@ Then:
    `adsgm plan <action> --platform <p> --account <id> --entity <id> [...]`
    Actions: `budget pause activate update bid negative_keywords creative_swap geo_expansion tracking audience experiment delete`.
    Budget plans need `--current --proposed --reason --evidence --expected --risks --confidence --spend --conversions`.
+   For meaningful changes add a prediction (`--predict-metric --predict-direction --baseline --baseline-n --read-after --tags`) so the learning loop can judge it later.
 3. Show the user the plan `summary` verbatim. The verdict tells you what happens next:
    - `auto` - within this client's guarded-auto policy; the write runs without a prompt.
    - `approval` - the write will prompt the user. Wait for their yes. Do not rephrase it as done.

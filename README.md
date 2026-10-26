@@ -10,7 +10,7 @@
 [![Meta Ads](https://img.shields.io/badge/Meta%20Ads-official%20MCP-0866ff?style=flat&logo=meta&logoColor=white)](connectors/meta/README.md)
 [![Google Ads](https://img.shields.io/badge/Google%20Ads-API%20v26-4285F4?style=flat&logo=googleads&logoColor=white)](connectors/google/README.md)
 [![Python](https://img.shields.io/badge/python-3.9%2B-3776AB?style=flat&logo=python&logoColor=white)](#-tests)
-[![Tests](https://img.shields.io/badge/tests-140%20passing-22c55e?style=flat)](#-tests)
+[![Tests](https://img.shields.io/badge/tests-175%20passing-22c55e?style=flat)](#-tests)
 [![Skills](https://img.shields.io/badge/skills-137%20on--demand-a033ff?style=flat)](#-the-skill-umbrella)
 [![Codex](https://img.shields.io/badge/Codex-plugin-111827?style=flat&logo=openai&logoColor=white)](#-install-in-60-seconds)
 
@@ -60,9 +60,15 @@ Show me what wasted the most spend this month.
 Build a York, PA kitchen-remodel lead campaign on Meta at $60/day.
 Compare Meta and Google for this client.
 Something is overspending on D-Hauss. Stop it.
+Review all my clients. Which ones need attention?
+What's actually worked for D-Hauss so far?
+Make three graphic ads for the free-consult offer.
+Run the weekly review every Monday morning.
 ```
 
 Claude works out the **client, platform, account, objective, campaign, timeframe and conversion goal** on its own. You never touch an MCP tool name.
+
+**Try it in one minute, with no ad accounts:** `python scripts/demo.py` builds four made-up clients. It then runs the all-clients review, the learning report and the graphic ads, so you can see everything below for yourself.
 
 ## ✨ What's inside
 
@@ -100,8 +106,8 @@ Claude works out the **client, platform, account, objective, campaign, timeframe
 <tr>
 <td valign="top">
 
-### 📊 Operator workflows
-Onboarding, audits, launches, optimization cycles, budget reviews, creative testing, competitor research, reporting, emergency stop.
+### 🏢 Agency mode
+**Run 10+ clients.** One sweep ranks them all, a learning loop works out what works for each one, scheduled runs send weekly reports, and graphic ads render in each client's brand.
 
 </td>
 <td valign="top">
@@ -113,11 +119,80 @@ Onboarding, audits, launches, optimization cycles, budget reviews, creative test
 <td valign="top">
 
 ### ✅ Tested
-**140 tests**, stdlib only: isolation, routing, gating, budget limits, approvals, skill routing, secret scanning, and license and pin checks.
+**175 tests**, stdlib only: isolation, routing, gating, budget limits, approvals, sweeps, learning, unattended runs, ad rendering, and secret and license checks.
 
 </td>
 </tr>
 </table>
+
+## 🏢 Agency mode: ten clients, one operator
+
+### How many clients?
+
+As many as you have. Each client gets its own private profile, and work happens **one client at a time**, so data never crosses over:
+- **Meta:** one Facebook login with partner access to every client's business shows all their ad accounts.
+- **Google:** a manager (MCC) account reaches every client account.
+- **The write gate** still checks that each change belongs to the client you're working on.
+
+### Review everyone at once: `/ads:sweep`
+
+Claude reads each client's numbers. It never changes anything during a sweep. It saves a snapshot per client and ranks them all:
+
+| 🔴 Red | 🟠 Amber | 🟢 Green |
+|---|---|---|
+| broken tracking, runaway spend, big overspend, spend with no results | CPL above target, creative fatigue, learning-limited ad sets | on track, or ready to scale |
+
+Every issue comes with the evidence and the exact next step. A dashboard page saves to `~/.ads-godmode/reports/<date>/`.
+
+<p align="center">
+<img src="assets/screenshots/portfolio-dashboard.png" alt="Portfolio dashboard: four demo clients ranked red, amber and green, each with its top issues and next steps" width="78%"/>
+<img src="assets/screenshots/portfolio-dashboard-phone.png" alt="The same dashboard on a phone" width="19%"/>
+</p>
+<p align="center"><sub>Made-up demo clients from <code>scripts/demo.py</code>. No real accounts.</sub></p>
+
+### It learns what works for each client: `/ads:learn`
+
+```mermaid
+flowchart LR
+    A["Claude suggests a change<br/>and writes down what it expects"] --> B["You approve,<br/>the change goes live"]
+    B --> C["A week later it checks<br/>the real numbers"]
+    C --> D{"Did it work?"}
+    D -- "yes, clearly" --> E["Remembered as<br/>'works for this client'"]
+    D -- "no, clearly" --> F["Remembered as<br/>'don't repeat this'"]
+    D -- "too little data" --> G["Marked 'not sure yet',<br/>no false wins"]
+    E & F --> H["Next recommendations<br/>start from what worked"]
+```
+
+Example from the demo: *"Keep using a 20% budget step (3/3 worked). Stop broad match (3/3 failed)."*
+
+The learning only shapes **recommendations**. It never loosens your spending limits on its own. Across clients, patterns show up as a hint, without mixing anyone's data.
+
+### Weekly reports on autopilot: `/ads:schedule`
+
+| When | What you get |
+|---|---|
+| Every morning | Overspend and broken-tracking check across all clients |
+| Every Monday | Full review: per-client *what worked · what didn't · fix next*, plus the dashboard |
+| 1st of the month | An owner-friendly monthly report per client |
+
+Scheduled runs are **read-only by default**:
+- Fixes they find wait in the report for your yes.
+- A client can opt in to small automatic tweaks within its limits.
+- Nothing that needs approval ever runs unattended.
+
+It uses the Claude desktop app's scheduler when available, otherwise Windows Task Scheduler or cron.
+
+### Graphic ads in each client's brand
+
+`adsgm creative render` turns a brief into finished static ads. There are four layouts (offer card, photo with headline, review quote, before/after) in four sizes (square, 4:5, Stories/Reels with safe zones, and wide link ads), all in the client's colors, font and logo.
+
+It refuses banned claims, works only from real client photos and reviews, and costs nothing to run, with no AI image service involved. Anything you use goes into the ad account **paused**.
+
+<p align="center"><img src="assets/screenshots/creative-contact-sheet.png" alt="Contact sheet of rendered demo ads: offer cards and review quotes in square, 4:5 and 9:16" width="80%"/></p>
+
+### What it won't do
+
+**It won't pay for ads.** It never touches billing or payment methods. Meta and Google charge the card on file as ads run, and God Mode watches spend against budget and flags anything unusual.
 
 ## 🛡️ The write gate
 
@@ -368,12 +443,15 @@ python adsgm.py use "D-Hauss"             # active client for writes (expires af
 | 🚀 | `/ads:launch <client> <brief>` | strategy, then a full build created PAUSED, shown back; activation waits for your yes |
 | ⚙️ | `/ads:optimize <client>` | multi-window analysis; certain vs probable waste; changes graded HIGH / MODERATE / EXPERIMENT |
 | 💰 | `/ads:budget <client>` | budget changes with full disclosure and policy limits |
-| 🎬 | `/ads:creative <client>` | hooks, retention, fatigue, then structured briefs for your video workflow |
+| 🎬 | `/ads:creative <client>` | hooks, retention and fatigue, briefs for your video workflow, and graphic ads rendered in the client's brand |
 | 🕵️ | `/ads:competitors <client>` | Meta Ad Library and Google Transparency research; never copies ads |
 | 📡 | `/ads:tracking <client>` | Pixel, CAPI, conversions, GA4, GTM, UTMs and CRM attribution |
 | ⏸️ | `/ads:pause <client> <entities>` | pauses exactly what you named, after verifying it |
 | 🚨 | `/ads:emergency-stop <client>` | finds runaway spend, pauses precisely and explains what happened |
 | 🧩 | `/ads:setup` | checks the install in Claude Code and Codex; can add companions as always-loaded plugins (native mode) |
+| 🏢 | `/ads:sweep [daily\|weekly\|monthly]` | reviews every client at once, ranks them red/amber/green, writes the dashboard |
+| 🧠 | `/ads:learn [client]` | judges past changes; shows what works and what doesn't per client |
+| ⏰ | `/ads:schedule` | daily, weekly and monthly unattended runs (read-only by default) |
 | 🩺 | `/ads:doctor` | checks the setup without printing secrets |
 
 ## 🗂️ Repository layout
@@ -383,23 +461,23 @@ python adsgm.py use "D-Hauss"             # active client for writes (expires af
 .codex-plugin/    Codex plugin manifest
 .agents/plugins/  Codex marketplace (ads + bundled companions, local paths)
 bundles/          bundled companion plugins (routed on demand; optional native install)
-skills/           ads-core · meta-ads · google-ads · ads-community · 11 task skills
+skills/           ads-core · meta-ads · google-ads · ads-portfolio · ads-community · 11 task skills
 community/        single-file community skills (pinned, licensed) + sources.json for everything vendored
-workflows/        10 end-to-end workflows
+workflows/        14 end-to-end workflows (incl. sweep, learning loop, schedules, graphic ads)
 references/       tool comparison · safety · approval · metrics · attribution · limits · naming
 templates/        profiles · briefs · launch plan · reports · experiment log
 commands/         /ads:* slash commands
 connectors/       adapters · tool registry · Google writer · example MCP configs
-godmode/          stdlib safety core + adsgm CLI
+godmode/          stdlib core + adsgm CLI: safety gate, sweeps, learning loop, schedules, ad renderer
 hooks/            write gate (PreToolUse/PostToolUse) · skill router (UserPromptSubmit)
-scripts/          install.py (Claude Code + Codex) · sync_community.py (re-vendor pins) · build_catalog.py
+scripts/          demo.py (try it with made-up clients) · install.py · sync_community.py · build_catalog.py
 tests/            routing · isolation · gating · budget · approval · hygiene
 ```
 
 ## 🧪 Tests
 
 ```bash
-python tests/run_all.py   # 140 tests · stdlib only · no network · Google API mocked
+python tests/run_all.py   # 175 tests · stdlib only · no network · Google API mocked
 ```
 
 The suite covers:

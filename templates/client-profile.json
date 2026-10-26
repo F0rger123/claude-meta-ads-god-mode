@@ -1,7 +1,10 @@
 {
   "schema_version": 1,
   "slug": "example-remodeling",
-  "aliases": ["Example Remodeling", "Example Remodeling Co"],
+  "aliases": [
+    "Example Remodeling",
+    "Example Remodeling Co"
+  ],
   "business": {
     "name": "Example Remodeling Co",
     "website": "https://www.example.com",
@@ -17,10 +20,27 @@
       "before/after photos the client did not supply"
     ],
     "geographic_limits": {
-      "allowed": ["York County, PA", "Lancaster County, PA (east of the Susquehanna only)"],
-      "excluded": ["Maryland"],
+      "allowed": [
+        "York County, PA",
+        "Lancaster County, PA (east of the Susquehanna only)"
+      ],
+      "excluded": [
+        "Maryland"
+      ],
       "max_radius_miles": 30
     }
+  },
+  "brand": {
+    "colors": {
+      "primary": "#1f3a5f",
+      "secondary": "#f4efe6",
+      "accent": "#e07a2e",
+      "text": null
+    },
+    "font_family": "'Segoe UI', Inter, Helvetica, Arial, sans-serif",
+    "logo": "",
+    "photo_folder": "",
+    "notes": "Colors and logo are used by /ads:creative to render graphic ads."
   },
   "economics": {
     "currency": "USD",
@@ -36,12 +56,19 @@
   "platforms": {
     "meta": {
       "enabled": true,
-      "ad_account_ids": ["act_000000000000001"],
+      "ad_account_ids": [
+        "act_000000000000001"
+      ],
       "business_id": "",
       "page_id": "000000000000002",
       "instagram_account_id": "",
-      "dataset_ids": ["000000000000003"],
-      "conversion_events": ["Lead", "Schedule"],
+      "dataset_ids": [
+        "000000000000003"
+      ],
+      "conversion_events": [
+        "Lead",
+        "Schedule"
+      ],
       "primary_optimization_event": "Lead",
       "attribution_setting": "7-day click, 1-day view",
       "uses_conversions_api": true,
@@ -49,12 +76,23 @@
     },
     "google": {
       "enabled": true,
-      "customer_ids": ["000-000-0001"],
+      "customer_ids": [
+        "000-000-0001"
+      ],
       "login_customer_id": "",
       "conversion_actions": [
-        {"name": "Website form submit", "primary": true},
-        {"name": "Calls from ads (60s+)", "primary": true},
-        {"name": "Page view - thank you", "primary": false}
+        {
+          "name": "Website form submit",
+          "primary": true
+        },
+        {
+          "name": "Calls from ads (60s+)",
+          "primary": true
+        },
+        {
+          "name": "Page view - thank you",
+          "primary": false
+        }
       ]
     }
   },
@@ -69,21 +107,40 @@
     "offline_conversion_import": false
   },
   "landing_pages": [
-    {"url": "https://www.example.com/kitchen-remodeling", "purpose": "kitchen lead gen", "form": true, "phone": true}
+    {
+      "url": "https://www.example.com/kitchen-remodeling",
+      "purpose": "kitchen lead gen",
+      "form": true,
+      "phone": true
+    }
   ],
   "conversion_goals": {
     "primary": "qualified kitchen/bath remodel lead",
-    "secondary": ["phone calls over 60 seconds"]
+    "secondary": [
+      "phone calls over 60 seconds"
+    ]
   },
   "approval": {
-    "approvers": ["account owner"],
+    "approvers": [
+      "account owner"
+    ],
     "high_budget_daily_threshold": 300,
-    "require_approval_for": ["activate", "budget", "geo_expansion", "tracking", "delete"]
+    "require_approval_for": [
+      "activate",
+      "budget",
+      "geo_expansion",
+      "tracking",
+      "delete"
+    ]
   },
   "automation": {
     "mode": "approval",
     "guarded_auto": {
-      "allowed_actions": ["budget", "pause", "negative_keywords"],
+      "allowed_actions": [
+        "budget",
+        "pause",
+        "negative_keywords"
+      ],
       "max_budget_increase_pct": 20,
       "max_budget_decrease_pct": 30,
       "max_daily_dollar_change": 50,
@@ -94,7 +151,8 @@
       "max_entities_per_change": 3,
       "max_negative_keywords_per_change": 10,
       "max_bid_change_pct": 15
-    }
+    },
+    "allow_unattended_writes": false
   },
   "reporting": {
     "cadence": "weekly",

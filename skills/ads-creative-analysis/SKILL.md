@@ -28,6 +28,16 @@ Tag each ad with a short taxonomy (hook type: question / bold claim / before-aft
 
 Do not edit or render video. Output structured briefs the user's content/video workflow consumes: [templates/creative-brief.md](../../templates/creative-brief.md). Every brief has: hook, script/message, desired length, format, B-roll, CTA, caption, visual references, platform/placement, **hypothesis**. 3-5 hook variants per body are cheap and high-leverage.
 
+## Graphic ads
+
+Turn briefs into on-brand static images with `adsgm creative render --brief brief.json`:
+- templates `offer-card`, `photo-overlay`, `quote`, `split`;
+- formats 1x1, 4x5, 9x16 and 1.91x1;
+- uses the profile's `brand` colors, font and logo;
+- blocks prohibited claims.
+
+It writes SVG, and PNG when Edge or Chrome is available, plus a contact sheet. See [workflows/graphic-ads.md](../../workflows/graphic-ads.md). Only real, client-supplied photos and reviews. Uploads go in PAUSED.
+
 ## Copy rules
 
 - Use the client's brand voice and service area; no prohibited claims; no invented proof (reviews, awards, years in business, prices, financing).

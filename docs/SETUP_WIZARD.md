@@ -40,6 +40,13 @@ If you can't tell, ask: *"Are you talking to me in Claude Code or Codex on your 
 **D. Your machine** (local agents only)
 - OS, and whether Python 3.9+ is installed (`python --version`).
 
+**E. Several clients?** (if they manage more than one)
+- Onboard the rest now or later? Each gets its own profile (`/ads:onboard <name>`).
+- Want a weekly all-clients review on autopilot? (`/ads:schedule`. It's read-only by default, and fixes wait for their yes.)
+- Brand colors and logo per client, for graphic ads (optional; stored in the profile's `brand`).
+
+Unsure whether it's worth it? Offer the no-accounts demo first: `python scripts/demo.py` builds four made-up clients and shows the sweep dashboard, learning report and graphic ads.
+
 ## Step 2A — Install in Claude Code (recommended)
 
 | # | Do | Check it worked |
@@ -85,5 +92,6 @@ Fill the profile from the Step 1 answers ([template](../templates/client-profile
 End with a short message that covers:
 - what is installed and verified, and whether the write gate is automatic (Claude Code) or manual (Codex);
 - which platforms are connected and with which permissions;
-- three example prompts from the README ("Just talk to it");
+- three example prompts from the README ("Just talk to it"), including "Review all my clients" if they have several;
+- if they want it: `/ads:schedule` for daily, weekly and monthly reports (read-only by default);
 - that nothing is ever launched or activated without their explicit yes.

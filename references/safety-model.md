@@ -33,6 +33,14 @@ CREATE PAUSED · WRITE CAREFULLY · SPEND ONLY WITH APPROVAL
 9. "ask" in `bypassPermissions` / `dontAsk` / `auto` permission modes -> deny, because nobody would see the prompt.
 10. PostToolUse: closes the ticket (per entity), writes a redacted JSONL audit record, records change history for cooldowns.
 
+## Scheduled / unattended runs
+
+Jobs from `/ads:schedule` run headless with `ADS_GODMODE_UNATTENDED=1`. The gate then:
+1. denies every ad-platform write for clients without `automation.allow_unattended_writes: true` (the default);
+2. for opted-in clients, treats the session as unable to ask, so only `auto` verdicts (guarded-auto limits) can run, and anything needing approval is denied.
+
+Learning-loop outcomes change recommendations only; they never edit profiles or limits.
+
 ## Known limits (be honest about them)
 
 - The hook classifies by tool name and payload. A brand-new tool name on a known ads server is treated as `unknown_write` (approval), but a tool on a server whose name does not look like an ads server is not gated. Name ad connectors with `meta`, `google-ads`, `ads` etc. (see [connectors/README.md](../connectors/README.md)).

@@ -32,3 +32,6 @@ venv/
 Thumbs.db
 .idea/
 .vscode/
+
+# Demo output (scripts/demo.py)
+demo-home/

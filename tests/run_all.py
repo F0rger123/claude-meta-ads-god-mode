@@ -9,7 +9,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.dirname(HERE))
 
-SUITES = ["connector-routing", "account-isolation", "write-gating", "budget-safety", "approval-flow", "repo-hygiene"]
+SUITES = ["connector-routing", "account-isolation", "write-gating", "budget-safety", "approval-flow",
+          "portfolio-learning", "creative", "repo-hygiene"]
 
 
 def main() -> int:

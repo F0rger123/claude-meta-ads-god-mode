@@ -25,7 +25,7 @@ import sys
 from pathlib import Path
 
 from . import actions as A
-from . import anomaly, audit, evidence, gate, paths, policy, profiles, session, tickets
+from . import anomaly, audit, creative, evidence, gate, learning, paths, policy, portfolio, profiles, schedule, session, snapshots, tickets
 from .budget import BudgetChange, format_summary
 from .classify import classify
 
@@ -208,7 +208,16 @@ def cmd_plan(a) -> int:
     t = tickets.create(active, platform, account, action, entities, decision.to_dict(), summary, details)
     audit.log("plan_created", client=active, platform=platform, action=action, ticket=t["id"],
               verdict=decision.verdict)
-    return out({"ok": True, "ticket": t["id"], "verdict": decision.verdict, "reasons": decision.reasons,
+    prediction = None
+    if a.predict_metric:
+        if a.baseline is None or a.predict_direction not in ("up", "down"):
+            return fail("predictions need --predict-direction up|down and --baseline")
+        prediction = learning.predict(active, platform, action, entities, a.predict_metric, a.predict_direction,
+                                      a.baseline, a.baseline_n or 0, a.predict_pct, a.read_after,
+                                      [x.strip() for x in (a.tags or "").split(",") if x.strip()], t["id"],
+                                      a.reason or "")["id"]
+    return out({"ok": True, "ticket": t["id"], "prediction": prediction,
+                "verdict": decision.verdict, "reasons": decision.reasons,
                 "summary": summary, "expires_in_minutes": 30,
                 "next": ("Show the summary to the user. " +
                          ("The write will prompt for approval." if decision.verdict == policy.APPROVAL
@@ -276,6 +285,88 @@ def cmd_log(a) -> int:
     return out(audit.tail(a.n))
 
 
+def cmd_snapshot(a) -> int:
+    if a.sub == "save":
+        snap = json.loads(Path(a.file).read_text(encoding="utf-8"))
+        try:
+            path = snapshots.save(snap)
+        except snapshots.SnapshotError as exc:
+            return fail(str(exc), 2)
+        return out({"ok": True, "saved": path})
+    client = profiles.resolve(a.client).slug if a.client else None
+    if not client:
+        return fail("--client is required")
+    return out([{"captured_at": s.get("captured_at"), "platforms": sorted((s.get("platforms") or {}).keys())}
+                for s in snapshots.history(client)])
+
+
+def _report_dir():
+    from datetime import date
+    d = paths.home() / "reports" / date.today().isoformat()
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+def cmd_sweep(a) -> int:
+    clients = [profiles.resolve(c.strip()).slug for c in a.clients.split(",")] if a.clients else None
+    rep = portfolio.sweep(clients)
+    d = _report_dir()
+    md, page = d / "portfolio.md", d / "portfolio.html"
+    md.write_text(portfolio.to_markdown(rep), encoding="utf-8")
+    page.write_text(portfolio.to_html(rep), encoding="utf-8")
+    (d / "portfolio.json").write_text(json.dumps(rep, indent=2), encoding="utf-8")
+    audit.log("sweep", totals=rep["totals"])
+    slim = [{k: r.get(k) for k in ("client", "status", "score", "spend", "results", "cpl", "target_cpl", "pacing_pct")}
+            | {"top_issues": [f"[{i['severity']}] {i['title']}" for i in r["issues"][:3]]} for r in rep["clients"]]
+    return out({"ok": True, "totals": rep["totals"], "clients": slim, "markdown": str(md), "dashboard": str(page)})
+
+
+def cmd_learn(a) -> int:
+    client = profiles.resolve(a.client).slug if a.client else None
+    if a.sub == "summary":
+        if a.portfolio:
+            return out({"patterns": learning.portfolio_patterns([p.slug for p in profiles.list_all()])})
+        if not client:
+            return fail("--client or --portfolio is required")
+        return out(learning.summary(client))
+    if a.sub == "due":
+        targets = [client] if client else [p.slug for p in profiles.list_all()]
+        return out({c: learning.due(c) for c in targets if learning.due(c)})
+    if not client:
+        return fail("--client is required")
+    if a.sub == "record":
+        rec = learning.record_outcome(client, a.prediction, a.value or 0, a.n or 0,
+                                      executed=not a.not_executed, note=a.note or "")
+        return out(rec)
+    if a.sub == "auto":
+        snap = snapshots.latest(client)
+        if not snap:
+            return fail(f"no snapshot for {client}; save one first")
+        return out({"recorded": learning.auto_read(client, snap, tickets.get)})
+    if a.sub == "lesson":
+        tags = [x.strip() for x in (a.tags or "").split(",") if x.strip()]
+        return out(learning.add_lesson(client, tags, a.text or "", a.verdict, a.note or ""))
+    return fail("unknown learn subcommand")
+
+
+def cmd_creative(a) -> int:
+    brief = json.loads(Path(a.brief).read_text(encoding="utf-8"))
+    try:
+        m = creative.render_brief(brief, png=not a.no_png, out_dir=a.out)
+    except (creative.CreativeError, profiles.ProfileError) as exc:
+        return fail(str(exc), 2)
+    audit.log("creative_render", client=m["client"], concept=m.get("concept"), dir=m["dir"])
+    return out({"ok": True, "dir": m["dir"], "contact_sheet": str(Path(m["dir"]) / "index.html"),
+                "png": bool(m["png_renderer"]),
+                "variants": [{"id": v["id"], "errors": v["errors"], "warnings": v["warnings"],
+                              "files": len(v["files"])} for v in m["variants"]]})
+
+
+def cmd_schedule(a) -> int:
+    osn = a.os or ("windows" if os.name == "nt" else "posix")
+    return out(schedule.plan(osn))
+
+
 def build_parser() -> argparse.ArgumentParser:
     ap = argparse.ArgumentParser(prog="adsgm", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sp = ap.add_subparsers(dest="cmd", required=True)
@@ -308,6 +399,13 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--negatives", type=int)
     p.add_argument("--bid-pct", type=float)
     p.add_argument("--google-plan", help="derive action/entities from a Google writer plan file")
+    p.add_argument("--predict-metric", help="learning loop: metric expected to move (cpl, results, ctr, roas...)")
+    p.add_argument("--predict-direction", choices=["up", "down"])
+    p.add_argument("--predict-pct", type=float, help="expected change in percent (optional)")
+    p.add_argument("--baseline", type=float, help="metric value now")
+    p.add_argument("--baseline-n", type=int, help="results behind the baseline (sample size)")
+    p.add_argument("--read-after", type=int, default=7, help="days until the outcome is judged")
+    p.add_argument("--tags", help="comma tactic tags, e.g. budget-up,ugc-hook")
     p.set_defaults(fn=cmd_plan)
 
     t = sp.add_parser("tickets"); t.add_argument("--all", action="store_true"); t.set_defaults(fn=cmd_tickets)
@@ -348,6 +446,34 @@ def build_parser() -> argparse.ArgumentParser:
     g.set_defaults(fn=cmd_google)
 
     lg = sp.add_parser("log"); lg.add_argument("-n", type=int, default=20); lg.set_defaults(fn=cmd_log)
+
+    sn = sp.add_parser("snapshot")
+    sn.add_argument("sub", choices=["save", "list"])
+    sn.add_argument("--file"); sn.add_argument("--client")
+    sn.set_defaults(fn=cmd_snapshot)
+
+    sw = sp.add_parser("sweep")
+    sw.add_argument("--clients", help="comma list; default all clients")
+    sw.set_defaults(fn=cmd_sweep)
+
+    le = sp.add_parser("learn")
+    le.add_argument("sub", choices=["summary", "due", "record", "auto", "lesson"])
+    le.add_argument("--client"); le.add_argument("--portfolio", action="store_true")
+    le.add_argument("--prediction"); le.add_argument("--value", type=float); le.add_argument("--n", type=int)
+    le.add_argument("--not-executed", action="store_true")
+    le.add_argument("--tags"); le.add_argument("--text"); le.add_argument("--note")
+    le.add_argument("--verdict", choices=["worked", "failed", "inconclusive"])
+    le.set_defaults(fn=cmd_learn)
+
+    cr = sp.add_parser("creative")
+    cr.add_argument("sub", choices=["render"])
+    cr.add_argument("--brief", required=True); cr.add_argument("--out"); cr.add_argument("--no-png", action="store_true")
+    cr.set_defaults(fn=cmd_creative)
+
+    sc = sp.add_parser("schedule")
+    sc.add_argument("sub", choices=["plan"])
+    sc.add_argument("--os", choices=["windows", "posix"])
+    sc.set_defaults(fn=cmd_schedule)
     return ap
 
 

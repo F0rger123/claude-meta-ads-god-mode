@@ -13,6 +13,7 @@ GateResult with allow / ask / deny. Order of checks:
   8. "ask" becomes "deny" when the session cannot show a human prompt
 """
 
+import os
 import re
 import shlex
 from dataclasses import dataclass
@@ -117,6 +118,13 @@ def decide(hook_input: Dict) -> Optional[GateResult]:
         profile = profiles.load(active)
     except profiles.ProfileError as exc:
         return GateResult(DENY, f"Ads God Mode: active client profile is unusable: {exc}", c)
+
+    # Scheduled / headless runs: nobody can approve, and writes are off unless the client opted in.
+    if os.environ.get("ADS_GODMODE_UNATTENDED") == "1":
+        if not profile.data.get("automation", {}).get("allow_unattended_writes"):
+            return GateResult(DENY, f"Ads God Mode: unattended run - writes are disabled for {active} "
+                                    "(automation.allow_unattended_writes is not true). Report instead.", c)
+        permission_mode = "dontAsk"  # anything needing approval becomes deny
 
     # Google writes through the bundled writer: the ticket id is on the command line.
     if c.family == "godmode_google_writer":
