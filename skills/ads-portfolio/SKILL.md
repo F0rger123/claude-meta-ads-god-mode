@@ -28,6 +28,10 @@ One client at a time for data. Never mix numbers between clients. If a client's 
 - **Across clients:** `adsgm learn summary --portfolio` shows tactic-level win rates (label: PORTFOLIO HEURISTIC). Use it as a starting hypothesis for a new client, never as evidence about that client.
 - **Learnings change recommendations, never limits.** If lessons suggest looser guarded-auto limits, propose it. The human edits the profile.
 
+## Autopilot (per client, on/off)
+
+Hands-off day-to-day fixes inside budgets the human already approved: pause clear losers, swap tired or failing ads for fixed ones in the same ad set (while the account's total daily budget is at or under the client's cap; max 3 swaps a week), and add small Google negative lists. Never: new campaigns live, budget increases, new geos, tracking, deletes, billing. Switch it with `adsgm autopilot on|off --client X --cap <daily max>`. Workflow: [autopilot](../../workflows/autopilot.md). Always mention it during onboarding and ask whether they want it.
+
 ## Scheduled runs
 
 `/ads:schedule` sets up daily, weekly and monthly runs. They run with `ADS_GODMODE_UNATTENDED=1`:

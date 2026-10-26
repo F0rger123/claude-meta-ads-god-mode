@@ -9,6 +9,7 @@
     "name": "Example Remodeling Co",
     "website": "https://www.example.com",
     "industry": "home remodeling",
+    "niche": "kitchen-remodeling",
     "offer": "Free in-home kitchen remodel design consultation",
     "service_area": "York County, PA (30-mile radius of York)",
     "target_customer": "Homeowners 35-70 in owner-occupied single-family homes planning a kitchen or bath remodel in the next 6 months",
@@ -51,7 +52,8 @@
     "desired_cpl": 90,
     "desired_cpa": null,
     "desired_roas": null,
-    "monthly_budget": 4500
+    "monthly_budget": 4500,
+    "budget_type": "daily"
   },
   "platforms": {
     "meta": {
@@ -152,7 +154,26 @@
       "max_negative_keywords_per_change": 10,
       "max_bid_change_pct": 15
     },
-    "allow_unattended_writes": false
+    "allow_unattended_writes": false,
+    "autopilot": {
+      "enabled": false,
+      "daily_spend_cap": null,
+      "actions": [
+        "pause_losers",
+        "fix_and_relaunch",
+        "google_negatives"
+      ],
+      "max_swaps_per_week": 3,
+      "max_entities_per_run": 3,
+      "max_negatives_per_run": 10,
+      "loser_rules": {
+        "min_hours_live": 72,
+        "zero_result_spend_multiple": 2.5,
+        "cpl_multiple": 2.0,
+        "min_results_for_cpl": 5,
+        "skip_learning": true
+      }
+    }
   },
   "reporting": {
     "cadence": "weekly",

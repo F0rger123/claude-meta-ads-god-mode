@@ -41,6 +41,17 @@ Jobs from `/ads:schedule` run headless with `ADS_GODMODE_UNATTENDED=1`. The gate
 
 Learning-loop outcomes change recommendations only; they never edit profiles or limits.
 
+## Autopilot (per client, off by default)
+
+`automation.autopilot.enabled` plus a `daily_spend_cap`. Autopilot only works in approval, guarded_auto or full_auto mode. When it's on, policy returns `auto` for exactly three things:
+- **pause**, at most 3 entities per run;
+- **creative_swap** within the same ad set, while the account's total daily budget is at or under the cap, at most 3 a week;
+- **Google negatives**, at most 10 per run.
+
+A creative_swap ticket covers only two calls: activating its new ad and pausing the ad it replaces. Everything else falls through to the normal rules: activations of new campaigns or ad sets, budgets, geo, tracking, deletes and billing all still need a human yes, or stay blocked. Unattended runs may act only for autopilot clients, and only on `auto` verdicts.
+
+Limit: the gate can't see an entity's type. The autopilot workflow must confirm by a read that the swap's new entity is an ad in the same ad set before planning, and every swap is in the audit log and the morning report.
+
 ## Known limits (be honest about them)
 
 - The hook classifies by tool name and payload. A brand-new tool name on a known ads server is treated as `unknown_write` (approval), but a tool on a server whose name does not look like an ads server is not gated. Name ad connectors with `meta`, `google-ads`, `ads` etc. (see [connectors/README.md](../connectors/README.md)).

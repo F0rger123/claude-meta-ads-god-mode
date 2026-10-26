@@ -19,7 +19,7 @@ Especially in scope:
 
 ## If a secret is committed
 
-Revoke it at the source immediately (Meta Business Settings -> System Users / Graph API token debugger; Google Cloud console / Google Ads API Center), then purge it from history. Rotation first - history rewriting does not un-leak a public secret.
+Revoke it at the source immediately (Meta Business Settings -> System Users / Graph API token debugger; Google Cloud console credentials page), then purge it from history. Rotation first - history rewriting does not un-leak a public secret.
 
 ## Safety model
 

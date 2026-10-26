@@ -101,6 +101,20 @@ def _google_bash_ticket(command: str) -> Optional[str]:
     return None
 
 
+def _find_ticket(client, platform, action, entity_ids, accts):
+    """Exact ticket first. An autopilot creative_swap ticket also covers exactly two calls:
+    activating its new ad and pausing the ad it replaces - nothing else."""
+    t = tickets.find_match(client, platform, action, entity_ids, accts)
+    if t or action not in (A.ACTIVATE, A.PAUSE) or len(entity_ids) != 1:
+        return t
+    sw = tickets.find_match(client, platform, A.CREATIVE_SWAP, entity_ids, accts)
+    if not sw:
+        return None
+    pair = sw.get("details", {}).get("swap", {})
+    role = "new" if action == A.ACTIVATE else "old"
+    return sw if str(pair.get(role)) == str(entity_ids[0]) else None
+
+
 def decide(hook_input: Dict) -> Optional[GateResult]:
     tool_name = hook_input.get("tool_name", "")
     tool_input = hook_input.get("tool_input") or {}
@@ -121,9 +135,10 @@ def decide(hook_input: Dict) -> Optional[GateResult]:
 
     # Scheduled / headless runs: nobody can approve, and writes are off unless the client opted in.
     if os.environ.get("ADS_GODMODE_UNATTENDED") == "1":
-        if not profile.data.get("automation", {}).get("allow_unattended_writes"):
+        from . import autopilot as AP
+        if not (profile.data.get("automation", {}).get("allow_unattended_writes") or AP.active(profile)):
             return GateResult(DENY, f"Ads God Mode: unattended run - writes are disabled for {active} "
-                                    "(automation.allow_unattended_writes is not true). Report instead.", c)
+                                    "(autopilot is off and automation.allow_unattended_writes is not true). Report instead.", c)
         permission_mode = "dontAsk"  # anything needing approval becomes deny
 
     # Google writes through the bundled writer: the ticket id is on the command line.
@@ -176,7 +191,7 @@ def decide(hook_input: Dict) -> Optional[GateResult]:
     if not ex.entity_ids and not accts:
         return GateResult(DENY, "Ads God Mode: write call names no entity or account I can verify.", c)
 
-    t = tickets.find_match(active, c.platform, action, ex.entity_ids, accts)
+    t = _find_ticket(active, c.platform, action, ex.entity_ids, accts)
     if not t:
         ids = ", ".join(ex.entity_ids or accts)
         return GateResult(DENY, f"Ads God Mode: no verified change plan for {action} on {ids}. Run "
@@ -213,7 +228,7 @@ def after(hook_input: Dict) -> Optional[Dict]:
             login_cid = ""
         accts = [a for a in accts if a != login_cid]
         action = refine_action(c, ex)
-        t = tickets.find_match(active, c.platform, action, ex.entity_ids, accts)
+        t = _find_ticket(active, c.platform, action, ex.entity_ids, accts)
         ticket_id = t["id"] if t else None
         done_ids = ex.entity_ids or None
     if ticket_id and not failed:

@@ -24,8 +24,8 @@ Checked 2026-10-23. Sources: developers.facebook.com/docs/graph-api/changelog, d
 ## Google Ads API
 
 - Latest v26 (2026-10-14); v25 (2026-07-22); v24 (2026-04-22); v23 (2026-01-28). Check the sunset table before pinning.
-- Developer token access: Test (test accounts only), Explorer, Basic, Standard (Standard review can take days-weeks; RMF applies to Standard).
-- Rate limits: QPS per customer id + developer token (token bucket) plus operations per minute; `RESOURCE_TEMPORARILY_EXHAUSTED` -> exponential backoff with jitter.
+- Access: developer tokens were retired on 2026-09-09; access levels (Test, Explorer, Basic, Standard) now belong to the Google Cloud project that owns the OAuth client. Apply on the Cloud console's Google Ads API overview page; Basic needs brand verification (developers.google.com/google-ads/api/docs/first-call/dev-token, read 2026-10-26).
+- Rate limits: QPS per customer id + Cloud project (token bucket) plus operations per minute; `RESOURCE_TEMPORARILY_EXHAUSTED` -> exponential backoff with jitter.
 - Money in micros. `validate_only` validates a mutate without applying it.
 - Official Google Ads MCP: read-only (`search`, `get_resource_metadata`, `list_accessible_customers`).
 - Performance Max: search terms only as insight categories; limited asset-level control.

@@ -52,6 +52,9 @@ Load the smallest set: this skill + one platform skill (`meta-ads` or `google-ad
 | did that change work / what works for this client | ads-portfolio | workflows/learning-loop.md |
 | automate / schedule reviews | ads-portfolio | workflows/scheduled-runs.md |
 | ad images / graphic ads | ads-creative-analysis | workflows/graphic-ads.md |
+| research the niche / what converts / benchmarks | ads-strategy | workflows/niche-research.md |
+| what should I spend / daily vs monthly | ads-budgeting | `adsgm budget-plan` |
+| run it for me / autopilot on-off | ads-portfolio | workflows/autopilot.md |
 | deeper creative/claims/tracking playbooks, or TikTok, LinkedIn, Microsoft, YouTube, Pinterest, Reddit, Snapchat, X, Amazon, Apple | ads-community (index of vetted community skills) | the one file it points to |
 
 ## Step 2b - Community skills, chosen on demand

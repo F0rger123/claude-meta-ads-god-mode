@@ -3,34 +3,188 @@
   "max_picks": 2,
   "ads_context": "\\b(ads?|advertis\\w*|campaigns?|ad sets?|creatives?|ppc|cpl|cpa|roas|cpm|ctr|meta|facebook|instagram|google ads|tiktok|linkedin)\\b",
   "rules": [
-    {"pattern": "\\btik ?tok\\b|spark ads|smart\\+|gmv max", "picks": ["agrici-ads/ads-tiktok"]},
-    {"pattern": "\\blinked ?in\\b.*\\b(ads?|campaign|abm|lead gen)|\\b(ads?|campaign)\\b.*\\blinked ?in\\b", "picks": ["agrici-ads/ads-linkedin"]},
-    {"pattern": "\\b(microsoft|bing) ads\\b|\\bmicrosoft advertising\\b", "picks": ["agrici-ads/ads-microsoft"]},
-    {"pattern": "\\byoutube\\b.*\\b(ads?|campaign)|\\b(ads?|campaign)\\b.*\\byoutube\\b|demand gen", "picks": ["agrici-ads/ads-youtube"]},
-    {"pattern": "\\bamazon (ads|ppc|advertising)\\b|sponsored (products|brands|display)|\\bacos\\b", "picks": ["agrici-ads/ads-amazon"]},
-    {"pattern": "apple search ads|\\bapple ads\\b", "picks": ["agrici-ads/ads-apple"]},
-    {"pattern": "\\bpinterest\\b", "picks": ["agrici-ads/ads-pinterest"], "needs_ads_context": true},
-    {"pattern": "\\breddit\\b", "picks": ["agrici-ads/ads-reddit"], "needs_ads_context": true},
-    {"pattern": "\\bsnap ?chat\\b", "picks": ["agrici-ads/ads-snapchat"], "needs_ads_context": true},
-    {"pattern": "\\b(x|twitter) ads\\b", "picks": ["agrici-ads/ads-x"]},
-    {"pattern": "fatigu|(ad|creative) (is )?(tired|wearing out|burn(ed|t) out)", "picks": ["ad-creative-skills/creative-fatigue-read-ad-creative"]},
-    {"pattern": "(creative|ad) test (result|readout)|which (ad|creative|variant) won|read (the|this|my) test", "picks": ["ad-creative-skills/creative-test-readout-ad-creative"]},
-    {"pattern": "cut (it )?early|kill (it|this ad) (now|early)|too early to (judge|tell)", "picks": ["ad-creative-skills/early-signal-cut-ad-creative"]},
-    {"pattern": "\\bhooks?\\b|first (3|three) seconds", "picks": ["ad-creative-skills/video-hook-lines-ad-creative"], "needs_ads_context": true},
-    {"pattern": "primary text", "picks": ["ad-creative-skills/paid-social-primary-text-ad-creative"]},
-    {"pattern": "\\brsa\\b|responsive search ad|search headlines?", "picks": ["ad-creative-skills/search-headline-set-ad-creative"]},
-    {"pattern": "a/?b test|split test|sample size|statistical(ly)? significan", "picks": ["marketing-skills/ab-testing"]},
-    {"pattern": "attribution model|data.driven attribution|first.touch|last.touch|multi.touch|incrementality|\\bmmm\\b", "picks": ["marketing-skills/attribution"]},
-    {"pattern": "\\bgtm\\b|google tag manager|server.side (tracking|tagging)|\\bcapi\\b|conversions api", "picks": ["marketing-skills/conversion-tracking", "agrici-ads/ads-server-side-tracking"]},
-    {"pattern": "\\bcro\\b|conversion rate optimi|landing page (copy|conversion|rewrite)", "picks": ["marketing-skills/cro"]},
-    {"pattern": "(write|rewrite|improve).{0,30}(landing page|headline|copy)", "picks": ["marketing-skills/copywriting"]},
-    {"pattern": "\\boffer\\b.{0,40}(weak|better|stronger|improve|irresistible)|(improve|strengthen|better).{0,20}\\boffer\\b", "picks": ["marketing-skills/offers"]},
-    {"pattern": "\\bclaims?\\b.{0,30}(substantiat|prove|allowed|safe)|can (we|i) say", "picks": ["goose-compliance/claims-gate"], "needs_ads_context": true},
-    {"pattern": "ad (policy|rejected|disapproved)|policy (check|violation)|special ad categor", "picks": ["goose-compliance/ad-policy-check"]},
-    {"pattern": "\\bpulse\\b|quick health (check|score)|5.minute (check|scorecard)", "picks": ["meta-ads-genius/pulse"], "needs_ads_context": true},
-    {"pattern": "growth opportunit|where (can|should) we (scale|grow)|untapped", "picks": ["meta-ads-genius/opportunity-spotting"], "needs_ads_context": true},
-    {"pattern": "break.?even (cpa|roas)|\\bltv\\b|payback period|budget scenario", "picks": ["agrici-ads/ads-math"]},
-    {"pattern": "(media|ads?|advertising) plan for (a|an|my)? ?(saas|ecommerce|e-commerce|local|healthcare|real estate|finance|app)", "picks": ["agrici-ads/ads-plan"]},
-    {"pattern": "rate limit|error (code|#?\\d{2,})|\\b(613|80004|1487632)\\b", "picks": ["meta-ads-compliance/meta-ads-compliance"], "needs_ads_context": true}
+    {
+      "pattern": "\\btik ?tok\\b|spark ads|smart\\+|gmv max",
+      "picks": [
+        "agrici-ads/ads-tiktok"
+      ]
+    },
+    {
+      "pattern": "\\blinked ?in\\b.*\\b(ads?|campaign|abm|lead gen)|\\b(ads?|campaign)\\b.*\\blinked ?in\\b",
+      "picks": [
+        "agrici-ads/ads-linkedin"
+      ]
+    },
+    {
+      "pattern": "\\b(microsoft|bing) ads\\b|\\bmicrosoft advertising\\b",
+      "picks": [
+        "agrici-ads/ads-microsoft"
+      ]
+    },
+    {
+      "pattern": "\\byoutube\\b.*\\b(ads?|campaign)|\\b(ads?|campaign)\\b.*\\byoutube\\b|demand gen",
+      "picks": [
+        "agrici-ads/ads-youtube"
+      ]
+    },
+    {
+      "pattern": "\\bamazon (ads|ppc|advertising)\\b|sponsored (products|brands|display)|\\bacos\\b",
+      "picks": [
+        "agrici-ads/ads-amazon"
+      ]
+    },
+    {
+      "pattern": "apple search ads|\\bapple ads\\b",
+      "picks": [
+        "agrici-ads/ads-apple"
+      ]
+    },
+    {
+      "pattern": "\\bpinterest\\b",
+      "picks": [
+        "agrici-ads/ads-pinterest"
+      ],
+      "needs_ads_context": true
+    },
+    {
+      "pattern": "\\breddit\\b",
+      "picks": [
+        "agrici-ads/ads-reddit"
+      ],
+      "needs_ads_context": true
+    },
+    {
+      "pattern": "\\bsnap ?chat\\b",
+      "picks": [
+        "agrici-ads/ads-snapchat"
+      ],
+      "needs_ads_context": true
+    },
+    {
+      "pattern": "\\b(x|twitter) ads\\b",
+      "picks": [
+        "agrici-ads/ads-x"
+      ]
+    },
+    {
+      "pattern": "fatigu|(ad|creative) (is )?(tired|wearing out|burn(ed|t) out)",
+      "picks": [
+        "ad-creative-skills/creative-fatigue-read-ad-creative"
+      ]
+    },
+    {
+      "pattern": "(creative|ad) test (result|readout)|which (ad|creative|variant) won|read (the|this|my) test",
+      "picks": [
+        "ad-creative-skills/creative-test-readout-ad-creative"
+      ]
+    },
+    {
+      "pattern": "cut (it )?early|kill (it|this ad) (now|early)|too early to (judge|tell)",
+      "picks": [
+        "ad-creative-skills/early-signal-cut-ad-creative"
+      ]
+    },
+    {
+      "pattern": "\\bhooks?\\b|first (3|three) seconds",
+      "picks": [
+        "ad-creative-skills/video-hook-lines-ad-creative"
+      ],
+      "needs_ads_context": true
+    },
+    {
+      "pattern": "primary text",
+      "picks": [
+        "ad-creative-skills/paid-social-primary-text-ad-creative"
+      ]
+    },
+    {
+      "pattern": "\\brsa\\b|responsive search ad|search headlines?",
+      "picks": [
+        "ad-creative-skills/search-headline-set-ad-creative"
+      ]
+    },
+    {
+      "pattern": "a/?b test|split test|sample size|statistical(ly)? significan",
+      "picks": [
+        "marketing-skills/ab-testing"
+      ]
+    },
+    {
+      "pattern": "attribution model|data.driven attribution|first.touch|last.touch|multi.touch|incrementality|\\bmmm\\b",
+      "picks": [
+        "marketing-skills/attribution"
+      ]
+    },
+    {
+      "pattern": "\\bgtm\\b|google tag manager|server.side (tracking|tagging)|\\bcapi\\b|conversions api",
+      "picks": [
+        "marketing-skills/conversion-tracking",
+        "agrici-ads/ads-server-side-tracking"
+      ]
+    },
+    {
+      "pattern": "\\bcro\\b|conversion rate optimi|landing page (copy|conversion|rewrite)",
+      "picks": [
+        "marketing-skills/cro"
+      ]
+    },
+    {
+      "pattern": "(write|rewrite|improve).{0,30}(landing page|headline|copy)",
+      "picks": [
+        "marketing-skills/copywriting"
+      ]
+    },
+    {
+      "pattern": "\\boffer\\b.{0,40}(weak|better|stronger|improve|irresistible)|(improve|strengthen|better).{0,20}\\boffer\\b",
+      "picks": [
+        "marketing-skills/offers"
+      ]
+    },
+    {
+      "pattern": "\\bclaims?\\b.{0,30}(substantiat|prove|allowed|safe)|can (we|i) say",
+      "picks": [
+        "goose-compliance/claims-gate"
+      ],
+      "needs_ads_context": true
+    },
+    {
+      "pattern": "ad (policy|rejected|disapproved)|policy (check|violation)|special ad categor",
+      "picks": [
+        "goose-compliance/ad-policy-check"
+      ]
+    },
+    {
+      "pattern": "\\bpulse\\b|quick health (check|score)|5.minute (check|scorecard)",
+      "picks": [
+        "meta-ads-genius/pulse"
+      ],
+      "needs_ads_context": true
+    },
+    {
+      "pattern": "growth opportunit|where (can|should) we (scale|grow)|untapped",
+      "picks": [
+        "meta-ads-genius/opportunity-spotting"
+      ],
+      "needs_ads_context": true
+    },
+    {
+      "pattern": "break.?even (cpa|roas)|\\bltv\\b|payback period|budget scenario",
+      "picks": [
+        "agrici-ads/ads-math"
+      ]
+    },
+    {
+      "pattern": "(media|ads?|advertising) plan for (a|an|my)? ?(saas|ecommerce|e-commerce|local|healthcare|real estate|finance|app)",
+      "picks": [
+        "agrici-ads/ads-plan"
+      ]
+    },
+    {
+      "pattern": "rate limit|error (code|#?\\d{2,})|\\b(613|80004|1487632)\\b",
+      "picks": [
+        "meta-ads-compliance/meta-ads-compliance"
+      ],
+      "needs_ads_context": true
+    }
   ]
 }

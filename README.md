@@ -10,7 +10,7 @@
 [![Meta Ads](https://img.shields.io/badge/Meta%20Ads-official%20MCP-0866ff?style=flat&logo=meta&logoColor=white)](connectors/meta/README.md)
 [![Google Ads](https://img.shields.io/badge/Google%20Ads-API%20v26-4285F4?style=flat&logo=googleads&logoColor=white)](connectors/google/README.md)
 [![Python](https://img.shields.io/badge/python-3.9%2B-3776AB?style=flat&logo=python&logoColor=white)](#-tests)
-[![Tests](https://img.shields.io/badge/tests-175%20passing-22c55e?style=flat)](#-tests)
+[![Tests](https://img.shields.io/badge/tests-197%20passing-22c55e?style=flat)](#-tests)
 [![Skills](https://img.shields.io/badge/skills-137%20on--demand-a033ff?style=flat)](#-the-skill-umbrella)
 [![Codex](https://img.shields.io/badge/Codex-plugin-111827?style=flat&logo=openai&logoColor=white)](#-install-in-60-seconds)
 
@@ -68,6 +68,17 @@ Run the weekly review every Monday morning.
 
 Claude works out the **client, platform, account, objective, campaign, timeframe and conversion goal** on its own. You never touch an MCP tool name.
 
+**Setting up is a conversation.** Paste the repo link into Claude and say *"set this up for my business, Acme Roofing"*. The [setup wizard](docs/SETUP_WIZARD.md) goes one step at a time, with a clickable link for every website step, and waits for your OK before moving on. It covers:
+
+- Meta business, ad account and Page
+- billing (you type your card on Meta's page)
+- connecting Claude
+- Google (optional)
+- the client profile and niche research
+- a budget plan
+- autopilot on or off
+- scheduled reports
+
 **Try it in one minute, with no ad accounts:** `python scripts/demo.py` builds four made-up clients. It then runs the all-clients review, the learning report and the graphic ads, so you can see everything below for yourself.
 
 ## ✨ What's inside
@@ -119,7 +130,7 @@ Claude works out the **client, platform, account, objective, campaign, timeframe
 <td valign="top">
 
 ### ✅ Tested
-**175 tests**, stdlib only: isolation, routing, gating, budget limits, approvals, sweeps, learning, unattended runs, ad rendering, and secret and license checks.
+**197 tests**, stdlib only: isolation, routing, gating, budget limits, approvals, sweeps, learning, unattended runs, ad rendering, and secret and license checks.
 
 </td>
 </tr>
@@ -190,9 +201,53 @@ It refuses banned claims, works only from real client photos and reviews, and co
 
 <p align="center"><img src="assets/screenshots/creative-contact-sheet.png" alt="Contact sheet of rendered demo ads: offer cards and review quotes in square, 4:5 and 9:16" width="80%"/></p>
 
+### Budget plans: how much, daily or monthly
+
+`/ads:budget-plan` turns *"I have $3,000 a month"* or *"what should I spend?"* into a recommendation with the math shown:
+- **Budget type.** Daily for always-on. A lifetime budget per month if the month is a hard ceiling. A flight budget for promotions.
+- **What it buys.** Leads per month at the target cost per lead.
+- **Learning.** Whether the budget can teach Meta's algorithm, or should stay as one ad set.
+- **Starting platform.** Whether to start Google-first.
+- **Spend more or less.** Whether to spend a bit more (*"+$25/day ≈ 8 more leads ≈ 1 more job a month"*), or why not to.
+
+### Autopilot: on or off, per client
+
+You set a daily spend cap, and autopilot handles the day-to-day fixes on its own:
+- pauses ads that clearly lose money;
+- diagnoses why;
+- builds a fixed version and swaps it in, in the same ad set;
+- on Google, blocks a few wasted searches.
+
+It runs every morning if you schedule it. It never launches new campaigns, raises budgets, changes locations, touches tracking or billing, or deletes anything. Those still need your yes. Switch it with `/ads:autopilot <client> on|off`, and the setup interview always asks.
+
+```mermaid
+flowchart LR
+    A["Every morning"] --> B["Read each client's numbers"]
+    B --> C{"Anything clearly losing money?"}
+    C -- yes --> D["Pause it"]
+    D --> E["Work out why:<br/>hook, offer, page, audience"]
+    E --> F["Build a fixed ad,<br/>paused, same ad set"]
+    F --> G{"Under the client's<br/>daily spend cap?"}
+    G -- yes --> H["Swap it in"]
+    G -- no --> I["Wait for your yes"]
+    C -- no --> J["Leave it running"]
+    H & I & J --> K["Morning report:<br/>what it did and why"]
+```
+
+### Niche research before you spend
+
+`/ads:research <client>` builds a reusable playbook for the niche (roofing, dental, med-spa...):
+- typical cost per lead, **conversion rate** and click-through rate, each with its source and date;
+- offers and hooks that work;
+- competitors' ads;
+- seasonality;
+- which platform fits.
+
+Every client in the same niche makes the playbook smarter, through tactic win rates, without sharing anyone's data.
+
 ### What it won't do
 
-**It won't pay for ads.** It never touches billing or payment methods. Meta and Google charge the card on file as ads run, and God Mode watches spend against budget and flags anything unusual.
+**It won't type your card or passwords.** You add the payment method yourself on Meta's or Google's billing page, and setup links you straight there. From then on the platforms charge it automatically as ads run. God Mode plans and controls the budgets, watches spend against them, and flags overspend or failed payments. Sign-ins happen in your own browser.
 
 ## 🛡️ The write gate
 
@@ -367,6 +422,12 @@ claude plugin install ads@claude-meta-ads-god-mode
 
 That installs God Mode with all 137 community skills on board. They're routed on demand, so nothing extra is preloaded. Then, inside Claude Code: `/mcp` → **meta-ads** → sign in with Facebook, then run `/ads:doctor`.
 
+**Browser chat (claude.ai)**:
+- Download `meta-ads-god-mode-chat.zip` from [Releases](https://github.com/F0rger123/claude-meta-ads-god-mode/releases/latest) and upload it under **Settings → Capabilities → Skills**.
+- Add Meta's connector under [Settings → Connectors](https://claude.ai/settings/connectors), with the URL `https://mcp.facebook.com/ads`.
+
+The chat edition walks setup, budgets, research, audits and paused builds, asking for a typed **yes** before every change. Autopilot, schedules and the safety gate need Claude Code.
+
 **Codex**
 
 ```bash
@@ -392,7 +453,7 @@ codex plugin add ads@claude-meta-ads-god-mode
 <details>
 <summary><b>Google setup</b></summary>
 
-1. Get a developer token (Explorer access or higher) and a Cloud project with the Google Ads API enabled.
+1. Create a Google Cloud project, enable the Google Ads API, and request Explorer or Basic access on the [Google Ads API overview page](https://console.cloud.google.com/google/ads-apis/overview). Developer tokens were retired on 2026-09-09; access now belongs to the Cloud project. Step-by-step links are in the [setup wizard](docs/SETUP_WIZARD.md).
 2. Reads: add the official Google Ads MCP. The config is [here](connectors/google/mcp.google-ads.example.json). Keep the server name `google-ads`.
 3. Writes: run `pip install -r requirements-google.txt` and set the `GOOGLE_ADS_*` variables privately ([guide](connectors/google/README.md)).
 4. Optional GA4: [connectors/analytics/README.md](connectors/analytics/README.md).
@@ -408,7 +469,7 @@ The official Meta MCP needs **none**. Placeholders are in [.env.example](.env.ex
 | `ADS_GODMODE_HOME` | profiles, tickets and audit log (default `~/.ads-godmode`) |
 | `ADS_GODMODE_ENABLE_FULL_AUTO` | full-auto opt-in (default off) |
 | `META_ACCESS_TOKEN`, `META_ENABLE_WRITES` | self-hosted Meta fallback only |
-| `GOOGLE_PROJECT_ID`, `GOOGLE_ADS_DEVELOPER_TOKEN` | Google Ads MCP |
+| `GOOGLE_PROJECT_ID` | Google Ads MCP (developer tokens retired 2026-09-09) |
 | `GOOGLE_ADS_CLIENT_ID` / `_CLIENT_SECRET` / `_REFRESH_TOKEN` / `_LOGIN_CUSTOMER_ID` | Google writer |
 </details>
 
@@ -449,6 +510,9 @@ python adsgm.py use "D-Hauss"             # active client for writes (expires af
 | ⏸️ | `/ads:pause <client> <entities>` | pauses exactly what you named, after verifying it |
 | 🚨 | `/ads:emergency-stop <client>` | finds runaway spend, pauses precisely and explains what happened |
 | 🧩 | `/ads:setup` | checks the install in Claude Code and Codex; can add companions as always-loaded plugins (native mode) |
+| 🤖 | `/ads:autopilot <client> [on\|off\|status\|run]` | hands-off fixes inside a daily spend cap: pause losers, fix and relaunch, Google negatives |
+| 💵 | `/ads:budget-plan <client>` | how much to spend, daily vs monthly vs flight, Meta/Google split, spend-more math |
+| 🔬 | `/ads:research <client>` | niche playbook: sourced benchmarks, conversion rates, offers, hooks, competitors |
 | 🏢 | `/ads:sweep [daily\|weekly\|monthly]` | reviews every client at once, ranks them red/amber/green, writes the dashboard |
 | 🧠 | `/ads:learn [client]` | judges past changes; shows what works and what doesn't per client |
 | ⏰ | `/ads:schedule` | daily, weekly and monthly unattended runs (read-only by default) |
@@ -463,7 +527,7 @@ python adsgm.py use "D-Hauss"             # active client for writes (expires af
 bundles/          bundled companion plugins (routed on demand; optional native install)
 skills/           ads-core · meta-ads · google-ads · ads-portfolio · ads-community · 11 task skills
 community/        single-file community skills (pinned, licensed) + sources.json for everything vendored
-workflows/        14 end-to-end workflows (incl. sweep, learning loop, schedules, graphic ads)
+workflows/        16 end-to-end workflows (incl. sweep, learning, schedules, graphic ads, autopilot, niche research)
 references/       tool comparison · safety · approval · metrics · attribution · limits · naming
 templates/        profiles · briefs · launch plan · reports · experiment log
 commands/         /ads:* slash commands
@@ -477,7 +541,7 @@ tests/            routing · isolation · gating · budget · approval · hygien
 ## 🧪 Tests
 
 ```bash
-python tests/run_all.py   # 175 tests · stdlib only · no network · Google API mocked
+python tests/run_all.py   # 197 tests · stdlib only · no network · Google API mocked
 ```
 
 The suite covers:

@@ -226,11 +226,11 @@ class Schedules(unittest.TestCase):
     def test_jobs_are_unattended(self):
         for osn in ("posix", "windows"):
             plan = schedule.plan(osn)
-            self.assertEqual([j["name"] for j in plan["jobs"]], ["daily-check", "weekly-review", "monthly-report"])
+            self.assertEqual([j["name"] for j in plan["jobs"]], ["daily-check", "weekly-review", "autopilot-run", "monthly-report"])
             for j in plan["jobs"]:
                 self.assertEqual(j["env"]["ADS_GODMODE_UNATTENDED"], "1")
                 self.assertIn("ADS_GODMODE_UNATTENDED=1", j["command"])
-                self.assertIn("/ads:sweep", j["command"])
+                self.assertTrue("/ads:sweep" in j["command"] or "/ads:autopilot" in j["command"])
         self.assertTrue(schedule.plan("windows")["jobs"][0]["command"].startswith("schtasks /Create"))
 
     def test_allowed_tools_exclude_raw_shell(self):

@@ -19,6 +19,11 @@ JOBS: List[Dict] = [
      "prompt": "/ads:sweep weekly",
      "what": "Mondays: full 7-day vs prior-week snapshots, judge changes whose read date passed "
              "(learning loop), per-client reports with what worked / what didn't and recommended fixes."},
+    {"name": "autopilot-run", "cron": "0 9 * * *", "windows": ("DAILY", "09:00"),
+     "prompt": "/ads:autopilot all run",
+     "what": "Every morning, only for clients with autopilot ON: pause clear losers, swap tired ads in the "
+             "same ad set within the daily spend cap, add small Google negative lists. Everything else waits "
+             "for approval in the report.", "optional": True},
     {"name": "monthly-report", "cron": "0 8 1 * *", "windows": ("MONTHLY /D 1", "08:00"),
      "prompt": "/ads:sweep monthly",
      "what": "1st of the month: owner-friendly monthly report per client plus a portfolio summary."},
@@ -49,7 +54,7 @@ def windows_command(job: Dict) -> str:
 def plan(os_name: str = "posix") -> Dict:
     jobs = []
     for j in JOBS:
-        entry = {"name": j["name"], "what": j["what"], "prompt": j["prompt"],
+        entry = {"name": j["name"], "what": j["what"], "prompt": j["prompt"], "optional": j.get("optional", False),
                  "env": {"ADS_GODMODE_UNATTENDED": "1"}, "allowed_tools": ALLOWED_TOOLS}
         entry["command"] = windows_command(j) if os_name == "windows" else posix_line(j)
         jobs.append(entry)

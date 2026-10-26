@@ -25,7 +25,7 @@ import sys
 from pathlib import Path
 
 from . import actions as A
-from . import anomaly, audit, creative, evidence, gate, learning, paths, policy, portfolio, profiles, schedule, session, snapshots, tickets
+from . import anomaly, audit, autopilot, budget_plan, creative, evidence, gate, learning, niche, paths, policy, portfolio, profiles, schedule, session, snapshots, tickets
 from .budget import BudgetChange, format_summary
 from .classify import classify
 
@@ -61,7 +61,7 @@ def cmd_doctor(a) -> int:
     checks = {"python": sys.version.split()[0], "home": str(paths.home())}
     checks["python_ok"] = sys.version_info >= (3, 9)
     env = {k: bool(os.environ.get(k)) for k in (
-        "META_ACCESS_TOKEN", "GOOGLE_ADS_DEVELOPER_TOKEN", "GOOGLE_ADS_CLIENT_ID",
+        "META_ACCESS_TOKEN", "GOOGLE_ADS_CLIENT_ID",
         "GOOGLE_ADS_CLIENT_SECRET", "GOOGLE_ADS_REFRESH_TOKEN", "GOOGLE_ADS_LOGIN_CUSTOMER_ID")}
     checks["env_present"] = env  # presence only; values are never printed
     try:
@@ -173,6 +173,11 @@ def cmd_plan(a) -> int:
         return fail(f"unknown action {action!r}; one of {sorted(A.ALL - A.NON_MUTATING)}")
     if action not in (A.CREATE,) and not entities:
         return fail("--entity is required (campaign / ad set / ad id) for this action")
+    if action == A.CREATIVE_SWAP:
+        if not a.replaces or len(entities) != 1:
+            return fail("creative_swap needs exactly one --entity (the NEW ad) and --replaces (the ad it replaces)")
+        details["swap"] = {"new": str(entities[0]), "old": str(a.replaces), "adset": a.adset}
+        entities = [str(entities[0]), str(a.replaces)]
 
     change = None
     hours = None
@@ -188,7 +193,9 @@ def cmd_plan(a) -> int:
                               conversions_in_window=a.conversions)
     decision = policy.evaluate(profile, action, budget_change=change, entity_count=max(1, len(entities)),
                                negative_keyword_count=a.negatives or 0, bid_change_pct=a.bid_pct,
-                               hours_since_last_change=hours)
+                               hours_since_last_change=hours if action != A.CREATIVE_SWAP else None,
+                               account_daily_budget=a.account_daily_budget,
+                               swaps_last_7d=tickets.count_changes(active, A.CREATIVE_SWAP, 7))
     if change is not None:
         from .budget import check_limits
         change.limit_violations = check_limits(change, profile.guarded_limits,
@@ -324,6 +331,8 @@ def cmd_sweep(a) -> int:
 def cmd_learn(a) -> int:
     client = profiles.resolve(a.client).slug if a.client else None
     if a.sub == "summary":
+        if a.niche:
+            return out(niche.niche_patterns(a.niche))
         if a.portfolio:
             return out({"patterns": learning.portfolio_patterns([p.slug for p in profiles.list_all()])})
         if not client:
@@ -360,6 +369,75 @@ def cmd_creative(a) -> int:
                 "png": bool(m["png_renderer"]),
                 "variants": [{"id": v["id"], "errors": v["errors"], "warnings": v["warnings"],
                               "files": len(v["files"])} for v in m["variants"]]})
+
+
+def cmd_budget_plan(a) -> int:
+    over = dict(monthly=a.monthly, daily=a.daily, target_cpl=a.target_cpl, job_value=a.job_value,
+                close_rate_pct=a.close_rate, margin_pct=a.margin, lead_value=a.lead_value,
+                google_cpc=a.google_cpc, goal_results_per_month=a.goal, hard_monthly_cap=a.hard_cap or None,
+                flight_days=a.flight_days,
+                platforms=[x.strip() for x in a.platforms.split(",")] if a.platforms else None)
+    if a.client:
+        p = profiles.load(profiles.resolve(a.client).slug)
+        inputs = budget_plan.from_profile(p, **over)
+    else:
+        inputs = budget_plan.BudgetInputs(**{k: v for k, v in over.items() if v is not None})
+    try:
+        result = budget_plan.plan(inputs)
+    except ValueError as exc:
+        return fail(str(exc))
+    if a.save:
+        if not a.client:
+            return fail("--save needs --client")
+        path = paths.clients_dir() / f"{p.slug}.json"
+        data = json.loads(path.read_text(encoding="utf-8"))
+        econ = data.setdefault("economics", {})
+        econ["monthly_budget"] = result["monthly"]
+        econ["budget_plan"] = {"split": result["split"], "budget_type": result["budget_type"],
+                               "platforms": result["platforms"], "saved": __import__("time").strftime("%Y-%m-%d")}
+        path.write_text(json.dumps(data, indent=2), encoding="utf-8")
+        audit.log("budget_plan_saved", client=p.slug, monthly=result["monthly"])
+    return out({**result, "text": budget_plan.to_text(result),
+                "note": "Recommendation only. Budgets change in the ad accounts only through adsgm plan + approval."})
+
+
+def cmd_autopilot(a) -> int:
+    p = profiles.resolve(a.client)
+    if a.sub in ("on", "off"):
+        acts = [x.strip() for x in a.actions.split(",")] if a.actions else None
+        try:
+            state = autopilot.set_state(p.slug, a.sub == "on", a.cap, acts)
+        except ValueError as exc:
+            return fail(str(exc))
+        audit.log("autopilot_" + a.sub, client=p.slug, cap=state.get("daily_spend_cap"), actions=state.get("actions"))
+        return out({"ok": True, "client": p.slug, "autopilot": state})
+    prof = profiles.load(p.slug)
+    if a.sub == "status":
+        return out({"client": p.slug, "active": autopilot.active(prof), "settings": autopilot.settings(prof),
+                    "swaps_last_7d": tickets.count_changes(p.slug, A.CREATIVE_SWAP, 7)})
+    snap = snapshots.latest(p.slug)
+    if not snap:
+        return fail("no snapshot for this client yet; run a sweep first")
+    return out(autopilot.candidates(prof, snap))
+
+
+def cmd_niche(a) -> int:
+    if a.sub == "list":
+        return out(niche.list_all())
+    if a.sub == "save":
+        try:
+            return out({"ok": True, "saved": niche.save(json.loads(Path(a.file).read_text(encoding="utf-8")))})
+        except niche.NicheError as exc:
+            return fail(str(exc), 2)
+    if not a.name:
+        return fail("niche name required")
+    if a.sub == "patterns":
+        return out(niche.niche_patterns(a.name))
+    try:
+        pb = niche.load(a.name)
+    except niche.NicheError as exc:
+        return fail(str(exc), 2)
+    return out({**pb, "stale": niche.stale(pb), "clients": niche.clients_in(a.name)})
 
 
 def cmd_schedule(a) -> int:
@@ -399,6 +477,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--negatives", type=int)
     p.add_argument("--bid-pct", type=float)
     p.add_argument("--google-plan", help="derive action/entities from a Google writer plan file")
+    p.add_argument("--replaces", help="creative_swap: the ad id being replaced (paused by the swap)")
+    p.add_argument("--adset", help="creative_swap: the ad set both ads live in")
+    p.add_argument("--account-daily-budget", type=float, help="current total daily budget of the account (autopilot cap check)")
     p.add_argument("--predict-metric", help="learning loop: metric expected to move (cpl, results, ctr, roas...)")
     p.add_argument("--predict-direction", choices=["up", "down"])
     p.add_argument("--predict-pct", type=float, help="expected change in percent (optional)")
@@ -458,7 +539,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     le = sp.add_parser("learn")
     le.add_argument("sub", choices=["summary", "due", "record", "auto", "lesson"])
-    le.add_argument("--client"); le.add_argument("--portfolio", action="store_true")
+    le.add_argument("--client"); le.add_argument("--portfolio", action="store_true"); le.add_argument("--niche")
     le.add_argument("--prediction"); le.add_argument("--value", type=float); le.add_argument("--n", type=int)
     le.add_argument("--not-executed", action="store_true")
     le.add_argument("--tags"); le.add_argument("--text"); le.add_argument("--note")
@@ -469,6 +550,29 @@ def build_parser() -> argparse.ArgumentParser:
     cr.add_argument("sub", choices=["render"])
     cr.add_argument("--brief", required=True); cr.add_argument("--out"); cr.add_argument("--no-png", action="store_true")
     cr.set_defaults(fn=cmd_creative)
+
+    bp = sp.add_parser("budget-plan")
+    bp.add_argument("--client"); bp.add_argument("--monthly", type=float); bp.add_argument("--daily", type=float)
+    bp.add_argument("--target-cpl", type=float); bp.add_argument("--job-value", type=float)
+    bp.add_argument("--close-rate", type=float, help="percent of leads that become sales")
+    bp.add_argument("--margin", type=float, help="gross margin percent"); bp.add_argument("--lead-value", type=float)
+    bp.add_argument("--platforms", help="meta,google"); bp.add_argument("--google-cpc", type=float)
+    bp.add_argument("--goal", type=int, help="leads wanted per month")
+    bp.add_argument("--hard-cap", action="store_true", help="never exceed the monthly amount")
+    bp.add_argument("--flight-days", type=int, help="fixed-length campaign")
+    bp.add_argument("--save", action="store_true", help="store the plan in the client profile")
+    bp.set_defaults(fn=cmd_budget_plan)
+
+    ap_ = sp.add_parser("autopilot")
+    ap_.add_argument("sub", choices=["on", "off", "status", "candidates"])
+    ap_.add_argument("--client", required=True); ap_.add_argument("--cap", type=float, help="max total daily budget")
+    ap_.add_argument("--actions", help="comma: pause_losers,fix_and_relaunch,google_negatives")
+    ap_.set_defaults(fn=cmd_autopilot)
+
+    ni = sp.add_parser("niche")
+    ni.add_argument("sub", choices=["list", "show", "save", "patterns"])
+    ni.add_argument("name", nargs="?"); ni.add_argument("--file")
+    ni.set_defaults(fn=cmd_niche)
 
     sc = sp.add_parser("schedule")
     sc.add_argument("sub", choices=["plan"])

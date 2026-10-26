@@ -10,6 +10,9 @@ If a person pasted this repository and asked you to set it up, start with the se
 - [Core skill](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/skills/ads-core/SKILL.md): client resolution, connector routing, write rules
 - [README](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/README.md)
 - [Agency mode skill](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/skills/ads-portfolio/SKILL.md): all-clients sweep, learning loop, scheduled runs
+- [Autopilot workflow](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/workflows/autopilot.md): per-client on/off, daily spend cap
+- [Niche research workflow](https://raw.githubusercontent.com/F0rger123/claude-meta-ads-god-mode/main/workflows/niche-research.md)
+- Browser-chat edition: meta-ads-god-mode-chat.zip on the GitHub Releases page (source: chat/meta-ads-god-mode-chat/SKILL.md)
 - Try without ad accounts: `python scripts/demo.py` (made-up clients, no network)
 
 ## Reference

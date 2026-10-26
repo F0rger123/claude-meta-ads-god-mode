@@ -125,3 +125,21 @@ def hours_since_last_change(client: str, platform: str, entity_id: str, now: Opt
         if rec.get("client") == client and rec.get("platform") == platform and str(entity_id) in rec.get("entity_ids", []):
             last = max(last or 0, rec["ts"])
     return None if last is None else (now - last) / 3600
+
+
+def count_changes(client: str, action: str, days: float = 7, now: Optional[float] = None) -> int:
+    """How many changes of this action were made for a client in the last N days."""
+    f = paths.change_history_file()
+    if not f.exists():
+        return 0
+    now = time.time() if now is None else now
+    seen = set()
+    for line in f.read_text(encoding="utf-8").splitlines():
+        try:
+            rec = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if rec.get("client") == client and rec.get("action") == action and now - rec.get("ts", 0) <= days * 86400:
+            seen.add(rec.get("ticket"))
+    return len(seen)
+

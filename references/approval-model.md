@@ -26,6 +26,8 @@
 | delete / archive | blocked | blocked | approval | approval | approval |
 | billing / admin | blocked | blocked | blocked | blocked | blocked |
 
+**Autopilot (any of approval / guarded_auto / full_auto, when switched on):** `pause` auto (≤3 per run), `creative_swap` auto within the daily spend cap (≤3 a week), Google `negative_keywords` auto (≤10). Nothing else changes.
+
 `full_auto` is evaluated as `guarded_auto` unless the operator sets `ADS_GODMODE_ENABLE_FULL_AUTO=1` on the machine.
 
 ## Guarded-auto limits (per client, `automation.guarded_auto`)

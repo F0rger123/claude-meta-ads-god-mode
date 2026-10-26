@@ -25,6 +25,10 @@ Report side by side for the same dates: spend, leads, **qualified leads** (CRM),
 - If Search is budget-limited at good CPA, fund it first (capturing existing demand is cheapest). Meta budget then scales demand.
 - Recommend reallocations as small steps (10-20%) with a read date - EXPERIMENT unless evidence is strong.
 
+## Niche research first
+
+New client or new niche? Run [workflows/niche-research.md](../../workflows/niche-research.md) before planning. Use the playbook (`adsgm niche show <niche>`) and niche patterns (`adsgm learn summary --niche <niche>`) to set expected CPL and conversion-rate ranges, offers and first hooks. Label every number with its source.
+
 ## Planning a new campaign
 
 Use [workflows/campaign-planning.md](../../workflows/campaign-planning.md) then [workflows/campaign-launch.md](../../workflows/campaign-launch.md). Brief: [templates/campaign-brief.md](../../templates/campaign-brief.md); launch plan: [templates/launch-plan.md](../../templates/launch-plan.md).

@@ -35,3 +35,4 @@ Thumbs.db
 
 # Demo output (scripts/demo.py)
 demo-home/
+dist/

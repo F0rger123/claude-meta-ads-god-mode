@@ -26,6 +26,20 @@ adsgm plan budget --platform meta --account act_... --entity <adset or campaign 
 
 Approval is required by default. Only `guarded_auto` clients may skip the prompt, and only inside their limits (max increase/decrease %, max $ change/day, minimum spend and conversions in the window, minimum confidence, cooldown, high-budget threshold).
 
+## Planning a budget (setup and "what should I spend?")
+
+Run `adsgm budget-plan --client <slug>` (or pass `--monthly` / `--daily`, `--target-cpl` or `--job-value --close-rate --margin`, `--platforms meta,google`, `--google-cpc`, `--hard-cap`, `--flight-days`). It returns the math in plain words:
+
+- **Budget type.**
+  - Always-on lead flow → daily budget.
+  - "Never go over $X a month" → Meta lifetime budget per calendar month, plus an account spending limit the owner sets in Meta Billing; Google's daily budget already caps the month at 30.4× daily.
+  - Fixed promotion → lifetime or flight budget.
+- **What it buys:** an expected leads range at the target cost per lead, and whether Meta can learn (about 50 results a week per ad set) or should stay as one ad set.
+- **Split:** with a small budget, start Google Search only and add Meta once roughly 5 leads a week of Meta money exists. Otherwise start about 60/40 Google/Meta and shift toward the cheaper qualified leads.
+- **Squeeze more out:** if the business can afford a much higher cost per lead than the target, suggest +20–25% with the extra leads, jobs and revenue math. If the target is above what the economics support, say so and don't add budget.
+
+Discuss, then `--save` the agreed plan into the profile. This changes no ad account. Live budgets still go through `adsgm plan budget` and approval.
+
 ## How to decide
 
 Increase when: CPA/CPL at or under target over ≥7 days with enough conversions, not in learning, and the entity is constrained (Meta: spending its full budget; Google: high lost IS (budget)). Expect marginal CPA to rise as spend rises - promise ranges, not points.

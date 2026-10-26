@@ -49,7 +49,9 @@ def full_auto_enabled() -> bool:
 def evaluate(profile, action: str, budget_change: Optional[BudgetChange] = None,
              entity_count: int = 1, negative_keyword_count: int = 0,
              bid_change_pct: Optional[float] = None,
-             hours_since_last_change: Optional[float] = None) -> Decision:
+             hours_since_last_change: Optional[float] = None,
+             account_daily_budget: Optional[float] = None,
+             swaps_last_7d: int = 0) -> Decision:
     mode = profile.mode
     if action in A.NON_MUTATING:
         return Decision(AUTO, ["read-only or preview call"])
@@ -75,6 +77,11 @@ def evaluate(profile, action: str, budget_change: Optional[BudgetChange] = None,
 
     if mode == "draft":
         return Decision(BLOCKED, [f"client is in draft mode: {action} is not allowed, only PAUSED creation"])
+
+    ap_decision = _autopilot(profile, action, entity_count, negative_keyword_count,
+                             account_daily_budget, swaps_last_7d)
+    if ap_decision is not None:
+        return ap_decision
 
     if action in A.ALWAYS_APPROVAL:
         return Decision(APPROVAL, [f"{action} always requires explicit approval"])
@@ -122,3 +129,33 @@ def evaluate(profile, action: str, budget_change: Optional[BudgetChange] = None,
         if hours_since_last_change < cooldown:
             return Decision(APPROVAL, reasons + [f"entity changed {hours_since_last_change:.0f}h ago; cooldown {cooldown:.0f}h"])
     return Decision(AUTO, reasons + ["within guarded_auto limits"])
+
+
+def _autopilot(profile, action, entity_count, negative_keyword_count, account_daily_budget, swaps_last_7d):
+    """AUTO for the few day-to-day fixes a client switched on; None = fall through to normal policy."""
+    from . import autopilot as AP
+    if not AP.active(profile):
+        return None
+    ap = AP.settings(profile)
+    acts = set(ap["actions"])
+    if action == A.PAUSE and "pause_losers" in acts:
+        if entity_count <= int(ap["max_entities_per_run"]):
+            return Decision(AUTO, ["autopilot: pause underperformer (client switched autopilot on)"])
+        return Decision(APPROVAL, [f"autopilot pauses at most {ap['max_entities_per_run']} entities per run"])
+    if action == A.CREATIVE_SWAP and "fix_and_relaunch" in acts:
+        cap = ap.get("daily_spend_cap")
+        if not cap or account_daily_budget is None:
+            return Decision(APPROVAL, ["autopilot swap needs the client's daily spend cap and the account's current "
+                                       "total daily budget (--account-daily-budget)"])
+        if float(account_daily_budget) > float(cap):
+            return Decision(APPROVAL, [f"account daily budget {account_daily_budget} is above the autopilot cap {cap}"])
+        if swaps_last_7d >= int(ap["max_swaps_per_week"]):
+            return Decision(APPROVAL, [f"{swaps_last_7d} autopilot swaps in the last 7 days (max {ap['max_swaps_per_week']})"])
+        return Decision(AUTO, [f"autopilot: swap within the same ad set; account daily budget "
+                               f"{account_daily_budget} <= cap {cap}; no budget change"])
+    if action == A.NEGATIVE_KEYWORDS and "google_negatives" in acts:
+        if negative_keyword_count and negative_keyword_count <= int(ap["max_negatives_per_run"]):
+            return Decision(AUTO, [f"autopilot: {negative_keyword_count} negatives (max {ap['max_negatives_per_run']})"])
+        return Decision(APPROVAL, [f"autopilot adds at most {ap['max_negatives_per_run']} negatives per run"])
+    return None
+
