@@ -89,9 +89,7 @@ def write_scripts(os_name: str) -> List[str]:
     out = []
     for j in JOBS:
         p = script_path(j, os_name)
-        with open(p, "w", encoding="utf-8", newline="") as fh:  # keep 
- in .cmd, 
- in .sh (3.9-safe)
+        with open(p, "w", encoding="utf-8", newline="") as fh:  # keeps CRLF in .cmd and LF in .sh (3.9-safe)
             fh.write(script_text(j, os_name, claude))
         if os_name != "windows":
             p.chmod(p.stat().st_mode | stat.S_IXUSR)
