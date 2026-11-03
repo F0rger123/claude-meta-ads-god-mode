@@ -574,7 +574,7 @@ every plugin. Here, ads send leads into the CRM and use finished reels from Vide
 
 | Part | What it does |
 |---|---|
-| [📇 Ultimate CRM Template](https://github.com/F0rger123/ultimate-crm-template) | leads, jobs, invoices, payments, portals |
+| 📇 Ultimate CRM Template (private) | leads, jobs, invoices, payments, portals |
 | [📣 Meta Ads God Mode](https://github.com/F0rger123/claude-meta-ads-god-mode) | paid media, paused-first, approval-gated · **this repo** |
 | [🔎 SEO God Mode](https://github.com/F0rger123/CLAUDE-SEO-GOD-MODE) | audits, local SEO, Search Console, AI search |
 | [🎬 Video Editing God Mode](https://github.com/F0rger123/claude-video-editing-god-mode) | reels, Shorts, ad creatives, approval PWA |
